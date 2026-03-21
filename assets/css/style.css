@@ -1,68 +1,4 @@
-:root {
 
-    /* couleurs principales */
-
-    --bs-primary: #008678;
-    --bs-secondary: #DF875C;
-    --bs-success: #008678;
-    --bs-warning: #FDB370;
-    --bs-danger: #C15500;
-
-    /* couleurs interface */
-
-    --bs-body-bg: #F3E6DA;
-    --bs-body-color: #4A403A;
-
-    /* boutons */
-
-    --bs-btn-border-radius: 8px;
-
-}
-
-.btn-primary {
-
-    --bs-btn-bg: #008678;
-    --bs-btn-border-color: #008678;
-
-    --bs-btn-hover-bg: #006e63;
-    --bs-btn-hover-border-color: #006e63;
-
-    --bs-btn-active-bg: #005a51;
-    --bs-btn-active-border-color: #005a51;
-
-}
-
-.btn-outline-primary {
-
-    /* --bs-btn-bg: #008678; */
-    --bs-btn-border-color: #008678;
-    --bs-btn-color: #008678;
-
-    --bs-btn-hover-bg: #006e63;
-    --bs-btn-hover-border-color: #006e63;
-
-    --bs-btn-active-bg: #005a51;
-    --bs-btn-active-border-color: #005a51;
-
-}
-
-.btn-secondary {
-
-    --bs-btn-bg: #DF875C;
-    --bs-btn-border-color: #DF875C;
-
-    --bs-btn-color: #ffffff;
-
-    --bs-btn-hover-bg: #C15500;
-    --bs-btn-hover-border-color: #C15500;
-
-    --bs-btn-active-bg: #a84700;
-    --bs-btn-active-border-color: #a84700;
-
-    --bs-btn-disabled-bg: #DF875C;
-    --bs-btn-disabled-border-color: #DF875C;
-
-}
 
 .text-primary { color: var(--bs-primary)!important; }
 .text-secondary { color: var(--bs-secondary)!important; }
@@ -121,7 +57,18 @@ body {
     background:
         linear-gradient(90deg, rgba(74, 64, 58, 0.70) 0%, rgba(74, 64, 58, 0.48) 32%, rgba(74, 64, 58, 0.20) 58%, rgba(74, 64, 58, 0.04) 76%, rgba(74, 64, 58, 0) 100%),
         url("../images/background/petitefille4.png") center right / cover no-repeat;
+    background-attachment: scroll, fixed;
     color: var(--bs-body-bg);
+    position: relative;
+    z-index: 1;
+}
+
+#homepage .hero + .section {
+    position: relative;
+    z-index: 2;
+    margin-top: -60px;
+    border-radius: 24px 24px 0 0;
+    background: var(--bs-body-bg);
 }
 
 .hero {
@@ -168,17 +115,36 @@ body {
     margin: auto;
 }
 
-.img-bandeau {
+.img-mission {
     width: 100%;
     height: 350px;
     overflow: hidden;
 }
 
-.img-bandeau img {
+.img-mission img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    border-radius: var(--img-border-radius);
+}
+
+.goals {
+    margin-top: 5rem;
+}
+
+.goal {
+    position: relative;
+}
+
+.goal::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 18%;
+    bottom: 18%;
+    width: 1px;
+    background: rgba(0, 0, 0, 0.14);
 }
 
 /* cards */
@@ -247,6 +213,12 @@ body {
     text-transform: uppercase;
     color: var(--bs-primary);
     font-weight: 800;
+}
+
+#actions {
+    background:
+        linear-gradient(rgba(255, 246, 239, 0.92), rgba(255, 246, 239, 0.40)),
+        url("../images/actions/carte.png") center / cover no-repeat;
 }
 
 /* actualites */

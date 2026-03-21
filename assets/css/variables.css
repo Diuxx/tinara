@@ -1,0 +1,67 @@
+
+
+:root {
+
+    /* couleurs principales */
+
+    --bs-primary: #008678;
+    --bs-secondary: #DF875C;
+    --bs-success: #008678;
+    --bs-warning: #FDB370;
+    --bs-danger: #C15500;
+
+    /* couleurs interface */
+
+    --bs-body-bg: #F3E6DA;
+    --bs-body-color: #4A403A;
+
+    /* boutons */
+
+    --bs-btn-border-radius: 8px;
+
+    /* autres variables */
+
+    --img-border-radius: 12px;
+}
+
+.btn-primary {
+
+    --bs-btn-bg: #008678;
+    --bs-btn-border-color: #008678;
+
+    --bs-btn-hover-bg: #006e63;
+    --bs-btn-hover-border-color: #006e63;
+
+    --bs-btn-active-bg: #005a51;
+    --bs-btn-active-border-color: #005a51;
+}
+
+.btn-outline-primary {
+
+    /* --bs-btn-bg: #008678; */
+    --bs-btn-border-color: #008678;
+    --bs-btn-color: #008678;
+
+    --bs-btn-hover-bg: #006e63;
+    --bs-btn-hover-border-color: #006e63;
+
+    --bs-btn-active-bg: #005a51;
+    --bs-btn-active-border-color: #005a51;
+}
+
+.btn-secondary {
+
+    --bs-btn-bg: #DF875C;
+    --bs-btn-border-color: #DF875C;
+
+    --bs-btn-color: #ffffff;
+
+    --bs-btn-hover-bg: #C15500;
+    --bs-btn-hover-border-color: #C15500;
+
+    --bs-btn-active-bg: #a84700;
+    --bs-btn-active-border-color: #a84700;
+
+    --bs-btn-disabled-bg: #DF875C;
+    --bs-btn-disabled-border-color: #DF875C;
+}
