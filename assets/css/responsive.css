@@ -11,8 +11,10 @@
     margin-left: auto !important;
   }
   .hero p {
-    /* display: none !important; */
     width: 100% ! important;;
+  }
+  .actu-grid {
+    grid-template-columns: 1fr;
   }
 }
 

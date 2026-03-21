@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         
         <link rel="stylesheet" href="assets/css/variables.css">
+        <link rel="stylesheet" href="assets/css/animations.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -219,7 +220,7 @@
         </section>
 
         <!-- CITATION -->
-        <section id="quote" class="section bg-light-custom pt-0">
+        <section id="quote" class="section bg-light-custom">
             <div class="container text-center">
                 <blockquote class="blockquote">
                     <p>“Safari ndefu huanza na hatua ya kwanza.”</p>
@@ -241,25 +242,25 @@
                 </p>
 
                 <div class="container pt-5">
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-center gap-5">
                         <div class="col-md-3">
                             <a href="" class="text-decoration-none">
-                                <img src="assets/images/actions/parrainage.png" alt=""
-                                    class="mx-auto d-block programme-image" />
+                                <img src="assets/images/actions/parrainage.png" alt="Parrainage"
+                                    class="mx-auto d-block programme-image image-swing" />
                                 <h3 class="programme-title mt-3">Parrainage</h3>
                             </a>
                         </div>
                         <div class="col-md-3">
                             <a href="" class="text-decoration-none">
-                                <img src="assets/images/actions/mission.png" alt=""
-                                    class="mx-auto d-block programme-image" />
+                                <img src="assets/images/actions/mission.png" alt="Dons"
+                                    class="mx-auto d-block programme-image image-swing" />
                                 <h3 class="programme-title mt-3">Dons</h3>
                             </a>
                         </div>
                         <div class="col-md-3">
                             <a href="" class="text-decoration-none">
-                                <img src="assets/images/actions/tanzanie.png" alt=""
-                                    class="mx-auto d-block programme-image" />
+                                <img src="assets/images/actions/tanzanie.png" alt="Aider autrement"
+                                    class="mx-auto d-block programme-image image-swing" />
                                 <h3 class="programme-title mt-3">Aider autrement</h3>
                             </a>
                         </div>
@@ -272,34 +273,37 @@
             <div class="container text-center">
                 <h2 class="section-title">NOS ACTUALITÉS</h2>
 
-                <div class="row align-items-start">
-                    <div class="col">
-                        <a href="" class="text-decoration-none card">
-                            <img src="assets/images/blog/actu3.png" alt="" class="card-img-top" />
-                            <div class="card-body text-center">
-                                <h4 class="card-title">Tinara : reconnue d'intérêt général !</h4>
-                                <p class="card-text">Février 2026</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="" class="text-decoration-none card">
-                            <img src="assets/images/blog/actu2.png" alt="" class="card-img-top" />
-                            <div class="card-body text-center">
-                                <h4 class="card-title">Tinara ? Pourquoi ce nom ?</h4>
-                                <p class="card-text">Février 2026</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="" class="text-decoration-none card">
-                            <img src="assets/images/blog/actu1.png" alt="" class="card-img-top" />
-                            <div class="card-body text-center">
-                                <h4 class="card-title">Tinara est lancée !</h4>
-                                <p class="card-text">Janvier 2026</p>
-                            </div>
-                        </a>
-                    </div>
+                <div class="actu-grid">
+                    <a href="" class="text-decoration-none actu-card">
+                        <div class="actu-card-media">
+                            <img src="assets/images/blog/actu3.png" alt="" class="actu-card-img actu-card-img--center" />
+                        </div>
+                        <div class="actu-card-body">
+                            <span class="card-info">Février 2026</span>
+                            <h4 class="card-title">Tinara : reconnue d'intérêt général !</h4>
+                            <p class="card-text"></p>
+                        </div>
+                    </a>
+                    <a href="" class="text-decoration-none actu-card">
+                        <div class="actu-card-media">
+                            <img src="assets/images/blog/actu2.png" alt="" class="actu-card-img actu-card-img--center" />
+                        </div>
+                        <div class="actu-card-body">
+                            <span class="card-info">Février 2026</span>
+                            <h4 class="card-title">Tinara ? Pourquoi ce nom ?</h4>
+                            <p class="card-text"></p>
+                        </div>
+                    </a>
+                    <a href="" class="text-decoration-none actu-card">
+                        <div class="actu-card-media">
+                            <img src="assets/images/blog/actu1.png" alt="" class="actu-card-img actu-card-img--center" />
+                        </div>
+                        <div class="actu-card-body">
+                            <span class="card-info">Janvier 2026</span>
+                            <h4 class="card-title">Tinara est lancée !</h4>
+                            <p class="card-text"></p>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="mt-5">
@@ -310,11 +314,12 @@
 
 
         <!-- CONTACT -->
-        <section id="contact" class="section pb-0">
+        <section id="contact" class="section">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
-                        <h2 class="section-title">TINARA ET VOUS ?</h2>
+                    <div class="col-md-6 col-12 col-sm-12 col-xs-12 offset-md-3 offset-0 offset-sm-0 offset-xs-0">
+                        <!-- todo: à modifier, voir si l'iframe est pertinente ici.-->
+                        <h2 class="section-title" style="text-align: center;width: 100%;">TINARA ET VOUS ?</h2>
                         <p> Si notre association vous intéresse et que vous souhaitez des renseignements, n'hésitez pas à
                             nous écrire par mail à l'adresse suivante : </p>
                         <p class="text-center"><strong>tinara.association@gmail.com</strong></p>
@@ -332,30 +337,42 @@
                             <a href="" class="btn btn-outline-primary text-uppercase">S'inscrire à notre Newsletter !</a>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <!-- <div class="col-md-6">
                         <iframe width="540" height="805"
                             src="https://23297f2b.sibforms.com/serve/MUIFAPrSNohyzJyY02hFSEwTGmalwIf56LQcyWFj5qsK0kxPmchDjNyTXb6FhaLeY65x1j9JXMqH49lykRowFbV0k9iy-xj9Gyc2myk6Wv82giam9bDED5GXIE38ZRkXf2-UXQ_bB-nbo0-p3VEkiUVsTua_q09vnVXb2rZn7WipdL4jmPtBWCz1RY6CNQNZ9IWzZUjoKdY1TdDM8w=="
                             frameborder="0" scrolling="auto" allowfullscreen
                             style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
-                    </div>
+                    </div> -->
                 </div>
-
-
-
             </div>
         </section>
 
 
-        <footer class="footer text-center bg-primary text-white py-4">
-            <p>TINARA Association 2026. Tous droits réservés.</p>
-            <p class="mb-0">
-                <a href="" class="text-white">Mentions légales</a>
-            </p>
+        <footer class="footer">
+            <div class="footer-inner">
+
+                <div class="footer-brand">
+                    <!-- todo: verifier le logo -->
+                    <img src="assets/images/logo-tinara.png" height="50" alt="Tinara" />
+                    <p class="footer-tagline">Tisser des liens pour grandir ensemble.</p>
+                </div>
+
+                <div class="footer-right">
+                    <nav class="footer-links">
+                        <a href="#mission">Mission</a>
+                        <a href="#actions">Actions</a>
+                        <a href="#actu">Actualités</a>
+                        <a href="#contact">Contact</a>
+                        <a href="">Mentions légales</a>
+                    </nav>
+                    <p class="footer-copy">&copy; TINARA Association 2026. Tous droits réservés.</p>
+                </div>
+
+            </div>
         </footer>
 
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
         <script src="assets/js/script.js"></script>
     </body>
 </html>

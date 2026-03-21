@@ -12,11 +12,6 @@ body {
     color: #4A403A;
 }
 
-.container img {
-    max-width: 100%;
-    height: auto;
-}
-
 /* navbar */
 
 .navbar-custom {
@@ -147,10 +142,15 @@ body {
     background: rgba(0, 0, 0, 0.14);
 }
 
+#quote {
+    
+}
+
 /* cards */
 
 .action-card {
-    background: white;
+    /* todo: voir à positionner les cards sur la carte directement. */
+    /* background: white; */
     padding: 30px;
     border-radius: 12px;
     transition: .3s;
@@ -173,14 +173,14 @@ body {
 
 .icon {
     font-size: 40px;
-    color: #008678;
+    color: var(--bs-primary);
     margin-bottom: 10px;
 }
 
 /* background section */
 
 .bg-light-custom {
-    background: #FFF6EF;
+    background: var(--app-bg-light);
 }
 
 /* compteur */
@@ -198,7 +198,7 @@ body {
 .stat-label {
     margin-top: 10px;
     font-size: 16px;
-    color: #4A403A;
+    color: var(--bs-body-color);
 }
 
 /* programme */
@@ -207,6 +207,15 @@ body {
     height: 200px;
     object-fit: cover;
     border-radius: 50%;
+}
+
+.image-swing {
+    transform-origin: top center;
+    transition: transform 0.3s ease;
+}
+
+.image-swing:hover {
+    animation: swing 0.6s ease-in-out 2;
 }
 
 .programme-title {
@@ -222,6 +231,137 @@ body {
 }
 
 /* actualites */
-#actu .card-title {
+.actu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 34px;
+}
+
+.actu-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.actu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.13);
+}
+
+.actu-card-media {
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.actu-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.actu-card-img--center {
+    object-position: center;
+}
+
+.actu-card-body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--app-bg-light);
+    flex: 1;
+    padding: 20px;
+    text-align: left;
+    gap: 5px;
+}
+
+.card-info {
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    background: var(--bs-primary);
+    padding: 6px 10px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+    width: fit-content; 
+}
+
+.actu-card .card-title {
     color: var(--bs-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* footer */
+.footer {
+    background: var(--bs-primary);
+    color: rgba(255, 255, 255, 0.85);
+    padding: 48px 60px;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-tagline {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.75;
+    font-style: italic;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 14px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+.footer-copy {
+    margin: 0;
+    font-size: 13px;
+    opacity: 0.6;
+    text-align: right;
+}
+
+.actu-card .card-title {
+    font-size: 1.3em;
+    font-weight: 700;
 }
