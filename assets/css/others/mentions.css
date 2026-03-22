@@ -1,0 +1,71 @@
+
+/* ── Mentions légales ─────────────────────────────────── */
+.mentions-hero {
+    background: var(--app-bg-light);
+    padding: 80px 0 48px;
+    text-align: center;
+}
+
+.mentions-hero .section-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--bs-primary);
+    margin-bottom: 16px;
+}
+
+.mentions-hero .section-intro {
+    font-size: 1.05rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.mentions-content {
+    max-width: 800px;
+    padding-top: 48px;
+    padding-bottom: 64px;
+}
+
+.mentions-block {
+    margin-bottom: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.mentions-block:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.mentions-block h2 {
+    color: var(--bs-primary);
+    font-weight: 700;
+    margin-bottom: 14px;
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.mentions-block p,
+.mentions-block li {
+    color: #444;
+    line-height: 1.75;
+}
+
+.mentions-block a {
+    color: var(--bs-secondary);
+    text-decoration: none;
+}
+
+.mentions-block a:hover {
+    text-decoration: underline;
+}
+
+.mentions-block ul {
+    padding-left: 20px;
+    margin-bottom: 12px;
+}
+
+.mentions-block ul li {
+    margin-bottom: 6px;
+}
