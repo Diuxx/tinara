@@ -57,3 +57,44 @@ const observer = new IntersectionObserver(entries => {
 counters.forEach(counter => {
     observer.observe(counter);
 });
+
+/**
+ * NEWSLETTER MODAL
+ */
+
+const newsletterOpenBtn = document.getElementById('open-newsletter-modal');
+const newsletterModal = document.getElementById('newsletter-modal');
+const newsletterCloseElements = document.querySelectorAll('[data-close-newsletter]');
+
+const openNewsletterModal = () => {
+    if (!newsletterModal) return;
+
+    newsletterModal.classList.add('is-open');
+    newsletterModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('newsletter-open');
+};
+
+const closeNewsletterModal = () => {
+    if (!newsletterModal) return;
+
+    newsletterModal.classList.remove('is-open');
+    newsletterModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('newsletter-open');
+};
+
+if (newsletterOpenBtn && newsletterModal) {
+    newsletterOpenBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        openNewsletterModal();
+    });
+
+    newsletterCloseElements.forEach((element) => {
+        element.addEventListener('click', closeNewsletterModal);
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && newsletterModal.classList.contains('is-open')) {
+            closeNewsletterModal();
+        }
+    });
+}

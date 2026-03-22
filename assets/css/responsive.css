@@ -13,6 +13,17 @@
   .hero p {
     width: 100% ! important;;
   }
+
+  .newsletter-modal__dialog {
+    width: min(96vw, 980px);
+    margin: 2vh auto;
+    padding: 14px 14px 10px;
+  }
+
+  .newsletter-modal__content iframe {
+    height: 84vh;
+  }
+
   .actu-grid {
     grid-template-columns: 1fr;
   }

@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="assets/css/animations.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
+        <link rel="stylesheet" href="assets/css/newsletter-modal.css">
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="icon" type="image/png" href="assets/images/tinara.ico">
     </head>
@@ -334,26 +335,38 @@
                         <p>Vous pouvez également consulter notre FAQ, vous inscrire à notre Newsletter ou nous rejoindre sur
                             les réseaux sociaux.</p>
                         <div class="row">
-                            <a href="" class="btn btn-outline-primary text-uppercase">S'inscrire à notre Newsletter !</a>
+                            <a href="#" id="open-newsletter-modal" class="btn btn-outline-primary text-uppercase">S'inscrire à notre Newsletter !</a>
                         </div>
                     </div>
-                    <!-- <div class="col-md-6">
-                        <iframe width="540" height="805"
-                            src="https://23297f2b.sibforms.com/serve/MUIFAPrSNohyzJyY02hFSEwTGmalwIf56LQcyWFj5qsK0kxPmchDjNyTXb6FhaLeY65x1j9JXMqH49lykRowFbV0k9iy-xj9Gyc2myk6Wv82giam9bDED5GXIE38ZRkXf2-UXQ_bB-nbo0-p3VEkiUVsTua_q09vnVXb2rZn7WipdL4jmPtBWCz1RY6CNQNZ9IWzZUjoKdY1TdDM8w=="
-                            frameborder="0" scrolling="auto" allowfullscreen
-                            style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
-                    </div> -->
                 </div>
             </div>
         </section>
+
+        <!-- newsletter modal -->
+        <div id="newsletter-modal" class="newsletter-modal" aria-hidden="true">
+            <div class="newsletter-modal__overlay" data-close-newsletter></div>
+            <div class="newsletter-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="newsletter-modal-title">
+                <button type="button" class="newsletter-modal__close" data-close-newsletter aria-label="Fermer la fenêtre">&times;</button>
+                <h3 id="newsletter-modal-title" class="newsletter-modal__title">Inscription à la Newsletter</h3>
+                <div class="newsletter-modal__content">
+                    <iframe
+                        src="https://23297f2b.sibforms.com/serve/MUIFAPrSNohyzJyY02hFSEwTGmalwIf56LQcyWFj5qsK0kxPmchDjNyTXb6FhaLeY65x1j9JXMqH49lykRowFbV0k9iy-xj9Gyc2myk6Wv82giam9bDED5GXIE38ZRkXf2-UXQ_bB-nbo0-p3VEkiUVsTua_q09vnVXb2rZn7WipdL4jmPtBWCz1RY6CNQNZ9IWzZUjoKdY1TdDM8w=="
+                        title="Formulaire newsletter Tinara"
+                        loading="lazy"
+                        frameborder="0"
+                        scrolling="auto"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
 
 
         <footer class="footer">
             <div class="footer-inner">
 
                 <div class="footer-brand">
-                    <!-- todo: verifier le logo -->
-                    <img src="assets/images/logo-tinara.png" height="50" alt="Tinara" />
+                    <img src="assets/images/tinara.ico" height="42" width="42" alt="Tinara" />
                     <p class="footer-tagline">Tisser des liens pour grandir ensemble.</p>
                 </div>
 

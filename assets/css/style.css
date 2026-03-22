@@ -1,9 +1,13 @@
 
 
-.text-primary { color: var(--bs-primary)!important; }
-.text-secondary { color: var(--bs-secondary)!important; }
+.text-primary { color: var(--bs-primary)!important
+}
+.text-secondary { color: var(--bs-seconda
+    ry)!important
+}
 
-.bg-primary { background-color: var(--bs-primary)!important; }
+.bg-primary { background-color: var(--bs
+    -primary)!important; }
 .bg-secondary { background-color: var(--bs-secondary)!important; }
 
 body {
@@ -140,10 +144,6 @@ body {
     bottom: 18%;
     width: 1px;
     background: rgba(0, 0, 0, 0.14);
-}
-
-#quote {
-    
 }
 
 /* cards */
@@ -297,6 +297,14 @@ body {
     text-overflow: ellipsis;
 }
 
+/* contact */
+.social {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
 /* footer */
 .footer {
     background: var(--bs-primary);
@@ -317,6 +325,12 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.footer-brand img {
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
 }
 
 .footer-tagline {
