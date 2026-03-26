@@ -1,0 +1,102 @@
+.faq-page {
+    /* background: var(--app-bg-light); */
+}
+
+.faq-container {
+    max-width: 1200px;
+}
+
+.faq-intro-card,
+.faq-category-card {
+    background: var(--app-bg-light);
+    border-radius: var(--img-border-radius);
+    box-shadow: 0 16px 40px rgba(74, 64, 58, 0.08);
+}
+
+.faq-intro-card {
+    padding: 22px 24px;
+    margin-bottom: 32px;
+}
+
+.faq-intro-card a {
+    color: var(--bs-secondary);
+    text-decoration: none;
+}
+
+.faq-intro-card a:hover {
+    text-decoration: underline;
+}
+
+.faq-category-card {
+    padding: 28px;
+}
+
+.faq-category-title {
+    margin-bottom: 20px;
+    color: var(--bs-primary);
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.faq-accordion {
+  --bs-accordion-bg: transparent;
+  --bs-accordion-border-width: 0;
+  --bs-accordion-border-radius: 0;
+  --bs-accordion-inner-border-radius: 0;
+  --bs-accordion-btn-padding-x: 0;
+  --bs-accordion-btn-padding-y: 1rem;
+  --bs-accordion-body-padding-x: 0;
+  --bs-accordion-body-padding-y: 0 0 1.1rem 0;
+  --bs-accordion-btn-focus-box-shadow: none;
+  --bs-accordion-active-bg: transparent;
+  --bs-accordion-active-color: var(--bs-primary);
+}
+
+.faq-item {
+    border-bottom: 1px solid rgba(74, 64, 58, 0.12) !important;
+}
+
+.faq-item:last-child {
+    border-bottom: 0 !important;
+}
+
+.faq-item .accordion-button {
+    background: transparent;
+    color: var(--bs-body-color);
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.faq-item .accordion-button:not(.collapsed) {
+    box-shadow: none;
+}
+
+.faq-item .accordion-button::after {
+    background-size: 1rem;
+}
+
+.faq-item .accordion-body {
+    color: rgba(74, 64, 58, 0.92);
+    line-height: 1.75;
+}
+
+.faq-item .accordion-body p:last-child {
+    margin-bottom: 0;
+}
+
+.faq-item .accordion-body a {
+    color: var(--bs-secondary);
+    text-decoration: none;
+}
+
+.faq-item .accordion-body a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 992px) {
+    .faq-category-card {
+        padding: 22px;
+    }
+}

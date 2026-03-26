@@ -97,4 +97,12 @@
     background-color: #C15500;
     border-color: #C15500;
   }
+
+  .back-to-top {
+    left: 18px;
+    right: auto;
+    bottom: 18px;
+    width: 48px;
+    height: 48px;
+  }
 }

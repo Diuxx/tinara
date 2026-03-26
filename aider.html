@@ -1,195 +1,243 @@
 <!DOCTYPE html>
 <html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>TINARA – Aider autrement</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <title>TINARA – Aider autrement</title>
+        <link rel="stylesheet" href="assets/css/variables.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/others/mentions.css">
+        <link rel="stylesheet" href="assets/css/others/aider.css">
+        <link rel="stylesheet" href="assets/css/responsive.css">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="assets/images/tinara.ico">
+    </head>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <body id="top" class="aider-page-root">
 
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar-scrolled sticky-top" id="navbar">
+            <div class="container-fluid">
 
-</head>
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/logo-tinara.png" height="50" alt="TINARA">
+                </a>
 
-<body>
+                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-custom sticky-top" id="navbar">
-        <div class="container-fluid">
-
-            <a class="navbar-brand" href="./index.html">
-                <img src="assets/images/logo-tinara.png" height="50">
-            </a>
-
-            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="menu">
-
-                <ul class="navbar-nav mx-auto text-uppercase">
-                    <li class="nav-item"><a class="nav-link" href="./index.html#mission">Mission</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./index.html#actions">Actions</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./index.html#actu">Actualités</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./index.html#contact">Contact</a></li>
-                </ul>
-
-                <div class="d-flex gap-2">
-                    <a class="btn btn-primary">Je parraine</a>
-                    <a class="btn btn-secondary">Découvrir</a>
-                </div>
-
-            </div>
-        </div>
-    </nav>
-
-
-    <!-- HERO -->
-    <section class="hero d-flex align-items-center py-5">
-        <div class="container pt-5">
-
-            <h1 class="pt-5">
-                Aider autrement
-            </h1>
-
-        </div>
-    </section>
-
-    <section class="section bg-light-custom">
-        <div class="container">
-            <div class="row g-4 mt-4 align-items-stretch text-center">
-
-                <div class="col-12 col-md-4 col-lg-2">
-                    <a href="#benevole" class="action-card h-100 shadow py-2 px-4 text-decoration-none d-block">
-                        <img src="./assets/images/aider/1.png" alt="" class="action-img" />
-                        <h4 class="text-secondary">Je suis bénévole</h4>
-                    </a>
-                </div>
-
-                <div class="col-12 col-md-4 col-lg-2">
-                    <a href="#stage" class="action-card h-100 shadow py-2 px-4 text-decoration-none d-block">
-                        <img src="./assets/images/aider/2.png" alt="" class="action-img" />
-                        <h4 class="text-secondary">Je fais un stage</h4>
-                    </a>
-                </div>
-
-                <div class="col-12 col-md-4 col-lg-2">
-                    <a href="#reseau" class="action-card h-100 shadow py-2 px-4 text-decoration-none d-block">
-                        <img src="./assets/images/aider/3.png" alt="" class="action-img" />
-                        <h4 class="text-secondary">Je mobilise mon réseau</h4>
-                    </a>
-                </div>
-
-                <div class="col-12 col-md-4 col-lg-2">
-                    <a href="#solidaire" class="action-card h-100 shadow py-2 px-4 text-decoration-none d-block">
-                        <img src="./assets/images/aider/4.png" alt="" class="action-img" />
-                        <h4 class="text-secondary">J'organise une action solidaire</h4>
-                    </a>
-                </div>
-
-                <div class="col-12 col-md-4 col-lg-2">
-                    <a href="#ambassadeur" class="action-card h-100 shadow py-2 px-4 text-decoration-none d-block">
-                        <img src="./assets/images/aider/5.png" alt="" class="action-img" />
-                        <h4 class="text-secondary">Je deviens ambassadeur·rice</h4>
-                    </a>
-                </div>
-
-                <div class="col-12 col-md-4 col-lg-2">
-                    <a href="#orphelinat" class="action-card h-100 shadow py-2 px-4 text-decoration-none d-block">
-                        <img src="./assets/images/aider/6.png" alt="" class="action-img" />
-                        <h4 class="text-secondary">Je visite l'orphelinat</h4>
-                    </a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <section class="section bg-light-custom">
-
-        <div class="container">
-            <div class="row align-items-start mb-5 pb-5" id="benevole">
-                <div class="col-5">
-                    <img src="./assets/images/aider/10.JPG" alt="" />
-                </div>
-                <div class="col-7">
-                    <h2 class="section-title">Je suis bénévole</h2>
-
-                    <p> Que vous disposiez de quelques heures par mois ou que vous souhaitiez vous engager de manière
-                        plus régulière, chaque contribution compte. L'association a besoin de personnes motivées,
-                        fiables et prêtes à agir concrètement. Il n'est pas nécessaire d'avoir une expérience
-                        particulière : l'essentiel, c'est l'envie d'aider et de s'impliquer. </p>
-
-                    <ul>
-                        <li>Accompagnement lors d'événements solidaires</li>
-                        <li>Soutien logistique et organisationnel</li>
-                        <li>Création de contenu digital</li>
-                        <li>Aide administrative ponctuelle</li>
-                        <li>Participation aux collectes et campagnes de dons</li>
-                        <li>Site web</li>
-                        <li>Traductions</li>
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="navbar-nav mx-auto text-uppercase">
+                        <li class="nav-item"><a class="nav-link" href="index.html#mission">Mission</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#actions">Actions</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#actu">Actualités</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">À propos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
                     </ul>
 
-                    <p> En rejoignant l'équipe, vous intégrez une dynamique collective engagée et porteuse de sens.
-                        Votre temps constitue également un don précieux. Le mettre au service d'une cause peut faire la
-                        différence. </p>
-
-                    <a href="forms.gle/zd6K6S2cnnUc3k9e8" target="_blank" class="btn btn-primary">Je m'inscris</a>
+                    <div class="nav-action d-flex gap-2">
+                        <a class="btn btn-primary" href="index.html#soutenir">Je parraine <i class="fa fa-heart"></i></a>
+                        <a class="btn btn-secondary" href="index.html#mission">Découvrir <i class="fa fa-search"></i></a>
+                    </div>
                 </div>
             </div>
+        </nav>
 
-            <div class="row align-items-start mb-5 pb-5" id="stage">
-                <div class="col-7">
-                    <h2 class="section-title">Je fais un stage</h2>
+        <!-- HERO -->
+        <section class="mentions-hero aider-hero">
+            <div class="container text-center">
+                <h1 class="section-title">Aider autrement</h1>
+                <p class="section-intro">S’engager pour Tinara, ce n’est pas seulement faire un don. Vous pouvez aussi donner de votre temps, mobiliser votre entourage ou construire des actions concrètes à nos côtés.</p>
+            </div>
+        </section>
 
-                    <p> Vous recherchez un stage qui a du sens et qui vous permet de vous investir dans un projet humain
-                        et concret ? L'association accueille des stagiaires tout au long de l'année, selon les besoins
-                        et les périodes. </p>
-
-                    <p> Nous proposons des missions variées qui vous permettent de développer vos compétences tout en
-                        contribuant à un projet solidaire ambitieux. Communication, gestion de projet, recherche de
-                        partenariats, organisation d'événements ou appui administratif : votre travail aura un impact
-                        réel. </p>
-
-                    <p> Nous recherchons des profils autonomes, force de proposition et motivés à s'engager pleinement.
-                        La plupart de nos missions peuvent être réalisés en distanciel. </p>
-
-                    <p> Malheureusement, l'association ne peut proposer que des stages conventionnés non rémunérés d'une
-                        durée maximale de 2 mois. </p>
-
-                    <p> Rejoindre l'association en tant que stagiaire, c'est apprendre autrement, gagner en
-                        responsabilité et participer activement à une cause qui dépasse le cadre académique. </p>
-
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScV6_Zwx3tP0NetccijFNkl_i-cBB9aWSrbM30tGacL7K9TSg/viewform"
-                        target="_blank" class="btn btn-primary">Je postule</a>
+        <!-- NAVIGATION INTERNE -->
+        <section class="section aider-page pt-5 pb-4">
+            <div class="container aider-container">
+                <div class="aider-intro-card">
+                    <p class="mb-0">Choisissez la forme d’engagement qui vous correspond. Chaque action compte pour faire vivre l’association et soutenir durablement les enfants accompagnés.</p>
                 </div>
 
-                <div class="col-5">
-                    <img src="./assets/images/aider/7.JPG" alt="" />
+                <div class="row g-4 align-items-stretch text-center aider-links-grid">
+                    <div class="col-12 col-md-4 col-lg-2">
+                        <a href="#benevole" class="aider-link-card h-100 text-decoration-none d-block">
+                            <img src="assets/images/aider/benevole.png" alt="Icône bénévolat" class="aider-link-icon">
+                            <h2 class="aider-link-title">Je suis bénévole</h2>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-2">
+                        <a href="#stage" class="aider-link-card h-100 text-decoration-none d-block">
+                            <img src="assets/images/aider/2.png" alt="Icône stage" class="aider-link-icon">
+                            <h2 class="aider-link-title">Je fais un stage</h2>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-2">
+                        <a href="#reseau" class="aider-link-card h-100 text-decoration-none d-block">
+                            <img src="assets/images/aider/3.png" alt="Icône réseau" class="aider-link-icon">
+                            <h2 class="aider-link-title">Je mobilise mon réseau</h2>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-2">
+                        <a href="#solidaire" class="aider-link-card h-100 text-decoration-none d-block">
+                            <img src="assets/images/aider/4.png" alt="Icône action solidaire" class="aider-link-icon">
+                            <h2 class="aider-link-title">J’organise une action</h2>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-2">
+                        <a href="#ambassadeur" class="aider-link-card h-100 text-decoration-none d-block">
+                            <img src="assets/images/aider/5.png" alt="Icône ambassadeur" class="aider-link-icon">
+                            <h2 class="aider-link-title">Je deviens ambassadeur·rice</h2>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-2">
+                        <a href="#orphelinat" class="aider-link-card h-100 text-decoration-none d-block">
+                            <img src="assets/images/aider/6.png" alt="Icône visite" class="aider-link-icon">
+                            <h2 class="aider-link-title">Je visite l’orphelinat</h2>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-    </section>
+        <!-- CONTENU -->
+        <section class="section aider-page pt-0">
+            <div class="container aider-container d-flex flex-column gap-4">
+                <article id="benevole" class="aider-card">
+                    <div class="row g-4 g-lg-5 align-items-center">
+                        <div class="col-12 col-lg-5">
+                            <img src="assets/images/aider/10.JPG" alt="Bénévoles de l'association" class="aider-photo">
+                        </div>
+                        <div class="col-12 col-lg-7">
+                            <h2 class="section-title">Je suis bénévole</h2>
+                            <p>Que vous disposiez de quelques heures par mois ou que vous souhaitiez vous engager plus régulièrement, chaque contribution compte. Tinara a besoin de personnes motivées, fiables et prêtes à agir concrètement.</p>
+                            <p>Il n’est pas nécessaire d’avoir une expérience particulière. L’essentiel, c’est l’envie d’aider et de s’impliquer dans une dynamique collective utile.</p>
+                            <ul class="aider-list">
+                                <li>Accompagnement lors d’événements solidaires</li>
+                                <li>Soutien logistique et organisationnel</li>
+                                <li>Création de contenus digitaux</li>
+                                <li>Aide administrative ponctuelle</li>
+                                <li>Participation aux campagnes de dons</li>
+                                <li>Appui web et traductions</li>
+                            </ul>
+                            <p class="mb-4">Votre temps est un don précieux. Le mettre au service d’une cause peut faire une vraie différence.</p>
+                            <a href="https://forms.gle/zd6K6S2cnnUc3k9e8" target="_blank" rel="noreferrer" class="btn btn-primary">Je m’inscris</a>
+                        </div>
+                    </div>
+                </article>
 
+                <article id="stage" class="aider-card">
+                    <div class="row g-4 g-lg-5 align-items-center">
+                        <div class="col-12 col-lg-7 order-2 order-lg-1">
+                            <h2 class="section-title">Je fais un stage</h2>
+                            <p>Vous recherchez un stage porteur de sens, avec un impact concret ? L’association accueille des stagiaires tout au long de l’année selon les besoins et les périodes.</p>
+                            <p>Communication, gestion de projet, recherche de partenariats, organisation d’événements ou appui administratif : les missions proposées permettent de développer des compétences utiles au service d’un projet solidaire.</p>
+                            <p>Nous recherchons des profils autonomes, force de proposition, avec une vraie envie de contribuer. Une grande partie des missions peut être réalisée à distance.</p>
+                            <p class="mb-4">Les stages proposés sont conventionnés, non rémunérés, et d’une durée maximale de deux mois.</p>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScV6_Zwx3tP0NetccijFNkl_i-cBB9aWSrbM30tGacL7K9TSg/viewform" target="_blank" rel="noreferrer" class="btn btn-primary">Je postule</a>
+                        </div>
+                        <div class="col-12 col-lg-5 order-1 order-lg-2">
+                            <img src="assets/images/aider/7.JPG" alt="Stage au sein de Tinara" class="aider-photo">
+                        </div>
+                    </div>
+                </article>
 
+                <article id="reseau" class="aider-card">
+                    <div class="row g-4 g-lg-5 align-items-center">
+                        <div class="col-12 col-lg-5">
+                            <img src="assets/images/aider/8.JPG" alt="Mobilisation de réseau" class="aider-photo">
+                        </div>
+                        <div class="col-12 col-lg-7">
+                            <h2 class="section-title">Je mobilise mon réseau</h2>
+                            <p>Parler de Tinara autour de vous est déjà une forme d’engagement. Collègues, proches, école, entreprise, réseau professionnel ou associatif : chaque relai peut aider l’association à gagner en visibilité.</p>
+                            <p>Vous pouvez nous aider à faire connaître nos actions, nos besoins, nos campagnes ou nos événements auprès de personnes susceptibles de s’engager à leur tour.</p>
+                            <p class="mb-4">Un message partagé au bon moment peut déclencher un don, une rencontre ou un partenariat durable.</p>
+                            <a href="mailto:contact@tinara-association.com?subject=Mobiliser%20mon%20reseau%20pour%20Tinara" class="btn btn-secondary">Je propose un contact</a>
+                        </div>
+                    </div>
+                </article>
 
-    <footer class="footer text-center bg-primary text-white py-4">
-        <p>TINARA Association 2026. Tous droits réservés.</p>
-        <p class="mb-0">
-            <a href="" class="text-white">Mentions légales</a>
-        </p>
-    </footer>
+                <article id="solidaire" class="aider-card">
+                    <div class="row g-4 g-lg-5 align-items-center">
+                        <div class="col-12 col-lg-7 order-2 order-lg-1">
+                            <h2 class="section-title">J’organise une action solidaire</h2>
+                            <p>Collecte, course solidaire, vente, soirée caritative, événement d’école ou initiative en entreprise : il existe mille façons de créer une action au profit de Tinara.</p>
+                            <p>Nous pouvons vous accompagner pour cadrer votre idée, préparer les visuels, définir un objectif et vous fournir des éléments de présentation de l’association.</p>
+                            <p class="mb-4">L’objectif est simple : transformer votre énergie en action concrète, utile et adaptée à vos moyens.</p>
+                            <a href="mailto:contact@tinara-association.com?subject=Organiser%20une%20action%20solidaire" class="btn btn-primary">Je lance une action</a>
+                        </div>
+                        <div class="col-12 col-lg-5 order-1 order-lg-2">
+                            <img src="assets/images/aider/9.JPG" alt="Action solidaire" class="aider-photo">
+                        </div>
+                    </div>
+                </article>
 
+                <article id="ambassadeur" class="aider-card">
+                    <div class="row g-4 g-lg-5 align-items-center">
+                        <div class="col-12 col-lg-5">
+                            <img src="assets/images/aider/enfants.JPG" alt="Ambassadeur de l'association" class="aider-photo">
+                        </div>
+                        <div class="col-12 col-lg-7">
+                            <h2 class="section-title">Je deviens ambassadeur·rice</h2>
+                            <p>Être ambassadeur·rice, c’est représenter Tinara dans son entourage, porter ses valeurs et faire vivre ses projets dans la durée.</p>
+                            <p>Vous pouvez relayer nos actualités, parler de nos actions, participer à des temps de sensibilisation ou nous aider à ouvrir des portes dans votre environnement personnel ou professionnel.</p>
+                            <p class="mb-4">C’est un engagement souple, mais très précieux pour ancrer l’association dans un réseau de confiance.</p>
+                            <a href="mailto:contact@tinara-association.com?subject=Devenir%20ambassadeur%20Tinara" class="btn btn-secondary">Je veux en savoir plus</a>
+                        </div>
+                    </div>
+                </article>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+                <article id="orphelinat" class="aider-card">
+                    <div class="row g-4 g-lg-5 align-items-center">
+                        <div class="col-12 col-lg-7 order-2 order-lg-1">
+                            <h2 class="section-title">Je visite l’orphelinat</h2>
+                            <p>Si vous envisagez un voyage en Tanzanie, il est possible de rencontrer les enfants et de découvrir l’orphelinat dans un cadre préparé, respectueux et encadré.</p>
+                            <p>Les visites se construisent toujours en lien avec les besoins du terrain et dans le respect du quotidien des enfants. La protection, la dignité et la qualité de la rencontre restent prioritaires.</p>
+                            <p class="mb-4">Contactez-nous en amont pour préparer ce projet dans de bonnes conditions et comprendre ce qui est possible sur place.</p>
+                            <a href="mailto:contact@tinara-association.com?subject=Visiter%20l%27orphelinat%20Sanganigwa" class="btn btn-primary">Préparer une visite</a>
+                        </div>
+                        <div class="col-12 col-lg-5 order-1 order-lg-2">
+                            <img src="assets/images/aider/visite.png" alt="Visite de l'orphelinat" class="aider-photo aider-photo-contain">
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-    <script src="assets/js/script.js"></script>
-</body>
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-inner">
 
+                <div class="footer-brand">
+                    <img src="assets/images/tinara.ico" height="42" width="42" alt="Tinara">
+                    <p class="footer-tagline">Tisser des liens pour grandir ensemble.</p>
+                </div>
+
+                <div class="footer-right">
+                    <nav class="footer-links">
+                        <a href="index.html#mission">Mission</a>
+                        <a href="index.html#actions">Actions</a>
+                        <a href="index.html#actu">Actualités</a>
+                        <a href="index.html#contact">Contact</a>
+                        <a href="about.html">À propos</a>
+                        <a href="mentions.html">Mentions légales</a>
+                    </nav>
+                    <p class="footer-copy">&copy; TINARA Association 2026. Tous droits réservés.</p>
+                </div>
+
+            </div>
+        </footer>
+
+        <a href="#top" class="back-to-top" aria-label="Revenir en haut de la page">
+            <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+        </a>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/script.js"></script>
+    </body>
 </html>
