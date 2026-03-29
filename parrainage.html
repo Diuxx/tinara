@@ -75,11 +75,11 @@
 		<!-- CONTENU -->
 		<section class="section parrainage-page">
 			<div class="container parrainage-container d-flex flex-column gap-4">
-				<div class="parrainage-card">
+				<!-- <div class="parrainage-card">
 					<h2 class="section-title">Pourquoi parrainer ?</h2>
 					<p>Le parrainage est une forme de soutien régulière qui permet de sécuriser dans le temps les actions menées avec nos partenaires locaux. Il contribue concrètement à la santé, l’éducation et la protection des enfants accompagnés.</p>
 					<p>En choisissant ce mode d’engagement, vous participez à une action structurée, mesurable et construite dans la durée.</p>
-				</div>
+				</div> -->
 
 				<div class="parrainage-card">
 					<h2 class="section-title">Comment ça fonctionne ?</h2>
@@ -109,13 +109,21 @@
 				</div>
 
 				<div class="parrainage-card">
+					<h2 class="section-title">Mettre en place un don mensuel</h2>
+					<iframe id="haWidget" allowtransparency="true" scrolling="auto"
+						src="https://www.helloasso.com/associations/tinara-association/formulaires/2/widget"
+						style="width: 100%; height: 1050px; border: none;"
+						onload="window.addEventListener('message', e => {const dataHeight = e.data.height; const haWidgetElement = document.getElementById('haWidget'); haWidgetElement.height = dataHeight + 'px';})"></iframe>
+				</div>
+
+				<!-- <div class="parrainage-card">
 					<h2 class="section-title">Prêt à nous rejoindre ?</h2>
 					<p>Chaque contribution compte. Même un petit montant régulier permet de construire des actions utiles dans la durée.</p>
 					<div class="d-flex flex-wrap gap-3">
 						<a class="btn btn-primary" href="#">Je commence un parrainage</a>
 						<a class="btn btn-outline-primary" href="faq.html">Consulter la FAQ</a>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</section>
 
