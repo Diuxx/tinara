@@ -83,7 +83,9 @@ body:not(#homepage) #navbar .nav-link {
 }
 
 .hero {
-    background-color: var(--bs-primary);
+    background:
+        linear-gradient(90deg, rgba(74, 64, 58, 0.80) 0%, rgba(74, 64, 58, 0.56) 45%, rgba(74, 64, 58, 0.35) 100%),
+        url("../images/background/petitefille4.png") center / cover no-repeat;
     color: #fff;
 }
 
@@ -100,7 +102,9 @@ body:not(#homepage) #navbar .nav-link {
 /* hero pages internes */
 
 .mentions-hero {
-    background: var(--app-bg-light);
+    background:
+        linear-gradient(120deg, rgba(74, 64, 58, 0.72) 0%, rgba(74, 64, 58, 0.52) 52%, rgba(74, 64, 58, 0.35) 100%),
+        url("../images/background/petitefille4.png") center / cover no-repeat;
     padding: 80px 0 48px;
     text-align: center;
     height: 400px;
@@ -111,13 +115,17 @@ body:not(#homepage) #navbar .nav-link {
 .mentions-hero .section-title {
     font-size: 2.4rem;
     font-weight: 700;
-    color: var(--bs-primary);
+    color: #fff;
     margin-bottom: 16px;
+}
+
+.mentions-hero .section-title::after {
+    background: var(--bs-secondary);
 }
 
 .mentions-hero .section-intro {
     font-size: 1.05rem;
-    color: #555;
+    color: rgba(255, 255, 255, 0.92);
     max-width: 600px;
     margin: 0 auto;
 }
