@@ -2,8 +2,7 @@
 
 .text-primary { color: var(--bs-primary)!important
 }
-.text-secondary { color: var(--bs-seconda
-    ry)!important
+.text-secondary { color: var(--bs-secondary)!important
 }
 
 .bg-primary { background-color: var(--bs
@@ -14,6 +13,10 @@ body {
     font-family: 'Nunito', sans-serif;
     background: #F3E6DA;
     color: #4A403A;
+}
+
+a {
+    color: var(--bs-secondary);
 }
 
 /* navbar */
@@ -91,6 +94,32 @@ body:not(#homepage) #navbar .nav-link {
 
 .hero p {
     font-size: 24px;
+}
+
+
+/* hero pages internes */
+
+.mentions-hero {
+    background: var(--app-bg-light);
+    padding: 80px 0 48px;
+    text-align: center;
+    height: 400px;
+    display: flex;
+    align-items: center;
+}
+
+.mentions-hero .section-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--bs-primary);
+    margin-bottom: 16px;
+}
+
+.mentions-hero .section-intro {
+    font-size: 1.05rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 
@@ -190,6 +219,43 @@ body:not(#homepage) #navbar .nav-link {
 
 .bg-light-custom {
     background: var(--app-bg-light);
+}
+
+/* cartes communes pages internes */
+
+.aider-intro-card,
+.aider-link-card,
+.aider-card,
+.faq-intro-card,
+.faq-category-card,
+.dons-card,
+.dons-option,
+.parrainage-card,
+.parrainage-step {
+    background: var(--app-bg-light);
+    border-radius: var(--img-border-radius);
+    box-shadow: 0 16px 40px rgba(74, 64, 58, 0.08);
+}
+
+.aider-card,
+.faq-category-card,
+.dons-card,
+.parrainage-card {
+    padding: 28px;
+}
+
+.aider-intro-card,
+.faq-intro-card {
+    padding: 22px 24px;
+    margin-bottom: 32px;
+}
+
+.dons-option {
+    padding: 22px;
+}
+
+.parrainage-step {
+    padding: 20px;
 }
 
 /* compteur */
@@ -342,6 +408,15 @@ body:not(#homepage) #navbar .nav-link {
 .back-to-top:focus-visible {
     outline: 3px solid rgba(223, 135, 92, 0.45);
     outline-offset: 3px;
+}
+
+@media (max-width: 992px) {
+    .aider-card,
+    .faq-category-card,
+    .dons-card,
+    .parrainage-card {
+        padding: 22px;
+    }
 }
 
 /* footer */

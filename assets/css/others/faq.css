@@ -3,18 +3,6 @@
     max-width: 1200px;
 }
 
-.faq-intro-card,
-.faq-category-card {
-    background: var(--app-bg-light);
-    border-radius: var(--img-border-radius);
-    box-shadow: 0 16px 40px rgba(74, 64, 58, 0.08);
-}
-
-.faq-intro-card {
-    padding: 22px 24px;
-    margin-bottom: 32px;
-}
-
 .faq-intro-card a {
     color: var(--bs-secondary);
     text-decoration: none;
@@ -22,10 +10,6 @@
 
 .faq-intro-card a:hover {
     text-decoration: underline;
-}
-
-.faq-category-card {
-    padding: 28px;
 }
 
 .faq-category-title {
@@ -90,10 +74,4 @@
 
 .faq-item .accordion-body a:hover {
     text-decoration: underline;
-}
-
-@media (max-width: 992px) {
-    .faq-category-card {
-        padding: 22px;
-    }
 }

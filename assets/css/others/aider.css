@@ -6,19 +6,6 @@
     max-width: 1200px;
 }
 
-.aider-intro-card,
-.aider-link-card,
-.aider-card {
-    background: var(--app-bg-light);
-    border-radius: var(--img-border-radius);
-    box-shadow: 0 16px 40px rgba(74, 64, 58, 0.08);
-}
-
-.aider-intro-card {
-    padding: 22px 24px;
-    margin-bottom: 32px;
-}
-
 .aider-links-grid {
     margin-bottom: 12px;
 }
@@ -49,10 +36,7 @@
     margin: 0;
 }
 
-.aider-card {
-    padding: 28px;
-    scroll-margin-top: 100px;
-}
+.aider-card { scroll-margin-top: 100px; }
 
 .aider-photo {
     width: 100%;
@@ -89,47 +73,4 @@
 .aider-card p,
 .aider-card li {
     line-height: 1.75;
-}
-
-.back-to-top {
-    position: fixed;
-    right: 24px;
-    bottom: 24px;
-    width: 52px;
-    height: 52px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;
-    background: var(--bs-primary);
-    color: #fff;
-    text-decoration: none;
-    box-shadow: 0 12px 28px rgba(74, 64, 58, 0.18);
-    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-    z-index: 1000;
-}
-
-.back-to-top:hover {
-    background: #006e63;
-    color: #fff;
-    transform: translateY(-2px);
-    box-shadow: 0 16px 32px rgba(74, 64, 58, 0.22);
-}
-
-.back-to-top:focus-visible {
-    outline: 3px solid rgba(223, 135, 92, 0.45);
-    outline-offset: 3px;
-}
-
-@media (max-width: 992px) {
-    .aider-card {
-        padding: 22px;
-    }
-
-    .back-to-top {
-        right: 18px;
-        bottom: 18px;
-        width: 48px;
-        height: 48px;
-    }
 }

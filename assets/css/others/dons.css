@@ -3,24 +3,9 @@
     max-width: 1080px;
 }
 
-.dons-card,
-.dons-option {
-    background: var(--app-bg-light);
-    border-radius: var(--img-border-radius);
-    box-shadow: 0 16px 40px rgba(74, 64, 58, 0.08);
-}
-
-.dons-card {
-    padding: 28px;
-}
-
 .dons-card h2 {
     width: 100%;
     text-align: center;
-}
-
-.dons-option {
-    padding: 22px;
 }
 
 .dons-option h3 {
@@ -32,10 +17,4 @@
 .dons-card p,
 .dons-option p {
     line-height: 1.75;
-}
-
-@media (max-width: 992px) {
-    .dons-card {
-        padding: 22px;
-    }
 }
