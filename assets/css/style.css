@@ -83,9 +83,18 @@ body:not(#homepage) #navbar .nav-link {
 }
 
 .hero {
-    background:
-        linear-gradient(90deg, rgba(74, 64, 58, 0.80) 0%, rgba(74, 64, 58, 0.56) 45%, rgba(74, 64, 58, 0.35) 100%),
-        url("../images/background/petitefille4.png") center / cover no-repeat;
+    background-image: 
+        linear-gradient(
+            90deg,
+            rgba(74, 64, 58, 0.80) 0%,
+            rgba(74, 64, 58, 0.56) 45%,
+            rgba(74, 64, 58, 0.35) 100%
+        ),
+        url("../images/background/petitefille4.png");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     color: #fff;
 }
 
@@ -308,9 +317,9 @@ body:not(#homepage) #navbar .nav-link {
 }
 
 #actions {
-    background:
+    /* background:
         linear-gradient(rgba(255, 246, 239, 0.92), rgba(255, 246, 239, 0.40)),
-        url("../images/actions/carte.png") center / cover no-repeat;
+        url("../images/actions/carte.png") center / cover no-repeat; */
 }
 
 /* actualites */
@@ -328,6 +337,7 @@ body:not(#homepage) #navbar .nav-link {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
+    gap: 5px;
 }
 
 .actu-card:hover {
@@ -338,6 +348,7 @@ body:not(#homepage) #navbar .nav-link {
 .actu-card-media {
     aspect-ratio: 1;
     overflow: hidden;
+    position: relative;
 }
 
 .actu-card-img {
@@ -365,11 +376,16 @@ body:not(#homepage) #navbar .nav-link {
 .card-info {
     font-size: 12px;
     font-weight: bold;
-    color: white;
-    background: var(--bs-primary);
+    color: var(--tag-color);
+    background: var(--tag-bg);
     padding: 6px 10px;
-    border-radius: 999px;
-    margin-bottom: 12px;
+    border-radius: 8px;
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    align-self: flex-end;
+    margin-left: auto;
+    z-index: 10;
     width: fit-content; 
 }
 
@@ -378,6 +394,7 @@ body:not(#homepage) #navbar .nav-link {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-align: center;
 }
 
 /* contact */

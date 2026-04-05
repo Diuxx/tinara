@@ -3,7 +3,6 @@
 :root {
 
     /* couleurs principales */
-
     --bs-primary: #008678;
     --bs-secondary: #DF875C;
     --bs-success: #008678;
@@ -12,13 +11,14 @@
 
     --app-bg-light: #FFF6EF;
 
-    /* couleurs interface */
+    --tag-color: #4A403A;
+    --tag-bg: #F3E6DA;
 
+    /* couleurs interface */
     --bs-body-bg: #F3E6DA;
     --bs-body-color: #4A403A;
 
     /* boutons */
-
     --bs-btn-border-radius: 8px;
 
     /* autres variables */
@@ -49,6 +49,23 @@
 
     --bs-btn-active-bg: #005a51;
     --bs-btn-active-border-color: #005a51;
+}
+
+.btn-other {
+
+    --bs-btn-bg: #4A403A;
+    --bs-btn-border-color: #4A403A;
+
+    --bs-btn-color: #ffffff;
+
+    --bs-btn-hover-bg: #352d28;
+    --bs-btn-hover-border-color: #352d28;
+
+    --bs-btn-active-bg: #2b241f;
+    --bs-btn-active-border-color: #2b241f;
+
+    --bs-btn-disabled-bg: #4A403A;
+    --bs-btn-disabled-border-color: #4A403A;
 }
 
 .btn-secondary {
