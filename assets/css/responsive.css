@@ -97,6 +97,20 @@
     width: auto;
   }
 
+  .mentions-hero {
+    position: relative;
+  }
+
+  .mentions-hero .hero-cta {
+    position: absolute;
+    bottom: 24px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: auto;
+  }
+
   .hero-cta .btn-parraine,
   .hero-cta .btn-decouvrir {
     width: 50px;
