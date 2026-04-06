@@ -39,7 +39,6 @@
 }
 
 .btn-outline-primary {
-
     /* --bs-btn-bg: #008678; */
     --bs-btn-border-color: #008678;
     --bs-btn-color: #008678;
@@ -52,7 +51,6 @@
 }
 
 .btn-other {
-
     --bs-btn-bg: #4A403A;
     --bs-btn-border-color: #4A403A;
 
@@ -60,6 +58,7 @@
 
     --bs-btn-hover-bg: #352d28;
     --bs-btn-hover-border-color: #352d28;
+    --bs-btn-hover-color: #ffffff;
 
     --bs-btn-active-bg: #2b241f;
     --bs-btn-active-border-color: #2b241f;
