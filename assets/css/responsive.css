@@ -111,6 +111,7 @@
     width: auto;
   }
 
+  .hero-cta .btn-help,
   .hero-cta .btn-parraine,
   .hero-cta .btn-decouvrir {
     width: 50px;
@@ -126,6 +127,7 @@
     margin: 0 !important;
   }
 
+  .hero-cta .btn-help i,
   .hero-cta .btn-parraine i,
   .hero-cta .btn-decouvrir i {
     font-size: 24px;

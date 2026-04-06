@@ -101,6 +101,10 @@ a {
     display: none;
 }
 
+.index-hero-cta .btn-help {
+    display: none;
+}
+
 
 /* hero pages internes */
 .mentions-hero {
