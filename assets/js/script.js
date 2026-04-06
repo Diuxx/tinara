@@ -5,14 +5,47 @@ const navbar = document.getElementById("navbar");
 
 window.addEventListener("scroll", function () {
 
-    if (window.scrollY > 50) {
+    if (navbar && window.scrollY > 50) {
         navbar.classList.add("navbar-scrolled");
     }
-    else {
+    else if (navbar) {
         navbar.classList.remove("navbar-scrolled");
     }
 
 });
+
+/**
+ * BACK TO TOP
+ */
+
+const BACK_TO_TOP_THRESHOLD = 120;
+let backToTopButton = document.querySelector('.back-to-top');
+
+if (!backToTopButton) {
+    backToTopButton = document.createElement('a');
+    backToTopButton.href = '#top';
+    backToTopButton.className = 'back-to-top';
+    backToTopButton.setAttribute('aria-label', 'Revenir en haut de la page');
+    backToTopButton.innerHTML = '<i class="fa-solid fa-arrow-up" aria-hidden="true"></i>';
+    document.body.appendChild(backToTopButton);
+}
+
+const toggleBackToTopVisibility = () => {
+    if (!backToTopButton) return;
+
+    const isVisible = window.scrollY > BACK_TO_TOP_THRESHOLD;
+    backToTopButton.classList.toggle('is-visible', isVisible);
+};
+
+if (backToTopButton) {
+    backToTopButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    toggleBackToTopVisibility();
+    window.addEventListener('scroll', toggleBackToTopVisibility, { passive: true });
+}
 
 /**
  * COMPTEUR
