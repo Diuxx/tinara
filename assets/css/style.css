@@ -48,15 +48,6 @@ a {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-body:not(#homepage) #navbar {
-    background: #F3E6DA;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-body:not(#homepage) #navbar .nav-link {
-    color: var(--bs-body-color);
-}
-
 .navbar-scrolled .nav-link {
     color: var(--bs-body-color);
 }

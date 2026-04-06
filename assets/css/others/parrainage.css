@@ -31,3 +31,153 @@
 .parrainage-step p {
     line-height: 1.75;
 }
+
+.parrainage-offers {
+    margin-top: 4px;
+    align-self: center;
+    width: min(1320px, calc(100vw - 2.75rem));
+}
+
+.row-eq > [class*="col-"] {
+    display: flex;
+}
+
+.card-parrainage {
+    background: var(--app-bg-light);
+    border-radius: var(--img-border-radius);
+    box-shadow: 0 16px 40px rgba(74, 64, 58, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(74, 64, 58, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-parrainage:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 44px rgba(74, 64, 58, 0.12);
+}
+
+.card-parrainage .card-img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card-content {
+    padding: 22px 20px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+}
+
+.card-content h2 {
+    margin: 0;
+    color: var(--bs-primary);
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+}
+
+.separator_auto {
+    width: 56px;
+    height: 3px;
+    background: var(--bs-secondary);
+    border-radius: 999px;
+    margin: 0 auto 2px;
+}
+
+.card-content .lead {
+    font-size: 1rem;
+    margin-bottom: 0;
+    color: var(--bs-body-color);
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.card-content p {
+    margin-bottom: 0;
+}
+
+.card-content ul {
+    margin: 2px 0 0;
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 8px;
+}
+
+.card-content li::marker {
+    color: var(--bs-secondary);
+}
+
+.price-box {
+    margin: 0 20px 20px;
+    padding: 16px;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid rgba(223, 135, 92, 0.3);
+    display: grid;
+    gap: 10px;
+}
+
+.price-main {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    font-weight: 800;
+    color: var(--bs-primary);
+}
+
+.price-tax {
+    font-size: 0.95rem;
+    color: #625953;
+    margin: 0;
+}
+
+.btn-parrainage {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 11px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    background: var(--bs-secondary);
+    color: #fff;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-parrainage:hover {
+    background: #c15500;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.btn-parrainage:focus-visible {
+    outline: 3px solid rgba(223, 135, 92, 0.45);
+    outline-offset: 2px;
+}
+
+@media (max-width: 991px) {
+    .parrainage-offers {
+        row-gap: 1.25rem;
+        width: min(980px, calc(100vw - 2rem));
+    }
+}
+
+@media (max-width: 575px) {
+    .card-content {
+        padding: 20px 16px 14px;
+    }
+
+    .price-box {
+        margin: 0 16px 16px;
+    }
+
+    .price-main {
+        font-size: 1.35rem;
+    }
+}
