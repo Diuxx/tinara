@@ -53,7 +53,6 @@ a {
 }
 
 /* hero*/
-
 #homepage .hero {
     height: 100vh;
     background:
@@ -98,9 +97,12 @@ a {
     font-size: 24px;
 }
 
+.mentions-hero .hero-cta {
+    display: none;
+}
+
 
 /* hero pages internes */
-
 .mentions-hero {
     background:
         linear-gradient(120deg, rgba(74, 64, 58, 0.72) 0%, rgba(74, 64, 58, 0.52) 52%, rgba(74, 64, 58, 0.35) 100%),
