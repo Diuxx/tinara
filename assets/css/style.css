@@ -319,6 +319,59 @@ a {
         url("../images/actions/carte.png") center / cover no-repeat; */
 }
 
+/* orphanage section */
+#orphelinat {
+    background:
+        linear-gradient(rgba(243, 230, 218, 0.94), rgba(243, 230, 218, 0.94)),
+        url("../images/actions/carte.png") center / cover no-repeat;
+}
+
+.orphanage-layout {
+    padding: 12px 6px;
+}
+
+.orphanage-media {
+    border-radius: 16px;
+    overflow: hidden;
+    min-height: 240px;
+}
+
+.orphanage-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.orphanage-content {
+    padding: 6px 10px;
+}
+
+.orphanage-content .section-title {
+    margin-bottom: 18px;
+}
+
+.orphanage-content .blockquote {
+    margin-bottom: 12px;
+}
+
+.orphanage-content .blockquote h3 {
+    font-size: 1.55rem;
+    color: var(--bs-primary);
+    font-weight: 700;
+}
+
+.orphanage-quote-translation {
+    font-size: 1.05rem;
+    font-style: italic;
+    color: #64584f;
+    margin-bottom: 18px;
+}
+
+.orphanage-content p {
+    margin-bottom: 10px;
+}
+
 /* actualites */
 .actu-grid {
     display: grid;

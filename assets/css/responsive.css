@@ -67,6 +67,18 @@
   .actu-grid {
     grid-template-columns: 1fr;
   }
+
+  .orphanage-layout {
+    padding: 0;
+  }
+
+  .orphanage-media {
+    min-height: 190px;
+  }
+
+  .orphanage-content .blockquote h3 {
+    font-size: 1.3rem;
+  }
 }
 
 /* navbar */
@@ -159,5 +171,9 @@
     bottom: 18px;
     width: 48px;
     height: 48px;
+  }
+
+  .orphanage-layout {
+    padding: 0;
   }
 }
