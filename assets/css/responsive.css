@@ -22,6 +22,19 @@
 }
 
 @media screen and (max-width: 810px) {
+  #homepage .hero {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(74, 64, 58, 0.70) 0%,
+            rgba(74, 64, 58, 0.48) 32%,
+            rgba(74, 64, 58, 0.20) 58%,
+            rgba(74, 64, 58, 0.04) 76%,
+            rgba(74, 64, 58, 0) 100%
+        ),
+        url("../images/aider/visite.png") center right / cover no-repeat;
+  }
+
   /* Hero Section */
   .hero {
     align-items: center !important;
@@ -29,7 +42,7 @@
     background-size: 70%;
   }
   .hero h1 {
-    width: 50%;
+    /* width: 50%; */
     font-size: 3.4rem;
   }
   .hero .container {
@@ -37,11 +50,12 @@
     flex-direction: column;
     align-items: flex-start;
     margin-top: 50px;
-    gap: 60px;
+    /* gap: 60px; */
     height: 100%;
+    margin-left: none !important;
   }
   .hero p {
-    width: 50% !important;
+    /* width: 50% !important; */
     font-size: 1.15rem;
   }
   .action-card {
