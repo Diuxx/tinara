@@ -131,3 +131,36 @@ if (newsletterOpenBtn && newsletterModal) {
         }
     });
 }
+
+/**
+ * DONS MODAL
+ */
+
+const donationModalElement = document.getElementById('don-modal');
+const donationModalIframe = document.getElementById('don-modal-iframe');
+const donationModalTitle = document.getElementById('don-modal-title');
+const donationModalTriggers = document.querySelectorAll('[data-open-don-modal]');
+
+if (donationModalElement && donationModalIframe && donationModalTitle && donationModalTriggers.length > 0 && window.bootstrap?.Modal) {
+    const donationModal = new bootstrap.Modal(donationModalElement);
+
+    donationModalTriggers.forEach((trigger) => {
+        trigger.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            const targetUrl = trigger.getAttribute('data-don-url');
+            const targetTitle = trigger.getAttribute('data-don-title') || 'Faire un don';
+
+            if (!targetUrl) return;
+
+            donationModalTitle.textContent = targetTitle;
+            donationModalIframe.title = targetTitle;
+            donationModalIframe.src = targetUrl;
+            donationModal.show();
+        });
+    });
+
+    donationModalElement.addEventListener('hidden.bs.modal', () => {
+        donationModalIframe.src = 'about:blank';
+    });
+}

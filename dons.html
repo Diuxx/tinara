@@ -93,16 +93,20 @@
 							<div class="dons-option h-100">
 								<h3>Don ponctuel</h3>
 								<p>Idéal pour soutenir une action précise ou répondre à un besoin immédiat.</p>
-								<a class="btn btn-outline-primary" href="ponctuel.html">Faire un don ponctuel</a>
+								<a class="btn btn-outline-primary" href="ponctuel.html" data-open-don-modal data-don-url="https://www.helloasso.com/associations/tinara-association/formulaires/1/widget" data-don-title="Faire un don ponctuel">Faire un don ponctuel</a>
 							</div>
 						</div>
 						<div class="col-12 col-md-6">
 							<div class="dons-option h-100">
 								<h3>Don mensuel</h3>
-								<p>Permet d’apporter de la stabilité au projet et d’agir sur le long terme.</p>
-							<a class="btn btn-primary" href="mensuel.html">Mettre en place un don mensuel</a>
+								<p>Permet d’apporter de la stabilité au projet et d'agir sur le long terme.</p>
+							<a class="btn btn-primary" href="mensuel.html" data-open-don-modal data-don-url="https://www.helloasso.com/associations/tinara-association/formulaires/2/widget" data-don-title="Mettre en place un don mensuel">Mettre en place un don mensuel</a>
 							</div>
 						</div>
+					</div>
+					<div class="mt-4 p-3 p-md-4 dons-option text-center">
+						<p class="mb-3 fw-semibold">Avez-vous pensé au parrainage ?</p>
+						<a class="btn btn-secondary" href="parrainage.html">Découvrir le parrainage</a>
 					</div>
 				</div>
 
@@ -116,6 +120,28 @@
 				</div>
 			</div>
 		</section>
+
+		<div class="modal fade" id="don-modal" tabindex="-1" aria-labelledby="don-modal-title" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered modal-xl modal-fullscreen-md-down">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2 class="modal-title fs-5" id="don-modal-title">Faire un don</h2>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+					</div>
+					<div class="modal-body p-0">
+						<iframe
+							id="don-modal-iframe"
+							allowtransparency="true"
+							scrolling="auto"
+							src="about:blank"
+							style="width: 100%; height: 80vh; border: none;"
+							loading="lazy"
+							title="Formulaire de don TINARA">
+						</iframe>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<!-- FOOTER -->
 		<footer class="footer">
