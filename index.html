@@ -70,6 +70,8 @@
             </div>
         </nav>
 
+        <main>
+
 
         <!-- HERO -->
         <section class="hero d-flex align-items-center">
@@ -107,9 +109,9 @@
                     communautés locales dans une démarche éthique, durable et co-construite avec les acteurs sur place.
                 </p>
 
-                <section class="img-mission mt-5">
+                <div class="img-mission mt-5">
                     <img src="assets/images/actions/parrainage.png" alt="Enfants de Kigoma">
-                </section>
+                </div>
 
                 <div class="row goals">
                     <div class="col-4 col-md-4">
@@ -366,20 +368,22 @@
                         <p>C'est avec un grand plaisir que nous vous répondrons. Et ceci, dans les plus brefs délais.</p>
 
                         <div class="social">
-                            <a href="#" class="text-primary fs-2 me-2"><i class="fa-brands fa-facebook"></i></a>
-                            <a href="#" class="text-primary fs-2 me-2"><i class="fa-brands fa-linkedin"></i></a>
-                            <a href="#" class="text-primary fs-2"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="text-primary fs-2 me-2" aria-label="Facebook Tinara"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+                            <a href="#" class="text-primary fs-2 me-2" aria-label="LinkedIn Tinara"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+                            <a href="#" class="text-primary fs-2" aria-label="Instagram Tinara"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
                         </div>
 
                         <p>Vous pouvez également consulter notre FAQ, vous inscrire à notre Newsletter ou nous rejoindre sur
                             les réseaux sociaux.</p>
                         <div class="row">
-                            <a href="#" id="open-newsletter-modal" class="btn btn-outline-primary text-uppercase">S'inscrire à notre Newsletter !</a>
+                            <button type="button" id="open-newsletter-modal" class="btn btn-outline-primary text-uppercase">S'inscrire à notre Newsletter !</button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        </main>
 
         <!-- MODAL: Inscription newsletter -->
         <div id="newsletter-modal" class="newsletter-modal" aria-hidden="true">

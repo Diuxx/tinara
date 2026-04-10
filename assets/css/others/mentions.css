@@ -9,7 +9,7 @@
 .mentions-block {
     margin-bottom: 48px;
     padding-bottom: 40px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: var(--border-soft);
 }
 
 .mentions-block:last-child {
@@ -28,7 +28,7 @@
 
 .mentions-block p,
 .mentions-block li {
-    color: #444;
+    color: var(--color-text-legal);
     line-height: 1.75;
 }
 

@@ -11,14 +11,14 @@
 }
 
 .aider-link-card {
-    padding: 24px 18px;
+    padding: var(--space-8) 18px;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
     color: var(--bs-body-color);
 }
 
 .aider-link-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 44px rgba(74, 64, 58, 0.12);
+    box-shadow: var(--shadow-card-hover);
 }
 
 .aider-link-icon {
@@ -52,7 +52,7 @@
 
 .aider-photo-contain {
     object-fit: contain;
-    background: #fff;
+    background: var(--color-white);
     padding: 18px;
 }
 

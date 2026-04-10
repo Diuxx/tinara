@@ -2,28 +2,104 @@
 
 :root {
 
-    /* couleurs principales */
+    /* Couleurs - marque */
     --bs-primary: #008678;
-    --bs-secondary: #DF875C;
+    --bs-secondary: #df875c;
     --bs-success: #008678;
-    --bs-warning: #FDB370;
-    --bs-danger: #C15500;
+    --bs-warning: #fdb370;
+    --bs-danger: #c15500;
 
-    --app-bg-light: #FFF6EF;
+    /* Couleurs - interface */
+    --bs-body-bg: #f3e6da;
+    --bs-body-color: #4a403a;
+    --app-bg-light: #fff6ef;
+    --tag-color: #4a403a;
+    --tag-bg: #f3e6da;
 
-    --tag-color: #4A403A;
-    --tag-bg: #F3E6DA;
+    --color-white: #fff;
+    --color-text-muted: #625953;
+    --color-text-soft: #64584f;
+    --color-text-legal: #444;
+    --color-info-bg: #eef7ff;
+    --color-info-border: #b9dcff;
+    --color-info-text: #1f2d3d;
+    --color-surface-alt: #f6f1eb;
+    --color-overlay: rgba(0, 0, 0, 0.55);
+    --color-overlay-soft: rgba(0, 0, 0, 0.14);
+    --color-white-92: rgba(255, 255, 255, 0.92);
+    --color-white-85: rgba(255, 255, 255, 0.85);
+    --color-white-40: rgba(255, 255, 255, 0.4);
+    --color-primary-focus: rgba(223, 135, 92, 0.45);
+    --color-faq-separator: rgba(74, 64, 58, 0.12);
+    --color-faq-body: rgba(74, 64, 58, 0.92);
 
-    /* couleurs interface */
-    --bs-body-bg: #F3E6DA;
-    --bs-body-color: #4A403A;
+    /* Dégradés */
+    --gradient-hero-home: linear-gradient(
+        90deg,
+        rgba(74, 64, 58, 0.7) 0%,
+        rgba(74, 64, 58, 0.48) 32%,
+        rgba(74, 64, 58, 0.2) 58%,
+        rgba(74, 64, 58, 0.04) 76%,
+        rgba(74, 64, 58, 0) 100%
+    );
+    --gradient-hero-inner: linear-gradient(
+        120deg,
+        rgba(74, 64, 58, 0.72) 0%,
+        rgba(74, 64, 58, 0.52) 52%,
+        rgba(74, 64, 58, 0.35) 100%
+    );
+    --gradient-map-overlay: linear-gradient(
+        rgba(243, 230, 218, 0.94),
+        rgba(243, 230, 218, 0.94)
+    );
 
-    /* boutons */
-    --bs-btn-border-radius: 8px;
+    /* Rayons */
+    --radius-pill: 999px;
+    --radius-round: 50%;
+    --radius-sm: 8px;
+    --radius-md: 10px;
+    --radius-lg: 12px;
+    --radius-xl: 14px;
+    --radius-2xl: 16px;
+    --radius-section-top: 24px 24px 0 0;
 
-    /* autres variables */
+    /* Espacements */
+    --space-1: 6px;
+    --space-2: 8px;
+    --space-3: 10px;
+    --space-4: 12px;
+    --space-5: 16px;
+    --space-6: 20px;
+    --space-7: 22px;
+    --space-8: 24px;
+    --space-9: 28px;
 
-    --img-border-radius: 12px;
+    /* Typographie */
+    --fs-xs: 0.75rem;
+    --fs-sm: 0.95rem;
+    --fs-md: 1rem;
+    --fs-lg: 1.15rem;
+
+    /* Bordures */
+    --border-subtle: 1px solid rgba(74, 64, 58, 0.08);
+    --border-soft: 1px solid rgba(0, 0, 0, 0.08);
+    --border-accent-soft: 1px solid rgba(223, 135, 92, 0.3);
+    --border-primary-soft: 1px solid rgba(0, 134, 120, 0.18);
+
+    /* Ombres */
+    --shadow-nav: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-card: 0 16px 40px rgba(74, 64, 58, 0.08);
+    --shadow-card-hover: 0 20px 44px rgba(74, 64, 58, 0.12);
+    --shadow-news: 0 10px 25px rgba(0, 0, 0, 0.08);
+    --shadow-news-hover: 0 8px 24px rgba(0, 0, 0, 0.13);
+    --shadow-fab: 0 12px 28px rgba(74, 64, 58, 0.18);
+    --shadow-fab-hover: 0 16px 32px rgba(74, 64, 58, 0.22);
+    --shadow-dialog: 0 18px 50px rgba(0, 0, 0, 0.28);
+    --shadow-float-btn: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+    /* Compat héritée */
+    --bs-btn-border-radius: var(--radius-sm);
+    --img-border-radius: var(--radius-lg);
 }
 
 .btn-primary {
@@ -39,7 +115,6 @@
 }
 
 .btn-outline-primary {
-    /* --bs-btn-bg: #008678; */
     --bs-btn-border-color: #008678;
     --bs-btn-color: #008678;
 

@@ -1,8 +1,4 @@
 
-.about-page {
-    /* background: var(--app-bg-light); */
-}
-
 .about-heading {
     margin-bottom: 32px;
 }
@@ -30,7 +26,7 @@
 .about-ambition {
   background: var(--app-bg-light);
   border-radius: var(--img-border-radius);
-  padding: 28px;
+    padding: var(--space-9);
 }
 
 .about-intro-card {
@@ -75,6 +71,6 @@
     .about-intro-card,
     .about-text-block,
     .about-ambition {
-        padding: 22px;
+        padding: var(--space-7);
     }
 }

@@ -7,8 +7,8 @@
 
 body {
     font-family: 'Nunito', sans-serif;
-    background: #F3E6DA;
-    color: #4A403A;
+    background: var(--bs-body-bg);
+    color: var(--bs-body-color);
 }
 
 a {
@@ -40,8 +40,8 @@ a {
 
 .navbar-scrolled, .navbar-mobile {
     position: sticky;
-    background: #F3E6DA;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    background: var(--bs-body-bg);
+    box-shadow: var(--shadow-nav);
 }
 
 .navbar-scrolled .nav-link {
@@ -52,14 +52,7 @@ a {
 #homepage .hero {
     height: 100vh;
     background:
-        linear-gradient(
-            90deg,
-            rgba(74, 64, 58, 0.70) 0%,
-            rgba(74, 64, 58, 0.48) 32%,
-            rgba(74, 64, 58, 0.20) 58%,
-            rgba(74, 64, 58, 0.04) 76%,
-            rgba(74, 64, 58, 0) 100%
-        ),
+        var(--gradient-hero-home),
         url("../images/background/petitefille4.png") center right / cover no-repeat;
     background-attachment: scroll, fixed;
     color: var(--bs-body-bg);
@@ -71,7 +64,7 @@ a {
     position: relative;
     z-index: 2;
     margin-top: -60px;
-    border-radius: 24px 24px 0 0;
+    border-radius: var(--radius-section-top);
     background: var(--bs-body-bg);
 }
 
@@ -96,7 +89,7 @@ a {
 /* hero pages internes */
 .mentions-hero {
     background:
-        linear-gradient(120deg, rgba(74, 64, 58, 0.72) 0%, rgba(74, 64, 58, 0.52) 52%, rgba(74, 64, 58, 0.35) 100%),
+        var(--gradient-hero-inner),
         url("../images/background/header.jpg") center / cover no-repeat;
     padding: 160px 0 48px;
     text-align: center;
@@ -107,7 +100,7 @@ a {
 .mentions-hero .section-title {
     font-size: 2.4rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--color-white);
     margin-bottom: 16px;
 }
 
@@ -117,7 +110,7 @@ a {
 
 .mentions-hero .section-intro {
     font-size: 1.05rem;
-    color: rgba(255, 255, 255, 0.92);
+    color: var(--color-white-92);
     max-width: 600px;
     margin: 0 auto;
 }
@@ -181,16 +174,14 @@ a {
     top: 18%;
     bottom: 18%;
     width: 1px;
-    background: rgba(0, 0, 0, 0.14);
+    background: var(--color-overlay-soft);
 }
 
 /* cards */
 
 .action-card {
-    /* todo: voir à positionner les cards sur la carte directement. */
-    /* background: white; */
     padding: 30px;
-    border-radius: 12px;
+    border-radius: var(--radius-lg);
     transition: .3s;
 }
 
@@ -234,7 +225,7 @@ a {
 .parrainage-step {
     background: var(--app-bg-light);
     border-radius: var(--img-border-radius);
-    box-shadow: 0 16px 40px rgba(74, 64, 58, 0.08);
+    box-shadow: var(--shadow-card);
 }
 
 .aider-card,
@@ -300,15 +291,12 @@ a {
 }
 
 #actions {
-    /* background:
-        linear-gradient(rgba(255, 246, 239, 0.92), rgba(255, 246, 239, 0.40)),
-        url("../images/actions/carte.png") center / cover no-repeat; */
 }
 
 /* orphanage section */
 #orphelinat {
     background:
-        linear-gradient(rgba(243, 230, 218, 0.94), rgba(243, 230, 218, 0.94)),
+    var(--gradient-map-overlay),
         url("../images/actions/carte.png") center / cover no-repeat;
 }
 
@@ -317,7 +305,7 @@ a {
 }
 
 .orphanage-media {
-    border-radius: 16px;
+    border-radius: var(--radius-2xl);
     overflow: hidden;
     min-height: 240px;
 }
@@ -350,7 +338,7 @@ a {
 .orphanage-quote-translation {
     font-size: 1.05rem;
     font-style: italic;
-    color: #64584f;
+    color: var(--color-text-soft);
     margin-bottom: 18px;
 }
 
@@ -366,10 +354,10 @@ a {
 }
 
 .actu-card {
-    background: white;
-    border-radius: 16px;
+    background: var(--color-white);
+    border-radius: var(--radius-2xl);
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-news);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
@@ -378,7 +366,7 @@ a {
 
 .actu-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.13);
+    box-shadow: var(--shadow-news-hover);
 }
 
 .actu-card-media {
@@ -427,6 +415,8 @@ a {
 
 .actu-card .card-title {
     color: var(--bs-secondary);
+    font-size: 1.3em;
+    font-weight: 700;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -435,11 +425,11 @@ a {
 
 /* contact */
 .contact-info-banner {
-    background: #eef7ff;
-    border: 1px solid #b9dcff;
-    border-left: 5px solid #008678;
-    color: #1f2d3d;
-    border-radius: 10px;
+    background: var(--color-info-bg);
+    border: 1px solid var(--color-info-border);
+    border-left: 5px solid var(--bs-primary);
+    color: var(--color-info-text);
+    border-radius: var(--radius-md);
     padding: 12px 14px;
     margin: 0 0 16px;
     font-size: 0.96rem;
@@ -461,9 +451,9 @@ a {
 .article-return-zone {
     margin-top: 28px;
     padding: 18px;
-    border-radius: 14px;
-    background: #f6f1eb;
-    border: 1px solid rgba(0, 134, 120, 0.18);
+    border-radius: var(--radius-xl);
+    background: var(--color-surface-alt);
+    border: var(--border-primary-soft);
 }
 
 .article-return-zone .btn {
@@ -479,11 +469,11 @@ a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     background: var(--bs-primary);
-    color: #fff;
+    color: var(--color-white);
     text-decoration: none;
-    box-shadow: 0 12px 28px rgba(74, 64, 58, 0.18);
+    box-shadow: var(--shadow-fab);
     transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
     z-index: 1000;
     opacity: 0;
@@ -500,14 +490,14 @@ a {
 }
 
 .back-to-top:hover {
-    background: #006e63;
-    color: #fff;
+    background: var(--bs-btn-hover-bg);
+    color: var(--color-white);
     transform: translateY(-2px);
-    box-shadow: 0 16px 32px rgba(74, 64, 58, 0.22);
+    box-shadow: var(--shadow-fab-hover);
 }
 
 .back-to-top:focus-visible {
-    outline: 3px solid rgba(223, 135, 92, 0.45);
+    outline: 3px solid var(--color-primary-focus);
     outline-offset: 3px;
 }
 
@@ -523,7 +513,7 @@ a {
 /* footer */
 .footer {
     background: var(--bs-primary);
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--color-white-85);
     padding: 48px 60px;
 }
 
@@ -544,8 +534,8 @@ a {
 
 .footer-brand img {
     padding: 8px;
-    background-color: rgba(255, 255, 255, 0.4);
-    border-radius: 50%;
+    background-color: var(--color-white-40);
+    border-radius: var(--radius-round);
 }
 
 .footer-tagline {
@@ -570,7 +560,7 @@ a {
 }
 
 .footer-links a {
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--color-white-85);
     text-decoration: none;
     font-size: 14px;
     font-weight: 600;
@@ -580,7 +570,7 @@ a {
 }
 
 .footer-links a:hover {
-    color: #fff;
+    color: var(--color-white);
 }
 
 .footer-copy {
@@ -590,7 +580,3 @@ a {
     text-align: right;
 }
 
-.actu-card .card-title {
-    font-size: 1.3em;
-    font-weight: 700;
-}
