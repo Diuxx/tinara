@@ -1,166 +1,149 @@
-/**
- * NAVBAR
- */
-const navbar = document.getElementById("navbar");
-
-window.addEventListener("scroll", function () {
-
-    if (navbar && window.scrollY > 50) {
-        navbar.classList.add("navbar-scrolled");
-    }
-    else if (navbar) {
-        navbar.classList.remove("navbar-scrolled");
-    }
-
-});
-
-/**
- * BACK TO TOP
- */
-
+const NAVBAR_SCROLL_THRESHOLD = 50;
 const BACK_TO_TOP_THRESHOLD = 120;
-let backToTopButton = document.querySelector('.back-to-top');
 
-if (!backToTopButton) {
-    backToTopButton = document.createElement('a');
-    backToTopButton.href = '#top';
-    backToTopButton.className = 'back-to-top';
-    backToTopButton.setAttribute('aria-label', 'Revenir en haut de la page');
-    backToTopButton.innerHTML = '<i class="fa-solid fa-arrow-up" aria-hidden="true"></i>';
-    document.body.appendChild(backToTopButton);
+function initNavbarScroll() {
+    const navbar = document.getElementById('navbar');
+    if (!navbar) return;
+
+    const handleNavbarScroll = () => {
+        navbar.classList.toggle('navbar-scrolled', window.scrollY > NAVBAR_SCROLL_THRESHOLD);
+    };
+
+    handleNavbarScroll();
+    window.addEventListener('scroll', handleNavbarScroll, { passive: true });
 }
 
-const toggleBackToTopVisibility = () => {
-    if (!backToTopButton) return;
+function initBackToTop() {
+    let backToTopButton = document.querySelector('.back-to-top');
 
-    const isVisible = window.scrollY > BACK_TO_TOP_THRESHOLD;
-    backToTopButton.classList.toggle('is-visible', isVisible);
-};
+    if (!backToTopButton) {
+        backToTopButton = document.createElement('a');
+        backToTopButton.href = '#top';
+        backToTopButton.className = 'back-to-top';
+        backToTopButton.setAttribute('aria-label', 'Revenir en haut de la page');
+        backToTopButton.innerHTML = '<i class="fa-solid fa-arrow-up" aria-hidden="true"></i>';
+        document.body.appendChild(backToTopButton);
+    }
 
-if (backToTopButton) {
+    const toggleVisibility = () => {
+        const isVisible = window.scrollY > BACK_TO_TOP_THRESHOLD;
+        backToTopButton.classList.toggle('is-visible', isVisible);
+    };
+
     backToTopButton.addEventListener('click', (event) => {
         event.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    toggleBackToTopVisibility();
-    window.addEventListener('scroll', toggleBackToTopVisibility, { passive: true });
+    toggleVisibility();
+    window.addEventListener('scroll', toggleVisibility, { passive: true });
 }
 
-/**
- * COMPTEUR
- */
+function initCounters() {
+    const counters = document.querySelectorAll('.stat-number');
+    if (counters.length === 0 || !window.IntersectionObserver) return;
 
-const counters = document.querySelectorAll('.stat-number');
+    const startCounter = (counter) => {
+        const target = Number(counter.getAttribute('data-target') || 0);
+        let value = 0;
+        const step = Math.max(target / 100, 1);
 
-const startCounter = (counter) => {
+        const update = () => {
+            value += step;
 
-    const target = +counter.getAttribute('data-target');
-    let count = 0;
+            if (value < target) {
+                counter.innerText = String(Math.ceil(value));
+                requestAnimationFrame(update);
+            } else {
+                counter.innerText = String(target);
+            }
+        };
 
-    const speed = target / 100;
+        update();
+    };
 
-    const update = () => {
+    const observer = new IntersectionObserver((entries, observerRef) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
 
-        count += speed;
-
-        if (count < target) {
-            counter.innerText = Math.ceil(count);
-            requestAnimationFrame(update);
-        } else {
-            counter.innerText = target;
-        }
-
-    }
-
-    update();
-}
-
-
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
             startCounter(entry.target);
-            observer.unobserve(entry.target);
-        }
-    })
-}, { threshold: 0.6 });
+            observerRef.unobserve(entry.target);
+        });
+    }, { threshold: 0.6 });
 
+    counters.forEach((counter) => observer.observe(counter));
+}
 
-counters.forEach(counter => {
-    observer.observe(counter);
-});
+function initNewsletterModal() {
+    const openBtn = document.getElementById('open-newsletter-modal');
+    const modal = document.getElementById('newsletter-modal');
+    const closeElements = document.querySelectorAll('[data-close-newsletter]');
+    if (!openBtn || !modal) return;
 
-/**
- * NEWSLETTER MODAL
- */
+    const openModal = () => {
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('newsletter-open');
+    };
 
-const newsletterOpenBtn = document.getElementById('open-newsletter-modal');
-const newsletterModal = document.getElementById('newsletter-modal');
-const newsletterCloseElements = document.querySelectorAll('[data-close-newsletter]');
+    const closeModal = () => {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('newsletter-open');
+    };
 
-const openNewsletterModal = () => {
-    if (!newsletterModal) return;
-
-    newsletterModal.classList.add('is-open');
-    newsletterModal.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('newsletter-open');
-};
-
-const closeNewsletterModal = () => {
-    if (!newsletterModal) return;
-
-    newsletterModal.classList.remove('is-open');
-    newsletterModal.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('newsletter-open');
-};
-
-if (newsletterOpenBtn && newsletterModal) {
-    newsletterOpenBtn.addEventListener('click', (event) => {
+    openBtn.addEventListener('click', (event) => {
         event.preventDefault();
-        openNewsletterModal();
+        openModal();
     });
 
-    newsletterCloseElements.forEach((element) => {
-        element.addEventListener('click', closeNewsletterModal);
+    closeElements.forEach((element) => {
+        element.addEventListener('click', closeModal);
     });
 
     document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && newsletterModal.classList.contains('is-open')) {
-            closeNewsletterModal();
+        if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+            closeModal();
         }
     });
 }
 
-/**
- * DONS MODAL
- */
+// Reusable modal launcher used by donation and sponsorship pages.
+function initEmbeddedDonationModal() {
+    const modalElement = document.getElementById('don-modal');
+    const iframe = document.getElementById('don-modal-iframe');
+    const title = document.getElementById('don-modal-title');
+    const triggers = document.querySelectorAll('[data-open-don-modal]');
 
-const donationModalElement = document.getElementById('don-modal');
-const donationModalIframe = document.getElementById('don-modal-iframe');
-const donationModalTitle = document.getElementById('don-modal-title');
-const donationModalTriggers = document.querySelectorAll('[data-open-don-modal]');
+    if (!modalElement || !iframe || !title || triggers.length === 0 || !window.bootstrap?.Modal) {
+        return;
+    }
 
-if (donationModalElement && donationModalIframe && donationModalTitle && donationModalTriggers.length > 0 && window.bootstrap?.Modal) {
-    const donationModal = new bootstrap.Modal(donationModalElement);
+    const modalInstance = new bootstrap.Modal(modalElement);
 
-    donationModalTriggers.forEach((trigger) => {
+    triggers.forEach((trigger) => {
         trigger.addEventListener('click', (event) => {
             event.preventDefault();
 
             const targetUrl = trigger.getAttribute('data-don-url');
             const targetTitle = trigger.getAttribute('data-don-title') || 'Faire un don';
-
             if (!targetUrl) return;
 
-            donationModalTitle.textContent = targetTitle;
-            donationModalIframe.title = targetTitle;
-            donationModalIframe.src = targetUrl;
-            donationModal.show();
+            title.textContent = targetTitle;
+            iframe.title = targetTitle;
+            iframe.src = targetUrl;
+            modalInstance.show();
         });
     });
 
-    donationModalElement.addEventListener('hidden.bs.modal', () => {
-        donationModalIframe.src = 'about:blank';
+    // Reset iframe on close to stop background media/network activity.
+    modalElement.addEventListener('hidden.bs.modal', () => {
+        iframe.src = 'about:blank';
     });
 }
+
+initNavbarScroll();
+initBackToTop();
+initCounters();
+initNewsletterModal();
+initEmbeddedDonationModal();

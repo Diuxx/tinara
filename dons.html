@@ -86,6 +86,7 @@
 		<!-- CONTENU -->
 		<section class="section dons-page">
 			<div class="container dons-container d-flex flex-column gap-4">
+				<!-- SECTION: Choix du type de don -->
 				<div class="dons-card">
 					<h2 class="section-title">Choisir son type de don</h2>
 					<div class="row g-4">
@@ -100,16 +101,18 @@
 							<div class="dons-option h-100">
 								<h3>Don mensuel</h3>
 								<p>Permet d’apporter de la stabilité au projet et d'agir sur le long terme.</p>
-							<a class="btn btn-primary" href="mensuel.html" data-open-don-modal data-don-url="https://www.helloasso.com/associations/tinara-association/formulaires/2/widget" data-don-title="Mettre en place un don mensuel">Mettre en place un don mensuel</a>
+								<a class="btn btn-primary" href="mensuel.html" data-open-don-modal data-don-url="https://www.helloasso.com/associations/tinara-association/formulaires/2/widget" data-don-title="Mettre en place un don mensuel">Mettre en place un don mensuel</a>
 							</div>
 						</div>
 					</div>
+					<!-- SECTION: Call-to-action parrainage -->
 					<div class="mt-4 p-3 p-md-4 dons-option text-center">
 						<p class="mb-3 fw-semibold">Avez-vous pensé au parrainage ?</p>
 						<a class="btn btn-secondary" href="parrainage.html">Découvrir le parrainage</a>
 					</div>
 				</div>
 
+				<!-- SECTION: Informations complémentaires -->
 				<div class="dons-card">
 					<h2 class="section-title">Besoin d’informations ?</h2>
 					<p>Notre équipe peut vous guider selon votre situation (type de don, fréquence, modalités de paiement).</p>
@@ -121,11 +124,12 @@
 			</div>
 		</section>
 
+		<!-- MODAL: Formulaire HelloAsso intégré -->
 		<div class="modal fade" id="don-modal" tabindex="-1" aria-labelledby="don-modal-title" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered modal-xl modal-fullscreen-md-down">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h2 class="modal-title fs-5" id="don-modal-title">Faire un don</h2>
+						<h2 class="modal-title fs-5 tinara-modal-title" id="don-modal-title">Faire un don</h2>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
 					</div>
 					<div class="modal-body p-0">

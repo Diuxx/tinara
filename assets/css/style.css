@@ -446,6 +446,11 @@ a {
     line-height: 1.45;
 }
 
+.tinara-modal-title {
+    color: var(--bs-primary);
+    font-weight: 700;
+}
+
 .social {
     display: flex;
     justify-content: center;
