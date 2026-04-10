@@ -176,6 +176,10 @@
   }
 
   .hero-cta .btn-decouvrir::after {
+    content: "Don";
+  }
+
+  .index-hero-cta .btn-decouvrir::after {
     content: "Decouvrir";
   }
 

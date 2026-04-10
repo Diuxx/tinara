@@ -453,6 +453,18 @@ a {
     margin-bottom: 1rem;
 }
 
+.article-return-zone {
+    margin-top: 28px;
+    padding: 18px;
+    border-radius: 14px;
+    background: #f6f1eb;
+    border: 1px solid rgba(0, 134, 120, 0.18);
+}
+
+.article-return-zone .btn {
+    min-width: 220px;
+}
+
 .back-to-top {
     position: fixed;
     right: 24px;
