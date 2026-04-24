@@ -179,6 +179,33 @@ a {
 
 /* cards */
 
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* Écran moyen : 3 colonnes */
+@media (max-width: 1200px) {
+  .actions-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablette : 2 colonnes */
+@media (max-width: 768px) {
+  .actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile : 1 colonne */
+@media (max-width: 520px) {
+  .actions-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .action-card {
     padding: 30px;
     border-radius: var(--radius-lg);
@@ -187,6 +214,7 @@ a {
     overflow: hidden; /* pour arrondis propres */
     background: #fffbf7;
     border: 1px solid #efe3d8;
+    text-align: center;
 
 }
 
@@ -221,6 +249,14 @@ a {
     transform: scale(1.05);
 }
 
+.action-card h4 {
+margin-bottom: 20px;
+    color: var(--bs-primary);
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
 /* icons */
 
 .icon {
@@ -313,8 +349,6 @@ a {
     font-weight: 800;
 }
 
-#actions {
-}
 
 /* orphanage section */
 
@@ -365,7 +399,7 @@ a {
     margin-bottom: 10px;
 }
 .orphelinat-text {
-  text-align: left;
+  text-align: justify;
   max-width: 680px;
   margin: 0 auto;
 }
@@ -373,6 +407,7 @@ a {
 .orphelinat-text p {
   line-height: 1.8;
   margin-bottom: 1.2rem;
+  text-align: justify;
 }
 
 .orphelinat-text ul {
@@ -430,7 +465,7 @@ a {
     background-color: var(--app-bg-light);
     flex: 1;
     padding: 20px;
-    text-align: left;
+    text-align: justify;
     gap: 5px;
 }
 
@@ -448,6 +483,7 @@ a {
     margin-left: auto;
     z-index: 10;
     width: fit-content; 
+    
 }
 
 .actu-card .card-title {
