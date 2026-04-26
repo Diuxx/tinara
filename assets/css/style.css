@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Nunito', sans-serif;
-    background: var(--bs-body-bg);
+    background: var(--app-bg-light);
     color: var(--bs-body-color);
 }
 
@@ -27,10 +27,25 @@ a {
     width: 100%;
 }
 
+.navbar-nav {
+    display: flex;
+    flex-direction: column !important;
+    gap: 12px;
+}
+
+.navbar-nav .navbar-nav-inner {
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-nav .navbar-nav-inner.btn {
+    gap: 8px;
+}
+
 .nav-link {
     color: var(--bs-body-bg);
     font-weight: 800;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .nav-link:hover, 
@@ -53,7 +68,7 @@ a {
     height: 100vh;
     background:
         var(--gradient-hero-home),
-        url("../images/background/petitefille4.png") center right / cover no-repeat;
+        url("../images/background/petitefille4.png") center 89%  / cover no-repeat;
     background-attachment: scroll, fixed;
     color: var(--bs-body-bg);
     position: relative;
@@ -65,12 +80,12 @@ a {
     z-index: 2;
     margin-top: -60px;
     border-radius: var(--radius-section-top);
-    background: var(--bs-body-bg);
+    background: var(--app-bg-light);
 }
 
 .hero h1 {
     font-size: 4rem;
-    font-weight: 800;
+    font-weight: 600;
 }
 
 .hero p {
