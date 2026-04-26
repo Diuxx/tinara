@@ -8,17 +8,23 @@
 @media screen and (max-width: 1275px) {
   /* Hero Section */
   .hero {
-    align-items: center !important;
+    align-items: flex-start !important;
+    padding-top: 15%;
+    /* align-items: center !important; */
     background-position: 70% center !important;
     background-size: 70%;
   }
-  .hero .container {
+  .hero-cta {
+    flex-direction: column;
+    width: fit-content;
+  }
+  /* .hero .container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-top: 20%;
     height: 100%;
-  }
+  } */
 }
 
 @media screen and (max-width: 991px) {
@@ -41,19 +47,26 @@
         rgba(0, 0, 0, 0.48) 34%,
         rgba(0, 0, 0, 0.12) 68%
       ),
-      url("../images/background/petitefille-mobile.png");
+      url("../images/background/de37b1b6-9838-4124-8dc1-4fc0b1d1c3c1.png");
     background-size: cover;
     background-position: 80% center;
     background-repeat: no-repeat;
   }
 
   .hero h1 {
-    font-size: 2.6rem;
+    font-size: 3.4rem;
+    /* font-size: 2.6rem;
     line-height: 1.05;
-    max-width: 52%;
+    max-width: 52%; */
   }
 
-  .hero .container {
+  .hero p {
+    font-size: 1.05rem;
+    line-height: 1.4;
+    max-width: 52%;
+  }s
+
+  /* .hero .container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -62,13 +75,8 @@
     height: 100%;
     margin-left: 0 !important;
     max-width: 56%;
-  }
+  } */
 
-  .hero p {
-    font-size: 1.05rem;
-    line-height: 1.4;
-    max-width: 52%;
-  }
 
   .action-card {
     padding: 10px;
