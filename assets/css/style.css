@@ -77,6 +77,12 @@ a {
     font-size: 24px;
 }
 
+.hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
 .mentions-hero .hero-cta {
     display: none;
 }
@@ -91,7 +97,7 @@ a {
     background:
         var(--gradient-hero-inner),
         url("../images/background/header.jpg") center / cover no-repeat;
-    padding: 160px 0 48px;
+    padding: 160px 0 16px;
     text-align: center;
     height: 400px;
     display: flex;
@@ -120,7 +126,7 @@ a {
 /* sections */
 
 .section {
-    padding: 100px 0;
+    padding: 50px 0;
 }
 
 .section-title {

@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="assets/css/variables.css">
     <link rel="stylesheet" href="assets/css/animations.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/bubbles.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/newsletter-modal.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -56,7 +57,6 @@
             </button>
 
             <div class="collapse navbar-collapse" id="menu">
-
                 <ul class="navbar-nav mx-auto text-uppercase">
                     <li class="nav-item"><a class="nav-link" href="#mission">Notre Mission</a></li>
                     <li class="nav-item"><a class="nav-link" href="#orphelinat">L'orphelinat</a></li>
@@ -67,21 +67,11 @@
                     <li class="nav-item"><a class="nav-link" href="about.html">À propos</a></li>
                     <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
                 </ul>
-
-                <div class="nav-action d-flex gap-2">
-                    <a class="btn btn-primary" href="#soutenir">Je parraine <i class="fa fa-heart"></i></a>
-                    <a class="btn btn-secondary" href="dons.html">Faire un don <i
-                            class="fa fa-hand-holding-heart"></i></a>
-                    <a class="btn btn-other" href="aider.html">Aider autrement <i
-                            class="fa fa-hand-holding-hand"></i></a>
-                </div>
-
             </div>
         </div>
     </nav>
 
     <main>
-
 
         <!-- HERO -->
         <section class="hero d-flex align-items-center">
@@ -100,8 +90,9 @@
                 <div class="mt-4 hero-cta index-hero-cta">
                     <a href="parrainage.html" class="btn btn-primary btn-lg text-uppercase fw-bold btn-parraine">
                         Je parraine <i class="fa fa-heart"></i></a>
-                    <a href="about.html" class="btn btn-secondary btn-lg text-uppercase fw-bold btn-decouvrir">Découvrir
-                        le projet <i class="fa fa-search"></i></a>
+                    <a href="about.html" class="btn btn-secondary btn-lg text-uppercase fw-bold btn-decouvrir">
+                        Découvrir <i class="fa fa-search"></i>
+                    </a>
                     <a href="aider.html" class="btn btn-other btn-lg text-uppercase fw-bold btn-help">
                         Aider autrement <i class="fa fa-hand-holding-hand"></i></a>
                 </div>
@@ -435,6 +426,20 @@
         </div>
     </div>
 
+    <div class="floating-bubbles">
+		<a class="bubble bubble-primary" href="parrainage.html">
+			<i class="fa fa-heart"></i>
+			<span class="bubble-label">Je parraine</span>
+		</a>
+		<a class="bubble bubble-secondary" href="dons.html">
+			<i class="fa fa-hand-holding-heart"></i>
+			<span class="bubble-label">Faire un don</span>
+		</a>
+		<a class="bubble bubble-other" href="aider.html">
+			<i class="fa fa-hand-holding-hand"></i>
+			<span class="bubble-label">Aider autrement</span>
+		</a>
+	</div>
 
     <!-- FOOTER -->
     <footer class="footer">
