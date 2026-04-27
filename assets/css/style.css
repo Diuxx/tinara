@@ -27,10 +27,25 @@ a {
     width: 100%;
 }
 
+.navbar-nav {
+    display: flex;
+    flex-direction: column !important;
+    gap: 12px;
+}
+
+.navbar-nav .navbar-nav-inner {
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-nav .navbar-nav-inner.btn {
+    gap: 8px;
+}
+
 .nav-link {
     color: var(--bs-body-bg);
     font-weight: 800;
-    font-size: 23px;
+    font-size: 15px;
 }
 
 .nav-link:hover, 
