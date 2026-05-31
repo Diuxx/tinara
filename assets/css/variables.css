@@ -10,11 +10,14 @@
     --bs-danger: #c15500;
 
     /* Couleurs - interface */
-    --bs-body-bg: #F7EFE6;
+    --bs-body-bg: #F0FAF3;
     --bs-body-color: #4a403a;
-    --app-bg-light: #fff6ef;
+    --app-bg-light: #F8FDF9;
     --tag-color: #4a403a;
-    --tag-bg: #F7EFE6;
+    --tag-bg: #F0FAF3;
+    --color-card-bg: #E3F5E8;     
+    --color-card-border: #D4EDE7;  
+    --color-bubble-other: #e6b800;
 
     --color-white: #fff;
     --color-text-muted: #625953;
@@ -23,7 +26,7 @@
     --color-info-bg: #eef7ff;
     --color-info-border: #b9dcff;
     --color-info-text: #1f2d3d;
-    --color-surface-alt: #f6f1eb;
+    --color-surface-alt: #E3F5E8;
     --color-overlay: rgba(0, 0, 0, 0.55);
     --color-overlay-soft: rgba(0, 0, 0, 0.14);
     --color-white-92: rgba(255, 255, 255, 0.92);
@@ -49,8 +52,8 @@
         rgba(74, 64, 58, 0.35) 100%
     );
     --gradient-map-overlay: linear-gradient(
-        rgba(243, 230, 218, 0.94),
-        rgba(243, 230, 218, 0.94)
+        rgba(242, 249, 247, 0.94),
+        rgba(242, 249, 247, 0.94)
     );
 
     /* Rayons */

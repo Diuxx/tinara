@@ -68,9 +68,31 @@
 }
 
 @media (max-width: 992px) {
+    .about-card,
     .about-intro-card,
     .about-text-block,
     .about-ambition {
         padding: var(--space-7);
     }
+}
+
+@media (max-width: 810px) {
+    .about-card,
+    .about-intro-card,
+    .about-text-block,
+    .about-ambition {
+        padding: var(--space-6); /* 20px — plus respirable sur mobile */
+    }
+    .about-intro-card {
+        margin-bottom: 20px; /* réduit depuis 36px */
+    }
+    .about-story {
+        margin-bottom: 20px; /* réduit depuis 36px */
+    }
+}
+
+.about-card p,
+.about-text-block p,
+.about-ambition p {
+    text-align: justify;
 }

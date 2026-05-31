@@ -1,0 +1,260 @@
+/* ============================================================
+   TINARA — intro-animation.css
+   Contenu : UNIQUEMENT effets visuels (lumière, polices, hover)
+   Aucun changement de layout, position, taille ou z-index
+   qui pourrait entrer en conflit avec style.css / responsive.css
+   ============================================================ */
+
+/* ── 1. TYPOGRAPHIE PREMIUM ─────────────────────────────────
+   Import Google Fonts dans le CSS (alternative à l'import HTML)
+   ---------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body:    'DM Sans', sans-serif;
+  --ease-emerge:  cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-hover:   cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Corps du texte */
+body {
+  font-family: var(--font-body) !important;
+}
+
+/* Titres uniquement — on ne touche pas aux tailles ni positions */
+h1, h2, h3,
+.hero h1,
+.section-title,
+.programme-title,
+.actu-card .card-title {
+  font-family: var(--font-display) !important;
+}
+
+/* Le span italic dans le hero (pour "pour les enfants de Kigoma") */
+.hero h1 span {
+  font-style: italic;
+  font-weight: 300;
+}
+
+/* ── 2. PORTAIL D'OUVERTURE ─────────────────────────────────
+   Uniquement les panneaux d'intro — z-index très élevé,
+   position fixed, aucun impact sur le layout du site
+   ---------------------------------------------------------- */
+#tinara-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.intro-panel {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  will-change: transform;
+  transition: transform 1.4s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.intro-panel--left {
+  left: 0;
+  background: linear-gradient(135deg, var(--bs-body-bg, #FDFAF4) 0%, #F5F0E8 100%);
+  box-shadow: 2px 0 30px rgba(0,0,0,0.06);
+}
+
+.intro-panel--right {
+  right: 0;
+  background: linear-gradient(225deg, var(--bs-body-bg, #FDFAF4) 0%, #F5F0E8 100%);
+  box-shadow: -2px 0 30px rgba(0,0,0,0.06);
+}
+
+#tinara-intro.is-open .intro-panel--left  { transform: translateX(-100%); }
+#tinara-intro.is-open .intro-panel--right { transform: translateX(100%); }
+
+.intro-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(0, 134, 120, 0.18) 0%,
+    rgba(253, 179, 112, 0.10) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  transition: transform 0.6s var(--ease-emerge), opacity 0.6s ease;
+  opacity: 0;
+}
+
+#tinara-intro.is-open .intro-glow {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.intro-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  opacity: 1;
+  transition: opacity 0.3s ease 0.8s;
+  white-space: nowrap;
+}
+
+#tinara-intro.is-open .intro-logo { opacity: 0; }
+
+.intro-logo-text {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 600;
+  color: var(--bs-primary, #008678);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.intro-logo-sub {
+  font-family: var(--font-body);
+  font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+  font-weight: 300;
+  color: var(--bs-body-color, #4a403a);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.intro-line {
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--bs-primary, #008678), transparent);
+}
+
+#tinara-intro.is-done { display: none; }
+
+/* ── 3. EFFETS VISUELS CARTES — aucun changement de taille ──
+   On ajoute seulement ombre et hover plus riches
+   ---------------------------------------------------------- */
+.action-card {
+  box-shadow:
+    0 1px 2px rgba(74, 64, 58, 0.04),
+    0 4px 16px rgba(74, 64, 58, 0.06) !important;
+  transition:
+    transform 0.3s var(--ease-hover),
+    box-shadow 0.3s ease !important;
+}
+
+.action-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow:
+    0 2px 4px rgba(74, 64, 58, 0.04),
+    0 12px 40px rgba(74, 64, 58, 0.12),
+    0 0 0 1px rgba(0, 134, 120, 0.10) !important;
+}
+
+.actu-card {
+  box-shadow:
+    0 1px 2px rgba(74, 64, 58, 0.03),
+    0 6px 24px rgba(74, 64, 58, 0.07) !important;
+  transition:
+    transform 0.3s var(--ease-hover),
+    box-shadow 0.3s ease !important;
+}
+
+.actu-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow:
+    0 2px 4px rgba(74, 64, 58, 0.04),
+    0 16px 48px rgba(74, 64, 58, 0.13) !important;
+}
+
+/* ── 4. NAVBAR FROSTED GLASS au scroll — visuel uniquement ── */
+.navbar-custom.scrolled {
+  backdrop-filter: blur(20px) saturate(1.4) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.4) !important;
+  border-bottom: 1px solid rgba(229, 218, 192, 0.3) !important;
+}
+
+/* ── 5. BOUTONS — shimmer au hover, aucun changement de taille */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after,
+.btn-secondary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255,255,255,0.22) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+  pointer-events: none;
+}
+
+.btn-primary:hover::after,
+.btn-secondary:hover::after {
+  transform: translateX(100%);
+}
+
+/* ── 6. STAT NUMBERS — gradient de texte ───────────────────── */
+.stat-number {
+  background: linear-gradient(135deg, var(--bs-primary, #008678), #00a896);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── 7. SECTION TITLE — underline dégradé ──────────────────── */
+.section-title::after {
+  background: linear-gradient(
+    90deg,
+    var(--bs-primary, #008678),
+    var(--bs-secondary, #df875c)
+  ) !important;
+}
+
+/* ── 8. REDUCED MOTION — accessibilité ─────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  #tinara-intro { display: none !important; }
+}
+
+/* ── 9. FIX POSITIONNEMENT MOBILE ──────────────────────────
+   Isole le portail dans son propre contexte d'empilement
+   pour ne pas perturber les éléments position:absolute du hero
+   ---------------------------------------------------------- */
+#tinara-intro {
+  isolation: isolate;
+}
+
+/* ── 10. BROUILLARD BAS DU HERO ─────────────────────────────
+   Fondu lumineux entre le hero et la première section.
+   Uniquement visuel — pseudo-élément, aucun impact layout.
+   ---------------------------------------------------------- */
+#homepage .hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  background: linear-gradient(
+    to top,
+    var(--app-bg-light, #FFFEF9) 0%,
+    transparent 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}

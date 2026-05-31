@@ -17,7 +17,7 @@ a {
 
 /* navbar */
 
-.navbar-custom {
+/*.navbar-custom {
     background: transparent;
     transition: background 0.3s ease, box-shadow 0.3s ease;
     padding: 15px 40px;
@@ -25,11 +25,11 @@ a {
     top: 0;
     left: 0;
     width: 100%;
-}
+}*/
 
 .navbar-nav {
-    display: flex;
-    flex-direction: column !important;
+    /*display: flex;*/
+   /* flex-direction: column !important;*/
     gap: 12px;
 }
 
@@ -42,10 +42,17 @@ a {
     gap: 8px;
 }
 
+/* Couleur par défaut des menus (Visible sur fond blanc) */
 .nav-link {
-    color: var(--bs-body-bg);
-    font-weight: 800;
-    font-size: 15px;
+    color: #333 !important; 
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 1rem !important;
+    position: relative;
+    transition: all 0.3s ease;
+    border-radius: 4px;
 }
 
 .nav-link:hover, 
@@ -68,7 +75,7 @@ a {
     height: 100vh;
     background:
         var(--gradient-hero-home),
-        url("../images/background/petitefille4.png") center 89%  / cover no-repeat;
+        url("../images/background/petitefille4.png") center 5%  / cover no-repeat;
     background-attachment: scroll, fixed;
     color: var(--bs-body-bg);
     position: relative;
@@ -168,14 +175,14 @@ a {
 
 .img-mission {
     width: 100%;
-    height: 350px;
-    overflow: hidden;
+    height: auto;
+    overflow: visible;
 }
 
 .img-mission img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: unset;
     display: block;
     border-radius: var(--img-border-radius);
 }
@@ -233,8 +240,8 @@ a {
     transition: .3s;
     padding: 0; /* 🔥 important */
     overflow: hidden; /* pour arrondis propres */
-    background: #fffbf7;
-    border: 1px solid #efe3d8;
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-card-border);
     text-align: center;
 
 }
@@ -447,7 +454,7 @@ margin-bottom: 20px;
 }
 
 .actu-card {
-    background: var(--color-white);
+    background: var(--color-card-bg);
     border-radius: var(--radius-2xl);
     overflow: hidden;
     box-shadow: var(--shadow-news);
@@ -554,10 +561,34 @@ margin-bottom: 20px;
     min-width: 220px;
 }
 
+article p {
+    text-align: justify;
+    line-height: 1.8;
+}
+
+.article-intro {
+    text-align: justify;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--bs-body-color);
+}
+
+
+article p,
+.about-card p,
+.about-text-block p,
+.about-ambition p {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    line-height: 1.8;
+}
+
 .back-to-top {
     position: fixed;
     right: 24px;
-    bottom: 24px;
+    bottom: 70px;
     width: 52px;
     height: 52px;
     display: inline-flex;
@@ -584,7 +615,7 @@ margin-bottom: 20px;
 }
 
 .back-to-top:hover {
-    background: var(--bs-btn-hover-bg);
+    /*background: var(--bs-btn-hover-bg);*/
     color: var(--color-white);
     transform: translateY(-2px);
     box-shadow: var(--shadow-fab-hover);
@@ -682,7 +713,7 @@ margin-bottom: 20px;
 
 /* bloc coût 🔥 */
 .budget-highlight {
-  background: #F3E6DA;
+  background: var(--color-surface-alt);
   border-radius: 16px;
   padding: 20px;
   margin: 25px 0;
@@ -706,4 +737,218 @@ margin-bottom: 20px;
 
 .budget-highlight {
   border: 3px solid #008678;
+}
+
+
+/* --- Menu Totalement Transparent au chargement --- */
+.navbar-custom {
+    background-color: transparent !important;
+    background: none !important; /* Supprime tout dégradé ou image de fond */
+    backdrop-filter: none !important; /* Supprime l'effet de flou gris */
+    box-shadow: none !important; /* Supprime l'ombre qui peut assombrir */
+    transition: all 0.3s ease-in-out;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+/* --- Style quand on scrolle (devient blanc propre) --- */
+.navbar-custom.scrolled {   
+    background-color: var(--bs-body-bg) !important;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1) !important;
+    padding: 10px 0;
+}
+
+/* --- Liens : Blancs sur l'image, sombres au scroll --- */
+.navbar-custom .nav-link {
+    color: #ffffff !important;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* Optionnel : aide à lire si l'image est claire */
+}
+
+.navbar-custom.scrolled .nav-link {
+    color: #333333 !important;
+    text-shadow: none;
+}
+
+
+/* Groupement des boutons CTA */
+.nav-cta-group .btn {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 11px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Style spécifique pour AIDER AUTREMENT (Bouton Noir/Brun) */
+.nav-cta-group a.btn-outline-dark {
+    background-color: #352d28 !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+
+/* Effet Hover Noir */
+.nav-cta-group a.btn-outline-dark:hover {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+}
+
+/* Effet translateY */
+.nav-cta-group a.btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+.nav-cta-group a.btn-secondary:hover {
+    transform: translateY(-2px);
+}
+
+/* --- Effets sur les liens du menu --- */
+.navbar-nav .nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    font-size: 11px;
+}
+
+/* Background vert au survol */
+.navbar-nav .nav-link:hover {
+    background-color: var(--bs-primary) !important;
+    color: #fff !important;
+}
+
+/* État Actif : Soulignement vert */
+/* Note : La classe 'active' est ajoutée par JS ou manuellement sur le lien de la page courante */
+.navbar-nav .nav-link.active::after {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    left: 15%;
+    width: 70%;
+    height: 3px;
+    background-color: var(--bs-primary);
+    border-radius: 2px;
+}
+
+/* Éviter le soulignement sur les boutons CTA */
+.nav-cta-group .btn.active::after {
+    display: none;
+}
+
+/* --- Animations d'apparition au scroll --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation du texte de la bannière */
+#dynamic-text {
+    display: inline-block;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#dynamic-text.fade-out {
+    opacity: 0;
+    transform: translateY(10px); /* Petit effet de descente en disparaissant */
+}
+
+/* Force l'apparition immédiate sur mobile si l'effet pose problème */
+@media (max-width: 768px) {
+    .reveal {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+}
+
+
+/* --- STYLE COMMUN Sticky CTA --- */
+.btn-parraine { background-color: #008080 !important; }
+.btn-don { background-color: #e68a5c !important; }
+
+/* --- VERSION PC (Côté droit) --- */
+.sticky-pc-actions {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1050;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sticky-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 12px 15px;
+    color: white !important;
+    text-decoration: none !important;
+    font-weight: bold;
+    border-radius: 30px 0 0 30px;
+    transition: all 0.3s ease;
+    width: 50px; /* Ne montre que l'icône */
+    overflow: hidden;
+    white-space: nowrap;
+    box-shadow: -2px 5px 15px rgba(0,0,0,0.1);
+}
+
+.sticky-btn span {
+    margin-right: 15px;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.sticky-btn:hover {
+    width: 180px; /* Déroule le texte au survol */
+}
+
+.sticky-btn:hover span {
+    opacity: 1;
+}
+
+/* --- VERSION MOBILE (Barre en bas) --- */
+.sticky-mobile-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    z-index: 2000; /* Très haut pour être au-dessus de tout */
+    box-shadow: 0 -2px 15px rgba(0,0,0,0.2);
+}
+
+.mobile-sticky-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white !important;
+    text-decoration: none !important;
+    font-weight: bold;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+/* Petit effet de séparation au milieu sur mobile */
+.mobile-sticky-btn:first-child {
+    border-right: 1px solid rgba(255,255,255,0.2);
 }

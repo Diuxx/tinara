@@ -27,83 +27,117 @@
   } */
 }
 
-
-@media (max-width: 1377px) {
-  .navbar-expand-lg .navbar-toggler {
-    display: block;
-  }
-
-  .navbar-expand-lg .navbar-collapse {
-    display: none !important;
-  }
-
-  .navbar-expand-lg .navbar-collapse.show {
-    display: block !important;
-    flex-basis: 100%;
-    flex-grow: 1;
-    align-items: center;
-  }
-
-  .navbar-expand-lg .navbar-nav {
-    flex-direction: column;
-  }
-
-  .navbar-nav .navbar-nav-inner {
-    flex-direction: column !important;
-  }
-
-  .navbar>.container,
-  .navbar>.container-fluid,
-  .navbar>.container-lg,
-  .navbar>.container-md,
-  .navbar>.container-sm,
-  .navbar>.container-xl,
-  .navbar>.container-xxl {
-    display: grid;
-    grid-template-columns: 1fr auto;
-  }
-}
-
 @media screen and (max-width: 1377px) {
   .navbar-custom {
-    background: var(--bs-body-bg);
-    box-shadow: var(--shadow-nav);
-    position: sticky;
+    /* On enlève le background forcé ici pour laisser le JS gérer la transparence */
+    background: transparent !important; 
+    box-shadow: none !important;
+    position: fixed !important;
   }
+  
+  /* On s'assure que les liens restent blancs sur mobile tant qu'on n'a pas scrollé */
   .navbar-custom .nav-link {
-    color: var(--bs-body-color);
+    color: #ffffff !important;
+  }
+
+  /* Si le menu est scrollé sur mobile, il devient blanc */
+  .navbar-custom.scrolled {
+    background: #ffffff !important;
+  }
+  .navbar-custom.scrolled .nav-link {
+    color: #333333 !important;
   }
 }
 
 @media screen and (max-width: 810px) {
+
+ /* Réduction du padding dans les sections et dans le footer*/
+  .section {
+    padding: 32px 0;
+  }
+
+  .footer {
+    padding: 36px 24px;
+  }
+
+  .goals {
+    margin-top: 2.5rem;
+  }
+
+  /* --- Cible uniquement la bannière de l'index via l'ID #homepage --- */
   #homepage .hero {
+    min-height: 100vh;
+    height: auto !important; 
+    padding-top: 140px !important; /* Pousse le texte sous la navbar mobile */
+    padding-bottom: 20px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background:
       linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0.72) 0%,
-        rgba(0, 0, 0, 0.48) 34%,
-        rgba(0, 0, 0, 0.12) 68%
+        rgba(0, 0, 0, 0.6), 
+        rgba(0, 0, 0, 0.4)
       ),
       url("../images/background/petitefille-versionmobile.png");
     background-size: cover;
-    background-position: 80% center;
-    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
   }
 
-  .hero h1 {
-    font-size: 3.0rem;
+  /* On réduit la taille pour éviter que le texte ne prenne tout l'écran */
+  #homepage .hero h1 {
+    font-size: 1.8rem !important; 
     text-align: center;
-    /* font-size: 2.6rem;
-    line-height: 1.05;
-    max-width: 52%; */
+    line-height: 1.2;
+    margin-bottom: 20px;
   }
 
-  .hero p {
-    font-size: 1.2rem;
-    line-height: 1.3;
+  #homepage .hero p {
+    font-size: 1rem !important;
+    line-height: 1.4;
     text-align: center;
+    margin-bottom: 30px;
+  }
 
-  }s
+/* --- Boutons de l'accueil alignés en ligne pour mobile --- */
+#homepage .hero-cta {
+    position: relative !important;
+    bottom: -115px !important;           /* Distance depuis le bas du hero */
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    padding: 0 12px !important;        /* Petite marge sur les bords pour ne pas coller aux côtés */
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+    flex-wrap: nowrap !important;
+    margin-top: 24px !important;    /* espace avec le texte au-dessus */
+    margin-bottom: 80px !important; /* espace au-dessus de la barre sticky du bas */
+}
+
+#homepage .hero-cta .btn {
+    flex: 1 1 0 !important;            /* Chaque bouton prend exactement 1/3 de la largeur totale */
+    min-width: 0 !important;
+    white-space: nowrap !important;    /* On interdit le retour à la ligne */
+    overflow: hidden !important;       /* Si ça déborde quand même, on coupe proprement */
+    text-overflow: ellipsis !important;
+    padding: 12px 6px !important;
+    font-size: 0.62rem !important;     /* Taille lisible maintenant qu'on a toute la largeur */
+    letter-spacing: 0 !important;
+    text-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50px !important;
+}
+
+/* L'icône ne rétrécit jamais, elle est prioritaire sur le texte */
+#homepage .hero-cta .btn i {
+    display: inline-block !important;
+    flex-shrink: 0 !important;
+    margin-left: 4px !important;
+    font-size: 0.7rem !important;
+}
 
   /* .hero .container {
     display: flex;
@@ -194,3 +228,79 @@
 .cust-navbar-toggler-icon::after {
   bottom: 0.35em;
 } */
+
+
+/* Pour fluidité responsive sur mobile */
+
+@media (max-width: 991.98px) {
+    /* Suppression de l'animation de hauteur saccadée de Bootstrap */
+    .collapsing {
+        transition: height 0.3s ease-in-out !important;
+    }
+
+    .navbar-collapse {
+        background: #fff !important;
+        margin-top: 0px; /* On colle au header */
+        padding: 0 20px 20px 20px;
+        border-radius: 0 0 15px 15px; /* Arrondi seulement en bas */
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        max-height: none !important;
+        overflow: hidden !important; /* Force le texte à rester dans le bloc blanc */
+    }
+
+    .navbar-nav {
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 20px;
+    }
+
+    /* Icône X */
+    .navbar-toggler[aria-expanded="true"] .fa-bars::before {
+        content: "\f00d";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+    }
+
+    .nav-cta-group .btn {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 12px;
+    }
+}
+
+
+/* Force le menu en ligne sur PC */
+@media (min-width: 992px) {
+    .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
+    }
+    .navbar-nav {
+        flex-direction: row !important;
+    }
+    .nav-item {
+        border-bottom: none !important;
+    }
+}
+
+
+/* Empêche l'image de la mission d'être coupée */
+.img-mission img, 
+.mission-after-img {
+    width: 100% !important;
+    height: auto !important; 
+    bottom : 1000px !important;
+    object-fit: contain !important;
+    max-height: none !important;
+    border-radius: 15px;
+}
+
+@media screen and (max-width: 991px) {
+    /* Sur mobile, on garde un fond blanc pour la lisibilité du menu principal */
+    .navbar-custom {
+        background-color: #ffffff !important;
+    }
+    .navbar-custom .nav-link {
+        color: #333333 !important;
+    }
+}

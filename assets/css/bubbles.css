@@ -67,5 +67,5 @@
   background: var(--bs-secondary);
 }
 .bubble-other {
-  background: #e6b800;
+  background: var(--color-bubble-other);
 }

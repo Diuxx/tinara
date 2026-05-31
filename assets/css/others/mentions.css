@@ -49,3 +49,15 @@
 .mentions-block ul li {
     margin-bottom: 6px;
 }
+
+
+@media (max-width: 810px) {
+    .mentions-block {
+        margin-bottom: 28px;
+        padding-bottom: 24px;
+    }
+    .mentions-content {
+        padding-top: 28px;
+        padding-bottom: 40px;
+    }
+}
