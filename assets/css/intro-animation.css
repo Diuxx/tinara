@@ -217,12 +217,11 @@ h1, h2, h3,
   background-clip: text;
 }
 
-/* ── 7. SECTION TITLE — underline dégradé ──────────────────── */
+/* ── 7. SECTION TITLE — underline vert uni ──────────────────── */
 .section-title::after {
   background: linear-gradient(
     90deg,
-    var(--bs-primary, #008678),
-    var(--bs-secondary, #df875c)
+    var(--bs-primary, #008678)
   ) !important;
 }
 
@@ -249,7 +248,7 @@ h1, h2, h3,
   bottom: 0;
   left: 0;
   right: 0;
-  height: 140px;
+  height: 30px;
   background: linear-gradient(
     to top,
     var(--app-bg-light, #FFFEF9) 0%,

@@ -42,20 +42,9 @@
 
     <style>
         /*
-         * Harmonisation minime – uniquement deux ajouts purement nouveaux :
-         * 1. Un trait décoratif sous les titres de section (pseudo-élément ::after
-         *    inexistant dans vos CSS externes – aucune propriété existante n'est touchée).
-         * 2. Un outline de focus pour l'accessibilité clavier.
+         * Harmonisation minime : 
+         * Un outline de focus pour l'accessibilité clavier.
          */
-        .section-title::after {
-            content: "";
-            display: block;
-            width: 52px;
-            height: 3px;
-            background: var(--color-primary, #008678);
-            border-radius: 2px;
-            margin: 0.55rem auto 0;
-        }
 
         a:focus-visible,
         button:focus-visible {
