@@ -221,6 +221,41 @@
   .orphanage-content .blockquote h3 {
     font-size: 1.3rem;
   }
+  /* Centrage des images sur mobile/tablette */
+  .about-photo,
+  .orphanage-media,
+  .img-mission img,
+  .programme-image {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  /* Centrage des colonnes contenant des images */
+  .col-12.col-lg-5,
+  .col-12.col-lg-7 {
+      text-align: center;
+  }
+
+  /* Mais on garde le texte justifié dans les blocs texte */
+  .about-text-block,
+  .orphelinat-text,
+  .orphanage-content {
+      text-align: justify;
+  }
+}
+
+@media screen and (max-width: 992px) {
+    .about-photo {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .orphanage-media {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 /* .navbar-toggler {

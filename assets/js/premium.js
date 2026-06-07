@@ -317,5 +317,4 @@ function init() {
   initHeroParallax();
   initScrollHint();
   initMagneticButtons();
-  initCustomCursor();
 }

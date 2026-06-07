@@ -28,7 +28,7 @@ h1, h2, h3,
 .section-title,
 .programme-title,
 .actu-card .card-title {
-  font-family: var(--font-display) !important;
+  font-family: var(--font-body) !important;
 }
 
 /* Le span italic dans le hero (pour "pour les enfants de Kigoma") */

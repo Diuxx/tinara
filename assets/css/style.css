@@ -180,10 +180,12 @@ a {
 }
 
 .img-mission img {
-    width: 100%;
+    width: 55%;
+    max-width: 520px;
     height: auto;
-    object-fit: unset;
+    object-fit: cover;
     display: block;
+    margin: 0 auto;
     border-radius: var(--img-border-radius);
 }
 
