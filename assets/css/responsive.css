@@ -51,6 +51,33 @@
 
 @media screen and (max-width: 810px) {
 
+  /* --- NOUS SOUTENIR : 3 blocs sur une seule ligne, en plus petit --- */
+  #soutenir .row.justify-content-center {
+      flex-wrap: nowrap !important;
+      gap: 12px !important;
+  }
+
+  #soutenir .col-md-3 {
+      flex: 1 1 0 !important;
+      max-width: none !important;
+      width: auto !important;
+      padding-left: 6px !important;
+      padding-right: 6px !important;
+  }
+
+  #soutenir .programme-image {
+      width: 100% !important;
+      max-width: 90px !important;
+      height: 90px !important;
+      margin: 0 auto !important;
+  }
+
+  #soutenir .programme-title {
+      font-size: 0.7rem !important;
+      margin-top: 8px !important;
+      line-height: 1.2;
+  }
+
  /* Réduction du padding dans les sections et dans le footer*/
   .section {
     padding: 32px 0;
@@ -135,20 +162,9 @@
     margin-bottom: 30px;
   }
 
-/* --- Boutons de l'accueil alignés en ligne pour mobile --- */
+ /* --- Boutons de l'accueil alignés en ligne pour mobile ---*/
 #homepage .hero-cta {
-    position: relative !important;
-    bottom: -115px !important;           /* Distance depuis le bas du hero */
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    padding: 0 12px !important;        /* Petite marge sur les bords pour ne pas coller aux côtés */
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 8px !important;
-    flex-wrap: nowrap !important;
-    margin-top: 24px !important;    /* espace avec le texte au-dessus */
-    margin-bottom: 80px !important; /* espace au-dessus de la barre sticky du bas */
+display: none;
 }
 
 #homepage .hero-cta .btn {

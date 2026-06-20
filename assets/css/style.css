@@ -222,19 +222,13 @@ a {
   }
 }
 
-/* Tablette : 2 colonnes */
+/* Tablette ET mobile : 1 colonne (5 lignes) */
 @media (max-width: 768px) {
-  .actions-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Mobile : 1 colonne */
-@media (max-width: 520px) {
   .actions-grid {
     grid-template-columns: 1fr;
   }
 }
+
 
 .action-card {
     padding: 30px;
@@ -520,10 +514,11 @@ margin-bottom: 20px;
     color: var(--bs-secondary);
     font-size: 1.3em;
     font-weight: 700;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
     text-align: center;
+    line-height: 1.3;
 }
 
 /* contact */
@@ -953,4 +948,256 @@ article p,
 /* Petit effet de séparation au milieu sur mobile */
 .mobile-sticky-btn:first-child {
     border-right: 1px solid rgba(255,255,255,0.2);
+}
+
+
+
+/* ===== CARROUSEL ACTUALITÉS ===== */
+
+.actu-carousel {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.actu-carousel-track {
+    display: flex;
+    gap: 34px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    flex: 1 1 auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding: 4px 2px;
+}
+
+.actu-carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+/* PC : 2 cartes visibles → la 3ème oblige à défiler */
+.actu-carousel-item {
+    flex: 0 0 calc(50% - 17px);
+    scroll-snap-align: start;
+}
+
+/* Élément fantôme : même largeur qu'une carte, invisible */
+.actu-carousel-ghost {
+    flex: 0 0 calc(50% - 17px);
+    scroll-snap-align: start;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.actu-carousel-arrow {
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: var(--bs-primary, #008678);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.actu-carousel-arrow:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.actu-carousel-arrow:focus-visible {
+    outline: 3px solid var(--bs-primary, #008678);
+    outline-offset: 3px;
+}
+
+.actu-carousel-item .card-title {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    display: block;
+    line-height: 1.3;
+    font-size: clamp(0.8rem, 2.5vw, 1.3rem);
+}
+
+/* Tablette : 1 carte visible */
+@media screen and (max-width: 810px) {
+    .actu-carousel-item,
+    .actu-carousel-ghost {
+        flex: 0 0 calc(100% - 8px);
+    }
+
+    .actu-carousel-track {
+        gap: 16px;
+    }
+
+    .actu-carousel-arrow {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+
+/* Mobile : 2 cartes côte à côte */
+@media screen and (max-width: 480px) {
+    .actu-carousel-item,
+    .actu-carousel-ghost {
+        flex: 0 0 calc(50% - 6px);
+    }
+
+    .actu-carousel-track {
+        gap: 12px;
+    }
+
+    .actu-card-body {
+        padding: 10px;
+        gap: 2px;
+    }
+
+    .actu-carousel-item .card-title {
+        font-size: 0.85rem;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+        word-break: break-word;
+    }
+
+    .card-info {
+        font-size: 10px;
+        padding: 4px 6px;
+        right: 6px;
+        bottom: 6px;
+        white-space: nowrap;
+        max-width: calc(100% - 12px);
+    }
+
+    .actu-carousel-arrow {
+        width: 32px;
+        height: 32px;
+    }
+
+    .actu-carousel-arrow i {
+        font-size: 0.8rem;
+    }
+}
+
+/* ===== FILTRES ACTUALITÉS ===== */
+.actu-filters {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 32px;
+    border: 2px solid var(--bs-primary);
+    border-radius: 50px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: fit-content;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.actu-filters::-webkit-scrollbar {
+    display: none;
+}
+
+.actu-filter-btn {
+    border: none;
+    border-right: 1px solid var(--bs-primary);
+    background: transparent;
+    color: var(--bs-primary);
+    font-weight: 700;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 10px 22px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border-radius: 0;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.actu-filter-btn:last-child {
+    border-right: none;
+}
+
+.actu-filter-btn:hover {
+    background: color-mix(in srgb, var(--bs-primary) 12%, transparent);
+    color: var(--bs-primary);
+}
+
+.actu-filter-btn.active {
+    background: var(--bs-primary);
+    color: #fff;
+}
+
+.actu-empty {
+    margin-top: 32px;
+    font-style: italic;
+    color: var(--color-text-soft);
+}
+
+.actu-carousel-item.hidden-filter,
+.actu-grid-item.hidden-filter {
+    display: none;
+}
+
+/* Grille filtrée : même taille que les cartes du carrousel */
+#actuGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 34px;
+    text-align: left;
+}
+
+/* Tablette : 2 colonnes */
+@media (max-width: 810px) {
+    #actuGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+}
+
+/* Mobile : 2 colonnes compactes comme le carrousel */
+@media (max-width: 480px) {
+    #actuGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    #actuGrid .actu-card-media {
+        aspect-ratio: 4 / 3;
+    }
+
+    #actuGrid .actu-card-body {
+        padding: 10px;
+    }
+
+    #actuGrid .card-title {
+        font-size: 0.85rem;
+    }
+
+    #actuGrid .card-info {
+        font-size: 10px;
+        padding: 4px 6px;
+        right: 6px;
+        bottom: 6px;
+    }
+
+    /* Filtres mobile : plus compacts */
+    .actu-filter-btn {
+        font-size: 0.65rem;
+        padding: 7px 10px;
+        letter-spacing: 0;
+    }
 }

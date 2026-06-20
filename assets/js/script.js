@@ -349,6 +349,128 @@ function initHeroTextAnimation() {
 }
 
 
+/**
+ * Carrousel "Nos actualités" : défilement automatique + flèches.
+ * Fonctionne sur n'importe quelle page contenant #actuTrack
+ * (ne fait rien si l'élément est absent).
+ */
+function initActuCarousel() {
+    const track = document.getElementById('actuTrack');
+    const prevBtn = document.getElementById('actuPrev');
+    const nextBtn = document.getElementById('actuNext');
+    if (!track) return;
+
+    // Ajoute un élément fantôme à la fin pour que la dernière carte
+    // puisse toujours défiler jusqu'en position visible complète
+    const ghost = document.createElement('div');
+    ghost.className = 'actu-carousel-ghost';
+    track.appendChild(ghost);
+
+    let autoplayTimer = null;
+    const AUTOPLAY_DELAY = 3000;
+
+    function getStepWidth() {
+        const item = track.querySelector('.actu-carousel-item');
+        if (!item) return 0;
+        const trackStyle = getComputedStyle(track);
+        const gap = parseFloat(trackStyle.columnGap || trackStyle.gap || 0);
+        return item.getBoundingClientRect().width + gap;
+    }
+
+    function scrollByStep(direction) {
+        const step = getStepWidth();
+        if (!step) return;
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        let target = track.scrollLeft + step * direction;
+        if (target >= maxScroll - 2) {
+            target = 0;
+        } else if (target < 0) {
+            target = maxScroll;
+        }
+        track.scrollTo({ left: target, behavior: 'smooth' });
+    }
+
+    function startAutoplay() {
+        stopAutoplay();
+        autoplayTimer = setInterval(() => scrollByStep(1), AUTOPLAY_DELAY);
+    }
+
+    function stopAutoplay() {
+        if (autoplayTimer) {
+            clearInterval(autoplayTimer);
+            autoplayTimer = null;
+        }
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => { scrollByStep(-1); startAutoplay(); });
+    }
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => { scrollByStep(1); startAutoplay(); });
+    }
+
+    track.addEventListener('mouseenter', stopAutoplay);
+    track.addEventListener('mouseleave', startAutoplay);
+
+    track.addEventListener('touchstart', stopAutoplay, { passive: true });
+    track.addEventListener('touchend', () => {
+        setTimeout(startAutoplay, 5000);
+    }, { passive: true });
+
+    if (document.readyState === 'complete') {
+        startAutoplay();
+    } else {
+        window.addEventListener('load', startAutoplay);
+    }
+}
+
+function initActuFilter() {
+    const filterBtns = document.querySelectorAll('.actu-filter-btn');
+    const emptyMsg = document.getElementById('actuEmpty');
+    const carouselWrapper = document.getElementById('actuCarouselWrapper');
+    const gridWrapper = document.getElementById('actuGridWrapper');
+    if (filterBtns.length === 0) return;
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filter = btn.getAttribute('data-filter');
+
+            if (filter === 'all') {
+                // Mode carrousel
+                if (carouselWrapper) carouselWrapper.style.display = 'block';
+                if (gridWrapper) gridWrapper.style.display = 'none';
+                if (emptyMsg) emptyMsg.style.display = 'none';
+                const track = document.getElementById('actuTrack');
+                if (track) track.scrollLeft = 0;
+            } else {
+                // Mode grille filtrée
+                if (carouselWrapper) carouselWrapper.style.display = 'none';
+                if (gridWrapper) gridWrapper.style.display = 'block';
+
+                const items = document.querySelectorAll('.actu-grid-item');
+                let visibleCount = 0;
+
+                items.forEach(item => {
+                    if (item.getAttribute('data-category') === filter) {
+                        item.classList.remove('hidden-filter');
+                        visibleCount++;
+                    } else {
+                        item.classList.add('hidden-filter');
+                    }
+                });
+
+                if (emptyMsg) {
+                    emptyMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+                }
+            }
+        });
+    });
+}
+
+
 function updateNavbar() {
     const navbar = document.querySelector('.navbar-custom');
     if (!navbar) return;
@@ -380,3 +502,5 @@ initEmbeddedDonationModal();
 loadComponents();
 initRevealAnimation();
 initHeroTextAnimation();
+initActuCarousel();
+initActuFilter()
