@@ -370,7 +370,7 @@ margin-bottom: 20px;
 .programme-title {
     text-transform: uppercase;
     color: var(--bs-primary);
-    font-weight: 800;
+    font-weight: 400;
 }
 
 
@@ -464,7 +464,7 @@ margin-bottom: 20px;
     transform: translateY(-5px);
     box-shadow: var(--shadow-news-hover);
 }
-
+card
 .actu-card-media {
     aspect-ratio: 1;
     overflow: hidden;
@@ -513,7 +513,7 @@ margin-bottom: 20px;
 .actu-card .card-title {
     color: var(--bs-secondary);
     font-size: 1.3em;
-    font-weight: 700;
+    font-weight: 300;
     white-space: normal;
     overflow: visible;
     text-overflow: unset;
