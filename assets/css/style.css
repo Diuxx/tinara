@@ -273,14 +273,15 @@ a {
     transform: scale(1.05);
 }
 
-.action-card h4 {
-margin-bottom: 20px;
+#actions .action-card h3 {
+    margin-bottom: 20px;
     color: var(--bs-primary);
     font-size: 1.2rem;
     font-weight: 800;
-    text-transform: uppercase;
     letter-spacing: 0.04em;
 }
+
+
 /* icons */
 
 .icon {
@@ -957,37 +958,56 @@ article p,
 .actu-carousel {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
 }
 
 .actu-carousel-track {
     display: flex;
-    gap: 34px;
+    gap: 24px;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
     flex: 1 1 auto;
+    padding: 4px 2px;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    padding: 4px 2px;
 }
 
 .actu-carousel-track::-webkit-scrollbar {
     display: none;
 }
 
-/* PC : 2 cartes visibles → la 3ème oblige à défiler */
+/* On neutralise définitivement l'ancien élément fantôme */
+.actu-carousel-ghost {
+    display: none !important;
+}
+
+/* PC : 3 cartes visibles */
 .actu-carousel-item {
-    flex: 0 0 calc(50% - 17px);
+    flex: 0 0 calc((100% - 48px) / 3);
+    min-width: 0;
     scroll-snap-align: start;
 }
 
-/* Élément fantôme : même largeur qu'une carte, invisible */
-.actu-carousel-ghost {
-    flex: 0 0 calc(50% - 17px);
-    scroll-snap-align: start;
-    pointer-events: none;
-    visibility: hidden;
+.actu-carousel-item .actu-card-media {
+    aspect-ratio: 4 / 3;
+}
+
+.actu-carousel-item .actu-card-body {
+    padding: 14px 10px;
+    min-height: 60px;
+}
+
+.actu-carousel-item .card-title {
+    color: var(--bs-secondary);
+    font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+    font-weight: 700;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    text-align: center;
+    line-height: 1.2;
+    margin: 0;
 }
 
 .actu-carousel-arrow {
@@ -1011,78 +1031,97 @@ article p,
     opacity: 0.9;
 }
 
-.actu-carousel-arrow:focus-visible {
-    outline: 3px solid var(--bs-primary, #008678);
-    outline-offset: 3px;
+.actu-carousel-arrow.is-disabled,
+.actu-carousel-arrow:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: none;
 }
 
-.actu-carousel-item .card-title {
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    display: block;
-    line-height: 1.3;
-    font-size: clamp(0.8rem, 2.5vw, 1.3rem);
-}
-
-/* Tablette : 1 carte visible */
+/* Tablette : 3 cartes visibles */
 @media screen and (max-width: 810px) {
-    .actu-carousel-item,
-    .actu-carousel-ghost {
-        flex: 0 0 calc(100% - 8px);
-    }
-
-    .actu-carousel-track {
-        gap: 16px;
-    }
-
-    .actu-carousel-arrow {
-        width: 38px;
-        height: 38px;
-    }
-}
-
-
-/* Mobile : 2 cartes côte à côte */
-@media screen and (max-width: 480px) {
-    .actu-carousel-item,
-    .actu-carousel-ghost {
-        flex: 0 0 calc(50% - 6px);
+    .actu-carousel {
+        gap: 8px;
     }
 
     .actu-carousel-track {
         gap: 12px;
     }
 
-    .actu-card-body {
-        padding: 10px;
-        gap: 2px;
-    }
-
-    .actu-carousel-item .card-title {
-        font-size: 0.85rem;
-        white-space: normal;
-        overflow: visible;
-        text-overflow: unset;
-        word-break: break-word;
-    }
-
-    .card-info {
-        font-size: 10px;
-        padding: 4px 6px;
-        right: 6px;
-        bottom: 6px;
-        white-space: nowrap;
-        max-width: calc(100% - 12px);
+    .actu-carousel-item {
+        flex: 0 0 calc((100% - 24px) / 3);
     }
 
     .actu-carousel-arrow {
-        width: 32px;
-        height: 32px;
+        width: 34px;
+        height: 34px;
+    }
+
+    .actu-carousel-item .actu-card-body {
+        padding: 8px 6px;
+        min-height: 50px;
+    }
+
+    .actu-carousel-item .card-title {
+        font-size: 0.74rem;
+        line-height: 1.15;
+        word-break: break-word;
+    }
+
+    .actu-carousel-item .card-info {
+        font-size: 9px;
+        padding: 4px 5px;
+        right: 5px;
+        bottom: 5px;
+    }
+}
+
+/* Mobile : 3 cartes visibles */
+@media screen and (max-width: 480px) {
+    .actu-carousel {
+        gap: 6px;
+    }
+
+    .actu-carousel-track {
+        gap: 8px;
+        padding: 4px 0;
+    }
+
+    .actu-carousel-item {
+        flex: 0 0 calc((100% - 16px) / 3);
+    }
+
+    .actu-carousel-arrow {
+        width: 30px;
+        height: 30px;
     }
 
     .actu-carousel-arrow i {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
+    }
+
+    .actu-carousel-item .actu-card-media {
+        aspect-ratio: 4 / 3;
+    }
+
+    .actu-carousel-item .actu-card-body {
+        padding: 6px 4px;
+        min-height: 42px;
+    }
+
+    .actu-carousel-item .card-title {
+        font-size: 0.62rem;
+        line-height: 1.1;
+        word-break: break-word;
+    }
+
+    .actu-carousel-item .card-info {
+        font-size: 7px;
+        padding: 3px 4px;
+        right: 4px;
+        bottom: 4px;
+        white-space: nowrap;
+        max-width: calc(100% - 8px);
     }
 }
 
@@ -1124,7 +1163,6 @@ article p,
     transition: all 0.25s ease;
     border-radius: 0;
     white-space: nowrap;
-    flex-shrink: 0;
 }
 
 .actu-filter-btn:last-child {
@@ -1193,11 +1231,30 @@ article p,
         right: 6px;
         bottom: 6px;
     }
+}
 
-    /* Filtres mobile : plus compacts */
-    .actu-filter-btn {
-        font-size: 0.65rem;
-        padding: 7px 10px;
-        letter-spacing: 0;
+
+/* Correction du positionnement des ancres avec le header fixe */
+html {
+    scroll-padding-top: 115px;
+}
+
+#mission,
+#orphelinat,
+#contact {
+    scroll-margin-top: 115px;
+}
+
+/* Ajustement mobile */
+@media (max-width: 991.98px) {
+    html {
+        scroll-padding-top: 95px;
+    }
+
+    #mission,
+    #orphelinat,
+    #contact {
+        scroll-margin-top: 95px;
     }
 }
+

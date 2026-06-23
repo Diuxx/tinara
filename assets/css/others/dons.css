@@ -18,3 +18,33 @@
 .dons-option p {
     line-height: 1.75;
 }
+
+/* ===== HERO DONS - CORRECTION MOBILE ===== */
+@media (max-width: 575px) {
+    .dons-hero {
+        height: auto !important;
+        min-height: 100px;
+        padding: 135px 18px 95px !important;
+        display: flex;
+        align-items: center;
+        overflow: visible;
+    }
+
+    .dons-hero .container {
+        max-width: 100%;
+    }
+
+    .dons-hero .section-title {
+        font-size: 2.35rem;
+        line-height: 1.15;
+        margin-bottom: 22px;
+    }
+
+    .dons-hero .section-intro {
+        max-width: 330px;
+        font-size: 1.05rem;
+        line-height: 1.6;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

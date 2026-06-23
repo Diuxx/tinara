@@ -123,10 +123,6 @@
     display: none;
   }
 
-  .goals {
-    margin-top: 2.5rem;
-  }
-
   /* --- Cible uniquement la bannière de l'index via l'ID #homepage --- */
   #homepage .hero {
     min-height: 100vh;
@@ -389,5 +385,185 @@ display: none;
     }
     .navbar-custom .nav-link {
         color: #333333 !important;
+    }
+}
+
+
+/* ===== FILTRES ACTUALITÉS - GRILLE TABLETTE / MOBILE ===== */
+
+/* Tablette */
+@media screen and (max-width: 810px) {
+    .actu-filters {
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        width: 100%;
+        max-width: 560px;
+        border: none;
+        border-radius: 0;
+        overflow: visible;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 28px;
+        padding: 0 12px;
+    }
+
+    .actu-filter-btn {
+        width: 100%;
+        min-width: 0;
+        border: 2px solid var(--bs-primary);
+        border-radius: 999px;
+        padding: 9px 8px;
+        font-size: 0.68rem;
+        line-height: 1.15;
+        letter-spacing: 0.02em;
+        white-space: normal;
+        text-align: center;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .actu-filter-btn:last-child {
+        border-right: 2px solid var(--bs-primary);
+    }
+
+    .actu-filter-btn.active {
+        background: var(--bs-primary);
+        color: #fff;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+    .actu-filters {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 100%;
+        gap: 7px;
+        padding: 0 10px;
+    }
+
+    .actu-filter-btn {
+        padding: 8px 6px;
+        font-size: 0.62rem;
+        line-height: 1.15;
+        min-height: 38px;
+    }
+
+    .actu-filter-btn[data-filter="evenements"] {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ===== INDEX - PILIERS MISSION : SANTÉ / ÉDUCATION / PROTECTION ===== */
+
+@media screen and (max-width: 810px) {
+    #mission .goals {
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0;
+        width: 100%;
+        margin: 2.5rem auto 0;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        text-align: center;
+        align-items: start;
+    }
+
+    #mission .goals > [class*="col-"] {
+        width: auto !important;
+        max-width: none !important;
+        flex: initial !important;
+        min-width: 0;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    #mission .goals .icon {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    #mission .goals h3 {
+        font-size: clamp(0.95rem, 3.2vw, 1.2rem);
+        line-height: 1.15;
+        margin-bottom: 10px;
+        text-align: center;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        word-break: normal;
+    }
+
+    #mission .goals p {
+        font-size: clamp(0.78rem, 2.6vw, 0.95rem);
+        line-height: 1.35;
+        margin: 0;
+        text-align: center;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    #mission .goal::before {
+        left: 0;
+        top: 20px;
+        bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #mission .goals {
+        margin-top: 2rem;
+    }
+
+    #mission .goals > [class*="col-"] {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+
+    #mission .goals .icon {
+        font-size: 1.8rem;
+        margin-bottom: 8px;
+    }
+
+    #mission .goals h3 {
+        font-size: 0.95rem;
+        line-height: 1.15;
+        margin-bottom: 8px;
+    }
+
+    #mission .goals p {
+        font-size: 0.78rem;
+        line-height: 1.35;
+    }
+}
+
+
+/* ===== ARTICLES - ALIGNEMENT DES LISTES À GAUCHE ===== */
+
+.article-section .custom-list {
+    text-align: left !important;
+    list-style-position: outside;
+    padding-left: 1.5rem;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.article-section .custom-list li {
+    text-align: left !important;
+    line-height: 1.7;
+    padding-left: 0.25rem;
+}
+
+/* Sécurité tablette / mobile : évite que la colonne article centre les listes */
+@media screen and (max-width: 810px) {
+    article.col-12.col-lg-7 .custom-list,
+    article.col-12.col-lg-7 .custom-list li {
+        text-align: left !important;
     }
 }

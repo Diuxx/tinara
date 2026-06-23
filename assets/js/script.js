@@ -350,49 +350,107 @@ function initHeroTextAnimation() {
 
 
 /**
- * Carrousel "Nos actualités" : défilement automatique + flèches.
- * Fonctionne sur n'importe quelle page contenant #actuTrack
- * (ne fait rien si l'élément est absent).
+ * Carrousel "Nos actualités" : défilement fiable + flèches.
+ * Affiche 3 cartes visibles et permet de voir correctement les nouvelles actualités.
  */
+
 function initActuCarousel() {
     const track = document.getElementById('actuTrack');
     const prevBtn = document.getElementById('actuPrev');
     const nextBtn = document.getElementById('actuNext');
-    if (!track) return;
 
-    // Ajoute un élément fantôme à la fin pour que la dernière carte
-    // puisse toujours défiler jusqu'en position visible complète
-    const ghost = document.createElement('div');
-    ghost.className = 'actu-carousel-ghost';
-    track.appendChild(ghost);
+    if (!track) return;
 
     let autoplayTimer = null;
     const AUTOPLAY_DELAY = 3000;
+    const SCROLL_TOLERANCE = 3;
+
+    function removeGhostItems() {
+        track.querySelectorAll('.actu-carousel-ghost').forEach((ghost) => {
+            ghost.remove();
+        });
+    }
+
+    function getItems() {
+        return Array.from(track.querySelectorAll('.actu-carousel-item'))
+            .filter((item) => !item.classList.contains('hidden-filter'));
+    }
 
     function getStepWidth() {
-        const item = track.querySelector('.actu-carousel-item');
+        const item = getItems()[0];
         if (!item) return 0;
+
         const trackStyle = getComputedStyle(track);
         const gap = parseFloat(trackStyle.columnGap || trackStyle.gap || 0);
+
         return item.getBoundingClientRect().width + gap;
     }
 
+    function getMaxScroll() {
+        return Math.max(0, track.scrollWidth - track.clientWidth);
+    }
+
+    function updateButtons() {
+        if (!prevBtn || !nextBtn) return;
+
+        const maxScroll = getMaxScroll();
+        const hasScroll = maxScroll > SCROLL_TOLERANCE;
+
+        prevBtn.disabled = !hasScroll;
+        nextBtn.disabled = !hasScroll;
+
+        prevBtn.classList.toggle('is-disabled', !hasScroll);
+        nextBtn.classList.toggle('is-disabled', !hasScroll);
+    }
+
     function scrollByStep(direction) {
+        removeGhostItems();
+
         const step = getStepWidth();
-        if (!step) return;
-        const maxScroll = track.scrollWidth - track.clientWidth;
-        let target = track.scrollLeft + step * direction;
-        if (target >= maxScroll - 2) {
-            target = 0;
-        } else if (target < 0) {
-            target = maxScroll;
+        const maxScroll = getMaxScroll();
+
+        if (!step || maxScroll <= SCROLL_TOLERANCE) {
+            track.scrollTo({ left: 0, behavior: 'smooth' });
+            updateButtons();
+            return;
         }
-        track.scrollTo({ left: target, behavior: 'smooth' });
+
+        const currentLeft = track.scrollLeft;
+        let target;
+
+        if (direction > 0) {
+            if (currentLeft >= maxScroll - SCROLL_TOLERANCE) {
+                target = 0;
+            } else {
+                target = Math.min(currentLeft + step, maxScroll);
+            }
+        } else {
+            if (currentLeft <= SCROLL_TOLERANCE) {
+                target = maxScroll;
+            } else {
+                target = Math.max(currentLeft - step, 0);
+            }
+        }
+
+        track.scrollTo({
+            left: target,
+            behavior: 'smooth'
+        });
+
+        setTimeout(updateButtons, 350);
     }
 
     function startAutoplay() {
         stopAutoplay();
-        autoplayTimer = setInterval(() => scrollByStep(1), AUTOPLAY_DELAY);
+
+        if (getItems().length <= 3 || getMaxScroll() <= SCROLL_TOLERANCE) {
+            updateButtons();
+            return;
+        }
+
+        autoplayTimer = setInterval(() => {
+            scrollByStep(1);
+        }, AUTOPLAY_DELAY);
     }
 
     function stopAutoplay() {
@@ -403,10 +461,19 @@ function initActuCarousel() {
     }
 
     if (prevBtn) {
-        prevBtn.addEventListener('click', () => { scrollByStep(-1); startAutoplay(); });
+        prevBtn.addEventListener('click', () => {
+            stopAutoplay();
+            scrollByStep(-1);
+            startAutoplay();
+        });
     }
+
     if (nextBtn) {
-        nextBtn.addEventListener('click', () => { scrollByStep(1); startAutoplay(); });
+        nextBtn.addEventListener('click', () => {
+            stopAutoplay();
+            scrollByStep(1);
+            startAutoplay();
+        });
     }
 
     track.addEventListener('mouseenter', stopAutoplay);
@@ -416,6 +483,16 @@ function initActuCarousel() {
     track.addEventListener('touchend', () => {
         setTimeout(startAutoplay, 5000);
     }, { passive: true });
+
+    window.addEventListener('resize', () => {
+        removeGhostItems();
+        track.scrollTo({ left: 0, behavior: 'auto' });
+        updateButtons();
+        startAutoplay();
+    });
+
+    removeGhostItems();
+    updateButtons();
 
     if (document.readyState === 'complete') {
         startAutoplay();
