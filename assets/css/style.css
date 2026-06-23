@@ -1001,7 +1001,7 @@ article p,
 .actu-carousel-item .card-title {
     color: var(--bs-secondary);
     font-size: clamp(0.85rem, 1.2vw, 1.05rem);
-    font-weight: 700;
+    font-weight: 300;
     white-space: normal;
     overflow: visible;
     text-overflow: unset;
