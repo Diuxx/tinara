@@ -465,7 +465,7 @@ a {
     transform: translateY(-5px);
     box-shadow: var(--shadow-news-hover);
 }
-card
+
 .actu-card-media {
     aspect-ratio: 1;
     overflow: hidden;
