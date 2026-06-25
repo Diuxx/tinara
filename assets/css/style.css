@@ -1076,28 +1076,29 @@ article p,
     }
 }
 
-/* Mobile : 3 cartes visibles */
+/* Mobile : 1 actualité visible à la fois */
 @media screen and (max-width: 480px) {
     .actu-carousel {
-        gap: 6px;
+        gap: 8px;
     }
 
     .actu-carousel-track {
-        gap: 8px;
+        gap: 12px;
         padding: 4px 0;
     }
 
     .actu-carousel-item {
-        flex: 0 0 calc((100% - 16px) / 3);
+        flex: 0 0 100%;
+        min-width: 100%;
     }
 
     .actu-carousel-arrow {
-        width: 30px;
-        height: 30px;
+        width: 34px;
+        height: 34px;
     }
 
     .actu-carousel-arrow i {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
     }
 
     .actu-carousel-item .actu-card-media {
@@ -1105,25 +1106,26 @@ article p,
     }
 
     .actu-carousel-item .actu-card-body {
-        padding: 6px 4px;
-        min-height: 42px;
+        padding: 12px 8px;
+        min-height: 56px;
     }
 
     .actu-carousel-item .card-title {
-        font-size: 0.62rem;
-        line-height: 1.1;
-        word-break: break-word;
+        font-size: 0.9rem;
+        line-height: 1.2;
+        word-break: normal;
     }
 
     .actu-carousel-item .card-info {
-        font-size: 7px;
-        padding: 3px 4px;
-        right: 4px;
-        bottom: 4px;
+        font-size: 10px;
+        padding: 4px 7px;
+        right: 8px;
+        bottom: 8px;
         white-space: nowrap;
-        max-width: calc(100% - 8px);
+        max-width: calc(100% - 16px);
     }
 }
+
 
 /* ===== FILTRES ACTUALITÉS ===== */
 .actu-filters {
@@ -1258,3 +1260,129 @@ html {
     }
 }
 
+/* Sécurité : évite que la barre mobile cache le bas des pages */
+@media (max-width: 991.98px) {
+    body.has-sticky-mobile-bar {
+        padding-bottom: 60px;
+    }
+}
+
+
+/* ===== FORMULAIRE CONTACT DIRECT INDEX ===== */
+
+.contact-direct-form-card {
+    background: var(--app-bg-light);
+    border-radius: var(--img-border-radius);
+    box-shadow: var(--shadow-card);
+    padding: 24px;
+    margin-top: 28px;
+}
+
+.contact-direct-form {
+    text-align: left;
+}
+
+.contact-direct-form .form-label {
+    font-weight: 700;
+    color: var(--bs-primary);
+}
+
+.contact-direct-form .form-control {
+    border-radius: 12px;
+    border: 1px solid rgba(0, 134, 120, 0.25);
+    padding: 10px 12px;
+}
+
+.contact-direct-form .form-control:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 0.2rem rgba(0, 134, 120, 0.15);
+}
+
+
+/* ===== MODAL HELLOASSO - AU-DESSUS DE LA NAVBAR ===== */
+
+.modal-backdrop {
+    z-index: 10040 !important;
+}
+
+.modal {
+    z-index: 10050 !important;
+}
+
+#don-modal .modal-dialog {
+    margin-top: 90px;
+}
+
+#don-modal .modal-content {
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+/* Mobile / tablette : garde la croix visible en haut */
+@media (max-width: 767.98px) {
+    #don-modal .modal-dialog {
+        margin: 0;
+    }
+
+    #don-modal .modal-content {
+        min-height: 100vh;
+        border-radius: 0;
+    }
+
+    #don-modal .modal-header {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        background: #fff;
+    }
+
+    #don-modal .modal-body iframe {
+        height: calc(100vh - 70px) !important;
+    }
+}
+
+
+/* ===== FORMULAIRE CONTACT DIRECT INDEX ===== */
+
+.contact-direct-form-card {
+    background: var(--app-bg-light);
+    border-radius: var(--img-border-radius);
+    box-shadow: var(--shadow-card);
+    padding: 24px;
+    margin-top: 28px;
+}
+
+.contact-direct-form {
+    text-align: left;
+}
+
+.contact-direct-form .form-label {
+    font-weight: 700;
+    color: var(--bs-primary);
+}
+
+.contact-direct-form .form-control {
+    border-radius: 12px;
+    border: 1px solid rgba(0, 134, 120, 0.25);
+    padding: 10px 12px;
+}
+
+.contact-direct-form .form-control:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 0.2rem rgba(0, 134, 120, 0.15);
+}
+
+.contact-form-status {
+    margin: 14px 0 0;
+    text-align: center;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.contact-form-status.is-success {
+    color: var(--bs-primary);
+}
+
+.contact-form-status.is-error {
+    color: #b02a37;
+}

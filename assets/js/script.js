@@ -350,10 +350,10 @@ function initHeroTextAnimation() {
 
 
 /**
- * Carrousel "Nos actualités" : défilement fiable + flèches.
- * Affiche 3 cartes visibles et permet de voir correctement les nouvelles actualités.
+ * Carrousel "Nos actualités" : défilement automatique + flèches.
+ * PC/tablette : 3 cartes visibles.
+ * Mobile : 1 carte visible.
  */
-
 function initActuCarousel() {
     const track = document.getElementById('actuTrack');
     const prevBtn = document.getElementById('actuPrev');
@@ -390,17 +390,20 @@ function initActuCarousel() {
         return Math.max(0, track.scrollWidth - track.clientWidth);
     }
 
+    function hasCarouselScroll() {
+        return getMaxScroll() > SCROLL_TOLERANCE;
+    }
+
     function updateButtons() {
         if (!prevBtn || !nextBtn) return;
 
-        const maxScroll = getMaxScroll();
-        const hasScroll = maxScroll > SCROLL_TOLERANCE;
+        const canScroll = hasCarouselScroll();
 
-        prevBtn.disabled = !hasScroll;
-        nextBtn.disabled = !hasScroll;
+        prevBtn.disabled = !canScroll;
+        nextBtn.disabled = !canScroll;
 
-        prevBtn.classList.toggle('is-disabled', !hasScroll);
-        nextBtn.classList.toggle('is-disabled', !hasScroll);
+        prevBtn.classList.toggle('is-disabled', !canScroll);
+        nextBtn.classList.toggle('is-disabled', !canScroll);
     }
 
     function scrollByStep(direction) {
@@ -443,7 +446,7 @@ function initActuCarousel() {
     function startAutoplay() {
         stopAutoplay();
 
-        if (getItems().length <= 3 || getMaxScroll() <= SCROLL_TOLERANCE) {
+        if (!hasCarouselScroll()) {
             updateButtons();
             return;
         }
@@ -481,7 +484,7 @@ function initActuCarousel() {
 
     track.addEventListener('touchstart', stopAutoplay, { passive: true });
     track.addEventListener('touchend', () => {
-        setTimeout(startAutoplay, 5000);
+        setTimeout(startAutoplay, 2500);
     }, { passive: true });
 
     window.addEventListener('resize', () => {
@@ -570,6 +573,151 @@ window.addEventListener('load', () => {
     setTimeout(updateNavbar, 50);
 });
 
+/* Widget parrainer et faire un don */
+
+function initStickyDonationWidgets() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+    const excludedPages = [
+        'parrainage.html',
+        'dons.html',
+        'mensuel.html',
+        'ponctuel.html'
+    ];
+
+    if (excludedPages.includes(currentPage)) {
+        return;
+    }
+
+    if (document.querySelector('.sticky-pc-actions') || document.querySelector('.sticky-mobile-bar')) {
+        return;
+    }
+
+    const isArticlePage = window.location.pathname.includes('/articles/');
+    const pathPrefix = isArticlePage ? '../' : '';
+
+    const stickyPc = document.createElement('div');
+    stickyPc.className = 'sticky-pc-actions d-none d-lg-flex';
+    stickyPc.innerHTML = `
+        <a href="${pathPrefix}parrainage.html" class="sticky-btn btn-parraine" aria-label="Parrainer un enfant">
+            <span>JE PARRAINE</span>
+            <i class="fas fa-heart" aria-hidden="true"></i>
+        </a>
+        <a href="${pathPrefix}dons.html" class="sticky-btn btn-don" aria-label="Faire un don">
+            <span>FAIRE UN DON</span>
+            <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
+        </a>
+    `;
+
+    const stickyMobile = document.createElement('div');
+    stickyMobile.className = 'sticky-mobile-bar d-lg-none';
+    stickyMobile.innerHTML = `
+        <a href="${pathPrefix}parrainage.html" class="mobile-sticky-btn btn-parraine" aria-label="Parrainer un enfant">
+            JE PARRAINE <i class="fas fa-heart ms-1" aria-hidden="true"></i>
+        </a>
+        <a href="${pathPrefix}dons.html" class="mobile-sticky-btn btn-don" aria-label="Faire un don">
+            FAIRE UN DON <i class="fas fa-hand-holding-heart ms-1" aria-hidden="true"></i>
+        </a>
+    `;
+
+    document.body.appendChild(stickyPc);
+    document.body.appendChild(stickyMobile);
+    document.body.classList.add('has-sticky-mobile-bar');
+}
+
+function initReliableContactScroll() {
+    const params = new URLSearchParams(window.location.search);
+    const shouldScrollToContact =
+        window.location.hash === '#contact' || params.get('section') === 'contact';
+
+    if (!shouldScrollToContact) return;
+
+    function scrollToContact() {
+        const contactSection = document.getElementById('contact');
+        if (!contactSection) return;
+
+        const navbar = document.querySelector('.navbar-custom');
+        const navbarHeight = navbar ? navbar.offsetHeight : 90;
+        const offset = navbarHeight + 24;
+
+        const targetTop = contactSection.getBoundingClientRect().top + window.scrollY - offset;
+
+        window.scrollTo({
+            top: targetTop,
+            behavior: 'smooth'
+        });
+    }
+
+    window.addEventListener('load', () => {
+        scrollToContact();
+
+        // Sécurité : relance après le chargement du header/footer/images.
+        setTimeout(scrollToContact, 300);
+        setTimeout(scrollToContact, 900);
+    });
+}
+
+
+function initContactDirectForm() {
+    const form = document.getElementById('contactDirectForm');
+    const status = document.getElementById('contactFormStatus');
+    const submitBtn = document.getElementById('contactSubmitBtn');
+
+    if (!form || !status || !submitBtn) return;
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        status.className = 'contact-form-status';
+        status.textContent = '';
+
+        if (!form.checkValidity()) {
+            form.classList.add('was-validated');
+            status.classList.add('is-error');
+            status.textContent = 'Veuillez corriger les champs indiqués avant d’envoyer le message.';
+            return;
+        }
+
+        form.classList.add('was-validated');
+
+        const formData = new FormData(form);
+        const payload = {};
+
+        formData.forEach((value, key) => {
+            payload[key] = value;
+        });
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Envoi en cours...';
+
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+                throw new Error('Erreur lors de l’envoi');
+            }
+
+            status.classList.add('is-success');
+            status.textContent = 'Votre message a bien été envoyé. Merci, nous vous répondrons dès que possible.';
+
+            form.reset();
+            form.classList.remove('was-validated');
+        } catch (error) {
+            status.classList.add('is-error');
+            status.textContent = 'Le message n’a pas pu être envoyé pour le moment. Veuillez réessayer ou écrire directement à contact@tinara-association.com.';
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Envoyer le message';
+        }
+    });
+}
 
 initNavbarScroll();
 initBackToTop();
@@ -580,4 +728,7 @@ loadComponents();
 initRevealAnimation();
 initHeroTextAnimation();
 initActuCarousel();
-initActuFilter()
+initActuFilter();
+initStickyDonationWidgets();
+initReliableContactScroll();
+initContactDirectForm();

@@ -107,3 +107,34 @@
         margin-right: auto;
     }
 }
+
+
+/* ===== AIDER - ALIGNEMENT DES BULLETS À GAUCHE ===== */
+
+.aider-card .aider-list {
+    text-align: left !important;
+    list-style-position: outside;
+    padding-left: 1.4rem !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.aider-card .aider-list li {
+    text-align: left !important;
+    line-height: 1.75;
+    padding-left: 0.25rem;
+}
+
+@media (max-width: 810px) {
+    .aider-card .aider-list {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 1.4rem !important;
+        margin-left: 0 !important;
+        text-align: left !important;
+    }
+
+    .aider-card .aider-list li {
+        text-align: left !important;
+    }
+}   
