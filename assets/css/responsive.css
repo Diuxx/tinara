@@ -51,6 +51,14 @@
 
 @media screen and (max-width: 810px) {
 
+    #homepage .hero-content {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center;
+    padding-left: 18px;
+    padding-right: 18px;
+    }
+
   /* --- NOUS SOUTENIR : 3 blocs sur une seule ligne, en plus petit --- */
   #soutenir .row.justify-content-center {
       flex-wrap: nowrap !important;
