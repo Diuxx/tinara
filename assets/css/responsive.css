@@ -575,3 +575,51 @@ display: none;
         text-align: left !important;
     }
 }
+
+
+/* ===== ÉQUIPE - RESPONSIVE ===== */
+
+/* Tablette : 3 photos par ligne */
+@media screen and (max-width: 810px) {
+    .team-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px 14px;
+    }
+
+    .team-photo {
+        width: 105px;
+        height: 105px;
+        border-width: 3px;
+    }
+
+    .team-member h3 {
+        font-size: 0.9rem;
+        margin-top: 10px;
+    }
+
+    .team-member p {
+        font-size: 0.78rem;
+        line-height: 1.25;
+    }
+}
+
+/* Mobile : 2 photos par ligne pour rester lisible */
+@media screen and (max-width: 480px) {
+    .team-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 26px 16px;
+    }
+
+    .team-photo {
+        width: 118px;
+        height: 118px;
+    }
+
+    .team-member h3 {
+        font-size: 0.95rem;
+    }
+
+    .team-member p {
+        font-size: 0.82rem;
+    }
+}

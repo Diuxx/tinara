@@ -1386,3 +1386,76 @@ html {
 .contact-form-status.is-error {
     color: #b02a37;
 }
+
+
+/* ===== ÉQUIPE - PAGE INDEX ===== */
+
+.team-section {
+    background: var(--app-bg-light);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 22px;
+    align-items: start;
+}
+
+.team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--bs-body-color);
+    transition: transform 0.25s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-4px);
+}
+
+.team-photo {
+    width: 135px;
+    height: 135px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border: 4px solid var(--bs-primary);
+    box-shadow: var(--shadow-card);
+    background: var(--color-white);
+}
+
+.team-member h3 {
+    margin: 14px 0 6px;
+    color: var(--bs-primary);
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.team-member p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.35;
+    color: var(--bs-body-color);
+}
+
+.team-member-link {
+    cursor: pointer;
+}
+
+.team-member-link:hover h3,
+.team-member-link:hover p {
+    color: var(--bs-secondary);
+}
+
+.team-photo-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bs-primary);
+    color: #fff;
+}
+
+.team-photo-placeholder i {
+    font-size: 2.4rem;
+}
