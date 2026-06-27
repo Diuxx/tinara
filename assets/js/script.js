@@ -145,38 +145,16 @@ function initEmbeddedDonationModal() {
 // Fonction pour charger les composants HTML (Header et Footer)
 
 function loadComponents() {
-    const isSubFolder = window.location.pathname.includes('/articles/');
-    const pathPrefix = isSubFolder ? '../' : '';
-
-    // 1. CHARGEMENT DU HEADER
+    // Les pages sont maintenant dans des dossiers (/parrainage/, /articles/why/, etc.).
+    // On charge donc toujours les composants depuis la racine du site.
     const headerPlaceholder = document.getElementById('header-placeholder');
+
     if (headerPlaceholder) {
-        fetch(pathPrefix + 'header.html')
+        fetch('/header.html')
             .then(response => response.text())
             .then(data => {
                 headerPlaceholder.innerHTML = data;
 
-                // --- DYNAMISATION POUR LES SOUS-DOSSIERS (why.html) ---
-                if (isSubFolder) {
-                    // A. Correction des IMAGES (Logos)
-                    headerPlaceholder.querySelectorAll('img').forEach(img => {
-                        const src = img.getAttribute('src');
-                        if (src && !src.startsWith('http')) {
-                            img.src = pathPrefix + src;
-                        }
-                    });
-
-                    // B. Correction des LIENS (Menu)
-                    headerPlaceholder.querySelectorAll('.nav-link, .navbar-brand, .btn-nav').forEach(link => {
-                        const href = link.getAttribute('href');
-                        // On ne modifie pas les liens externes (http) ni les ancres pures (#mission)
-                        if (href && !href.startsWith('http') && !href.startsWith('#')) {
-                            link.href = pathPrefix + href;
-                        }
-                    });
-                }
-
-                // Initialisation des comportements mobiles et actifs
                 initActiveMenu();
                 initNavbarScroll();
                 setupMobileMenuBehavior(headerPlaceholder);
@@ -184,31 +162,13 @@ function loadComponents() {
             .catch(err => console.error("Erreur chargement header:", err));
     }
 
-    // 2. CHARGEMENT DU FOOTER
     const footerPlaceholder = document.getElementById('footer-placeholder');
+
     if (footerPlaceholder) {
-        fetch(pathPrefix + 'footer.html')
+        fetch('/footer.html')
             .then(response => response.text())
             .then(data => {
                 footerPlaceholder.innerHTML = data;
-
-                // --- DYNAMISATION POUR LES SOUS-DOSSIERS ---
-                if (isSubFolder) {
-                    // Correction des images du footer
-                    footerPlaceholder.querySelectorAll('img').forEach(img => {
-                        const src = img.getAttribute('src');
-                        if (src && !src.startsWith('http')) {
-                            img.src = pathPrefix + src;
-                        }
-                    });
-                    // Correction des liens du footer
-                    footerPlaceholder.querySelectorAll('a').forEach(link => {
-                        const href = link.getAttribute('href');
-                        if (href && !href.startsWith('http') && !href.startsWith('#')) {
-                            link.href = pathPrefix + href;
-                        }
-                    });
-                }
             })
             .catch(err => console.error("Erreur chargement footer:", err));
     }
@@ -244,45 +204,63 @@ function setupMobileMenuBehavior(headerEl) {
  */
 function initActiveMenu() {
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-    if (navLinks.length === 0) return; // Sécurité si le header n'est pas encore là
+    if (navLinks.length === 0) return;
 
-    // 1. GESTION DES PAGES (statique : À propos, Actualités, etc.)
-    const currentUrl = window.location.pathname.split("/").pop() || "index.html";
-    
+    const normalizePath = (path) => {
+        let cleanPath = path || '/';
+        cleanPath = cleanPath.replace(/\/index\.html$/, '/');
+        cleanPath = cleanPath.replace(/\.html$/, '/');
+
+        if (!cleanPath.startsWith('/')) {
+            cleanPath = '/' + cleanPath;
+        }
+
+        if (cleanPath !== '/' && !cleanPath.endsWith('/')) {
+            cleanPath += '/';
+        }
+
+        return cleanPath;
+    };
+
+    const currentPath = normalizePath(window.location.pathname);
+
     navLinks.forEach(link => {
-        link.classList.remove('active'); // On nettoie tout au départ
-        const linkHref = link.getAttribute('href');
-        
-        if (linkHref === currentUrl || (currentUrl === "index.html" && linkHref === "index.html")) {
+        link.classList.remove('active');
+
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#')) return;
+
+        const url = new URL(href, window.location.origin);
+        const linkPath = normalizePath(url.pathname);
+
+        // Activation des pages propres : /actualites/, /about/, /faq/, etc.
+        if (!url.hash && linkPath === currentPath) {
             link.classList.add('active');
         }
     });
 
-    // 2. GESTION DES ANCRES (Observer pour Mission, Actions, etc.)
     const observerOptions = {
         root: null,
-        rootMargin: '-20% 0px -70% 0px', // Plus sensible pour détecter la section du haut
+        rootMargin: '-20% 0px -70% 0px',
         threshold: 0
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                
-                // On cherche le lien qui pointe vers cette ancre
-                navLinks.forEach(link => {
-                    const href = link.getAttribute('href');
-                    if (href && href.includes('#' + id)) {
-                        navLinks.forEach(l => l.classList.remove('active'));
-                        link.classList.add('active');
-                    }
-                });
-            }
+            if (!entry.isIntersecting) return;
+
+            const id = entry.target.getAttribute('id');
+
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.includes('#' + id)) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            });
         });
     }, observerOptions);
 
-    // On observe TOUTES les sections qui ont un ID sur la page
     document.querySelectorAll('main section[id]').forEach(section => {
         observer.observe(section);
     });
@@ -576,16 +554,18 @@ window.addEventListener('load', () => {
 /* Widget parrainer et faire un don */
 
 function initStickyDonationWidgets() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const currentPath = window.location.pathname
+        .replace(/\/index\.html$/, '/')
+        .replace(/\.html$/, '/');
 
     const excludedPages = [
-        'parrainage.html',
-        'dons.html',
-        'mensuel.html',
-        'ponctuel.html'
+        '/parrainage/',
+        '/dons/',
+        '/mensuel/',
+        '/ponctuel/'
     ];
 
-    if (excludedPages.includes(currentPage)) {
+    if (excludedPages.includes(currentPath)) {
         return;
     }
 
@@ -593,17 +573,14 @@ function initStickyDonationWidgets() {
         return;
     }
 
-    const isArticlePage = window.location.pathname.includes('/articles/');
-    const pathPrefix = isArticlePage ? '../' : '';
-
     const stickyPc = document.createElement('div');
     stickyPc.className = 'sticky-pc-actions d-none d-lg-flex';
     stickyPc.innerHTML = `
-        <a href="${pathPrefix}parrainage.html" class="sticky-btn btn-parraine" aria-label="Parrainer un enfant">
+        <a href="/parrainage/" class="sticky-btn btn-parraine" aria-label="Parrainer un enfant">
             <span>JE PARRAINE</span>
             <i class="fas fa-heart" aria-hidden="true"></i>
         </a>
-        <a href="${pathPrefix}dons.html" class="sticky-btn btn-don" aria-label="Faire un don">
+        <a href="/dons/" class="sticky-btn btn-don" aria-label="Faire un don">
             <span>FAIRE UN DON</span>
             <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
         </a>
@@ -612,10 +589,10 @@ function initStickyDonationWidgets() {
     const stickyMobile = document.createElement('div');
     stickyMobile.className = 'sticky-mobile-bar d-lg-none';
     stickyMobile.innerHTML = `
-        <a href="${pathPrefix}parrainage.html" class="mobile-sticky-btn btn-parraine" aria-label="Parrainer un enfant">
+        <a href="/parrainage/" class="mobile-sticky-btn btn-parraine" aria-label="Parrainer un enfant">
             JE PARRAINE <i class="fas fa-heart ms-1" aria-hidden="true"></i>
         </a>
-        <a href="${pathPrefix}dons.html" class="mobile-sticky-btn btn-don" aria-label="Faire un don">
+        <a href="/dons/" class="mobile-sticky-btn btn-don" aria-label="Faire un don">
             FAIRE UN DON <i class="fas fa-hand-holding-heart ms-1" aria-hidden="true"></i>
         </a>
     `;

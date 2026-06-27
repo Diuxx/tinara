@@ -1,0 +1,14 @@
+# TINARA - Migration URLs .html vers URLs propres en dossiers
+# Exemple : /parrainage.html -> /parrainage/
+
+Options -Indexes
+RewriteEngine On
+
+# Accueil : /index.html -> /
+RewriteRule ^index\.html$ / [R=301,L]
+
+# Pages internes : /page.html -> /page/
+# Articles : /articles/slug.html -> /articles/slug/
+# La query string est conservée automatiquement par Apache.
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[?\s]
+RewriteRule ^(.+)\.html$ /$1/ [R=301,L]
