@@ -27,83 +27,173 @@
   } */
 }
 
-
-@media (max-width: 1377px) {
-  .navbar-expand-lg .navbar-toggler {
-    display: block;
-  }
-
-  .navbar-expand-lg .navbar-collapse {
-    display: none !important;
-  }
-
-  .navbar-expand-lg .navbar-collapse.show {
-    display: block !important;
-    flex-basis: 100%;
-    flex-grow: 1;
-    align-items: center;
-  }
-
-  .navbar-expand-lg .navbar-nav {
-    flex-direction: column;
-  }
-
-  .navbar-nav .navbar-nav-inner {
-    flex-direction: column !important;
-  }
-
-  .navbar>.container,
-  .navbar>.container-fluid,
-  .navbar>.container-lg,
-  .navbar>.container-md,
-  .navbar>.container-sm,
-  .navbar>.container-xl,
-  .navbar>.container-xxl {
-    display: grid;
-    grid-template-columns: 1fr auto;
-  }
-}
-
 @media screen and (max-width: 1377px) {
   .navbar-custom {
-    background: var(--bs-body-bg);
-    box-shadow: var(--shadow-nav);
-    position: sticky;
+    /* On enlève le background forcé ici pour laisser le JS gérer la transparence */
+    background: transparent !important; 
+    box-shadow: none !important;
+    position: fixed !important;
   }
+  
+  /* On s'assure que les liens restent blancs sur mobile tant qu'on n'a pas scrollé */
   .navbar-custom .nav-link {
-    color: var(--bs-body-color);
+    color: #ffffff !important;
+  }
+
+  /* Si le menu est scrollé sur mobile, il devient blanc */
+  .navbar-custom.scrolled {
+    background: #ffffff !important;
+  }
+  .navbar-custom.scrolled .nav-link {
+    color: #333333 !important;
   }
 }
 
 @media screen and (max-width: 810px) {
+
+    #homepage .hero-content {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center;
+    padding-left: 18px;
+    padding-right: 18px;
+    }
+
+  /* --- NOUS SOUTENIR : 3 blocs sur une seule ligne, en plus petit --- */
+  #soutenir .row.justify-content-center {
+      flex-wrap: nowrap !important;
+      gap: 12px !important;
+  }
+
+  #soutenir .col-md-3 {
+      flex: 1 1 0 !important;
+      max-width: none !important;
+      width: auto !important;
+      padding-left: 6px !important;
+      padding-right: 6px !important;
+  }
+
+  #soutenir .programme-image {
+      width: 100% !important;
+      max-width: 90px !important;
+      height: 90px !important;
+      margin: 0 auto !important;
+  }
+
+  #soutenir .programme-title {
+      font-size: 0.7rem !important;
+      margin-top: 8px !important;
+      line-height: 1.2;
+  }
+
+ /* Réduction du padding dans les sections et dans le footer*/
+  .section {
+    padding: 32px 0;
+  }
+
+  .footer {
+    padding: 36px 24px 80px;
+    text-align: center;
+  }
+
+  .footer-inner {
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+  }
+
+  .footer-brand {
+      align-items: center;
+  }
+
+  .footer-right {
+      align-items: center;
+      width: 100%;
+  }
+
+  .footer-links {
+      justify-content: center;
+      gap: 16px;
+  }
+
+  .footer-copy {
+      text-align: center;
+  }
+
+  .footer-copy {
+    text-align: center;
+    white-space: normal;
+    word-break: break-word;
+    padding-right: 0;
+  }
+
+  .back-to-top {
+    display: none;
+  }
+
+  /* --- Cible uniquement la bannière de l'index via l'ID #homepage --- */
   #homepage .hero {
+    min-height: 100vh;
+    height: auto !important; 
+    padding-top: 140px !important; /* Pousse le texte sous la navbar mobile */
+    padding-bottom: 20px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background:
       linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0.72) 0%,
-        rgba(0, 0, 0, 0.48) 34%,
-        rgba(0, 0, 0, 0.12) 68%
+        rgba(0, 0, 0, 0.6), 
+        rgba(0, 0, 0, 0.4)
       ),
       url("../images/background/petitefille-versionmobile.png");
     background-size: cover;
-    background-position: 80% center;
-    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
   }
 
-  .hero h1 {
-    font-size: 3.0rem;
+  /* On réduit la taille pour éviter que le texte ne prenne tout l'écran */
+  #homepage .hero h1 {
+    font-size: 1.8rem !important; 
     text-align: center;
-    /* font-size: 2.6rem;
-    line-height: 1.05;
-    max-width: 52%; */
+    line-height: 1.2;
+    margin-bottom: 20px;
   }
 
-  .hero p {
-    font-size: 1.2rem;
-    line-height: 1.3;
+  #homepage .hero p {
+    font-size: 1rem !important;
+    line-height: 1.4;
     text-align: center;
+    margin-bottom: 30px;
+  }
 
-  }s
+ /* --- Boutons de l'accueil alignés en ligne pour mobile ---*/
+#homepage .hero-cta {
+display: none;
+}
+
+#homepage .hero-cta .btn {
+    flex: 1 1 0 !important;            /* Chaque bouton prend exactement 1/3 de la largeur totale */
+    min-width: 0 !important;
+    white-space: nowrap !important;    /* On interdit le retour à la ligne */
+    overflow: hidden !important;       /* Si ça déborde quand même, on coupe proprement */
+    text-overflow: ellipsis !important;
+    padding: 12px 6px !important;
+    font-size: 0.62rem !important;     /* Taille lisible maintenant qu'on a toute la largeur */
+    letter-spacing: 0 !important;
+    text-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50px !important;
+}
+
+/* L'icône ne rétrécit jamais, elle est prioritaire sur le texte */
+#homepage .hero-cta .btn i {
+    display: inline-block !important;
+    flex-shrink: 0 !important;
+    margin-left: 4px !important;
+    font-size: 0.7rem !important;
+}
 
   /* .hero .container {
     display: flex;
@@ -151,6 +241,41 @@
   .orphanage-content .blockquote h3 {
     font-size: 1.3rem;
   }
+  /* Centrage des images sur mobile/tablette */
+  .about-photo,
+  .orphanage-media,
+  .img-mission img,
+  .programme-image {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  /* Centrage des colonnes contenant des images */
+  .col-12.col-lg-5,
+  .col-12.col-lg-7 {
+      text-align: center;
+  }
+
+  /* Mais on garde le texte justifié dans les blocs texte */
+  .about-text-block,
+  .orphelinat-text,
+  .orphanage-content {
+      text-align: justify;
+  }
+}
+
+@media screen and (max-width: 992px) {
+    .about-photo {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .orphanage-media {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 /* .navbar-toggler {
@@ -194,3 +319,307 @@
 .cust-navbar-toggler-icon::after {
   bottom: 0.35em;
 } */
+
+
+/* Pour fluidité responsive sur mobile */
+
+@media (max-width: 991.98px) {
+    /* Suppression de l'animation de hauteur saccadée de Bootstrap */
+    .collapsing {
+        transition: height 0.3s ease-in-out !important;
+    }
+
+    .navbar-collapse {
+        background: #fff !important;
+        margin-top: 0px; /* On colle au header */
+        padding: 0 20px 20px 20px;
+        border-radius: 0 0 15px 15px; /* Arrondi seulement en bas */
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        max-height: none !important;
+        overflow: hidden !important; /* Force le texte à rester dans le bloc blanc */
+    }
+
+    .navbar-nav {
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 20px;
+    }
+
+    /* Icône X */
+    .navbar-toggler[aria-expanded="true"] .fa-bars::before {
+        content: "\f00d";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+    }
+
+    .nav-cta-group .btn {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 12px;
+    }
+}
+
+
+/* Force le menu en ligne sur PC */
+@media (min-width: 992px) {
+    .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
+    }
+    .navbar-nav {
+        flex-direction: row !important;
+    }
+    .nav-item {
+        border-bottom: none !important;
+    }
+}
+
+
+/* Empêche l'image de la mission d'être coupée */
+.img-mission img, 
+.mission-after-img {
+    width: 100% !important;
+    height: auto !important; 
+    bottom : 1000px !important;
+    object-fit: contain !important;
+    max-height: none !important;
+    border-radius: 15px;
+}
+
+@media screen and (max-width: 991px) {
+    /* Sur mobile, on garde un fond blanc pour la lisibilité du menu principal */
+    .navbar-custom {
+        background-color: #ffffff !important;
+    }
+    .navbar-custom .nav-link {
+        color: #333333 !important;
+    }
+}
+
+
+/* ===== FILTRES ACTUALITÉS - GRILLE TABLETTE / MOBILE ===== */
+
+/* Tablette */
+@media screen and (max-width: 810px) {
+    .actu-filters {
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        width: 100%;
+        max-width: 560px;
+        border: none;
+        border-radius: 0;
+        overflow: visible;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 28px;
+        padding: 0 12px;
+    }
+
+    .actu-filter-btn {
+        width: 100%;
+        min-width: 0;
+        border: 2px solid var(--bs-primary);
+        border-radius: 999px;
+        padding: 9px 8px;
+        font-size: 0.68rem;
+        line-height: 1.15;
+        letter-spacing: 0.02em;
+        white-space: normal;
+        text-align: center;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .actu-filter-btn:last-child {
+        border-right: 2px solid var(--bs-primary);
+    }
+
+    .actu-filter-btn.active {
+        background: var(--bs-primary);
+        color: #fff;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+    .actu-filters {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 100%;
+        gap: 7px;
+        padding: 0 10px;
+    }
+
+    .actu-filter-btn {
+        padding: 8px 6px;
+        font-size: 0.62rem;
+        line-height: 1.15;
+        min-height: 38px;
+    }
+
+    .actu-filter-btn[data-filter="evenements"] {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ===== INDEX - PILIERS MISSION : SANTÉ / ÉDUCATION / PROTECTION ===== */
+
+@media screen and (max-width: 810px) {
+    #mission .goals {
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0;
+        width: 100%;
+        margin: 2.5rem auto 0;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        text-align: center;
+        align-items: start;
+    }
+
+    #mission .goals > [class*="col-"] {
+        width: auto !important;
+        max-width: none !important;
+        flex: initial !important;
+        min-width: 0;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    #mission .goals .icon {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    #mission .goals h3 {
+        font-size: clamp(0.95rem, 3.2vw, 1.2rem);
+        line-height: 1.15;
+        margin-bottom: 10px;
+        text-align: center;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        word-break: normal;
+    }
+
+    #mission .goals p {
+        font-size: clamp(0.78rem, 2.6vw, 0.95rem);
+        line-height: 1.35;
+        margin: 0;
+        text-align: center;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    #mission .goal::before {
+        left: 0;
+        top: 20px;
+        bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #mission .goals {
+        margin-top: 2rem;
+    }
+
+    #mission .goals > [class*="col-"] {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+
+    #mission .goals .icon {
+        font-size: 1.8rem;
+        margin-bottom: 8px;
+    }
+
+    #mission .goals h3 {
+        font-size: 0.95rem;
+        line-height: 1.15;
+        margin-bottom: 8px;
+    }
+
+    #mission .goals p {
+        font-size: 0.78rem;
+        line-height: 1.35;
+    }
+}
+
+
+/* ===== ARTICLES - ALIGNEMENT DES LISTES À GAUCHE ===== */
+
+.article-section .custom-list {
+    text-align: left !important;
+    list-style-position: outside;
+    padding-left: 1.5rem;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.article-section .custom-list li {
+    text-align: left !important;
+    line-height: 1.7;
+    padding-left: 0.25rem;
+}
+
+/* Sécurité tablette / mobile : évite que la colonne article centre les listes */
+@media screen and (max-width: 810px) {
+    article.col-12.col-lg-7 .custom-list,
+    article.col-12.col-lg-7 .custom-list li {
+        text-align: left !important;
+    }
+}
+
+
+/* ===== ÉQUIPE - RESPONSIVE ===== */
+
+/* Tablette : 3 photos par ligne */
+@media screen and (max-width: 810px) {
+    .team-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px 14px;
+    }
+
+    .team-photo {
+        width: 105px;
+        height: 105px;
+        border-width: 3px;
+    }
+
+    .team-member h3 {
+        font-size: 0.9rem;
+        margin-top: 10px;
+    }
+
+    .team-member p {
+        font-size: 0.78rem;
+        line-height: 1.25;
+    }
+}
+
+/* Mobile : 2 photos par ligne pour rester lisible */
+@media screen and (max-width: 480px) {
+    .team-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 26px 16px;
+    }
+
+    .team-photo {
+        width: 118px;
+        height: 118px;
+    }
+
+    .team-member h3 {
+        font-size: 0.95rem;
+    }
+
+    .team-member p {
+        font-size: 0.82rem;
+    }
+}

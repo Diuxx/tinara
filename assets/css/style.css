@@ -17,7 +17,7 @@ a {
 
 /* navbar */
 
-.navbar-custom {
+/*.navbar-custom {
     background: transparent;
     transition: background 0.3s ease, box-shadow 0.3s ease;
     padding: 15px 40px;
@@ -25,11 +25,11 @@ a {
     top: 0;
     left: 0;
     width: 100%;
-}
+}*/
 
 .navbar-nav {
-    display: flex;
-    flex-direction: column !important;
+    /*display: flex;*/
+   /* flex-direction: column !important;*/
     gap: 12px;
 }
 
@@ -42,10 +42,17 @@ a {
     gap: 8px;
 }
 
+/* Couleur par défaut des menus (Visible sur fond blanc) */
 .nav-link {
-    color: var(--bs-body-bg);
-    font-weight: 800;
-    font-size: 15px;
+    color: #333 !important; 
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 1rem !important;
+    position: relative;
+    transition: all 0.3s ease;
+    border-radius: 4px;
 }
 
 .nav-link:hover, 
@@ -68,7 +75,7 @@ a {
     height: 100vh;
     background:
         var(--gradient-hero-home),
-        url("../images/background/petitefille4.png") center 89%  / cover no-repeat;
+        url("../images/background/petitefille4.png") center 5%  / cover no-repeat;
     background-attachment: scroll, fixed;
     color: var(--bs-body-bg);
     position: relative;
@@ -84,7 +91,7 @@ a {
 }
 
 .hero h1 {
-    font-size: 4rem;
+    font-size: 3.2rem;
     font-weight: 600;
 }
 
@@ -168,15 +175,17 @@ a {
 
 .img-mission {
     width: 100%;
-    height: 350px;
-    overflow: hidden;
+    height: auto;
+    overflow: visible;
 }
 
 .img-mission img {
-    width: 100%;
-    height: 100%;
+    width: 55%;
+    max-width: 520px;
+    height: auto;
     object-fit: cover;
     display: block;
+    margin: 0 auto;
     border-radius: var(--img-border-radius);
 }
 
@@ -213,19 +222,13 @@ a {
   }
 }
 
-/* Tablette : 2 colonnes */
+/* Tablette ET mobile : 1 colonne (5 lignes) */
 @media (max-width: 768px) {
-  .actions-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Mobile : 1 colonne */
-@media (max-width: 520px) {
   .actions-grid {
     grid-template-columns: 1fr;
   }
 }
+
 
 .action-card {
     padding: 30px;
@@ -233,8 +236,8 @@ a {
     transition: .3s;
     padding: 0; /* 🔥 important */
     overflow: hidden; /* pour arrondis propres */
-    background: #fffbf7;
-    border: 1px solid #efe3d8;
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-card-border);
     text-align: center;
 
 }
@@ -270,14 +273,15 @@ a {
     transform: scale(1.05);
 }
 
-.action-card h4 {
-margin-bottom: 20px;
+#actions .action-card h3 {
+    margin-bottom: 20px;
     color: var(--bs-primary);
     font-size: 1.2rem;
     font-weight: 800;
-    text-transform: uppercase;
     letter-spacing: 0.04em;
 }
+
+
 /* icons */
 
 .icon {
@@ -367,7 +371,7 @@ margin-bottom: 20px;
 .programme-title {
     text-transform: uppercase;
     color: var(--bs-primary);
-    font-weight: 800;
+    font-weight: 400;
 }
 
 
@@ -447,7 +451,7 @@ margin-bottom: 20px;
 }
 
 .actu-card {
-    background: var(--color-white);
+    background: var(--color-card-bg);
     border-radius: var(--radius-2xl);
     overflow: hidden;
     box-shadow: var(--shadow-news);
@@ -510,11 +514,12 @@ margin-bottom: 20px;
 .actu-card .card-title {
     color: var(--bs-secondary);
     font-size: 1.3em;
-    font-weight: 700;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-weight: 300;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
     text-align: center;
+    line-height: 1.3;
 }
 
 /* contact */
@@ -554,10 +559,34 @@ margin-bottom: 20px;
     min-width: 220px;
 }
 
+article p {
+    text-align: justify;
+    line-height: 1.8;
+}
+
+.article-intro {
+    text-align: justify;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--bs-body-color);
+}
+
+
+article p,
+.about-card p,
+.about-text-block p,
+.about-ambition p {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    line-height: 1.8;
+}
+
 .back-to-top {
     position: fixed;
     right: 24px;
-    bottom: 24px;
+    bottom: 70px;
     width: 52px;
     height: 52px;
     display: inline-flex;
@@ -584,7 +613,7 @@ margin-bottom: 20px;
 }
 
 .back-to-top:hover {
-    background: var(--bs-btn-hover-bg);
+    /*background: var(--bs-btn-hover-bg);*/
     color: var(--color-white);
     transform: translateY(-2px);
     box-shadow: var(--shadow-fab-hover);
@@ -682,7 +711,7 @@ margin-bottom: 20px;
 
 /* bloc coût 🔥 */
 .budget-highlight {
-  background: #F3E6DA;
+  background: var(--color-surface-alt);
   border-radius: 16px;
   padding: 20px;
   margin: 25px 0;
@@ -706,4 +735,727 @@ margin-bottom: 20px;
 
 .budget-highlight {
   border: 3px solid #008678;
+}
+
+
+/* --- Menu Totalement Transparent au chargement --- */
+.navbar-custom {
+    background-color: transparent !important;
+    background: none !important; /* Supprime tout dégradé ou image de fond */
+    backdrop-filter: none !important; /* Supprime l'effet de flou gris */
+    box-shadow: none !important; /* Supprime l'ombre qui peut assombrir */
+    transition: all 0.3s ease-in-out;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+/* --- Style quand on scrolle (devient blanc propre) --- */
+.navbar-custom.scrolled {   
+    background-color: var(--bs-body-bg) !important;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1) !important;
+    padding: 10px 0;
+}
+
+/* --- Liens : Blancs sur l'image, sombres au scroll --- */
+.navbar-custom .nav-link {
+    color: #ffffff !important;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* Optionnel : aide à lire si l'image est claire */
+}
+
+.navbar-custom.scrolled .nav-link {
+    color: #333333 !important;
+    text-shadow: none;
+}
+
+
+/* Groupement des boutons CTA */
+.nav-cta-group .btn {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 11px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Style spécifique pour AIDER AUTREMENT (Bouton Noir/Brun) */
+.nav-cta-group a.btn-outline-dark {
+    background-color: #352d28 !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+
+/* Effet Hover Noir */
+.nav-cta-group a.btn-outline-dark:hover {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+}
+
+/* Effet translateY */
+.nav-cta-group a.btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+.nav-cta-group a.btn-secondary:hover {
+    transform: translateY(-2px);
+}
+
+/* --- Effets sur les liens du menu --- */
+.navbar-nav .nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    font-size: 11px;
+}
+
+/* Background vert au survol */
+.navbar-nav .nav-link:hover {
+    background-color: var(--bs-primary) !important;
+    color: #fff !important;
+}
+
+/* État Actif : Soulignement vert */
+/* Note : La classe 'active' est ajoutée par JS ou manuellement sur le lien de la page courante */
+.navbar-nav .nav-link.active::after {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    left: 15%;
+    width: 70%;
+    height: 3px;
+    background-color: var(--bs-primary);
+    border-radius: 2px;
+}
+
+/* Éviter le soulignement sur les boutons CTA */
+.nav-cta-group .btn.active::after {
+    display: none;
+}
+
+/* --- Animations d'apparition au scroll --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation du texte de la bannière */
+#dynamic-text {
+    display: inline-block;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#dynamic-text.fade-out {
+    opacity: 0;
+    transform: translateY(10px); /* Petit effet de descente en disparaissant */
+}
+
+/* Force l'apparition immédiate sur mobile si l'effet pose problème */
+@media (max-width: 768px) {
+    .reveal {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+}
+
+
+/* --- STYLE COMMUN Sticky CTA --- */
+.btn-parraine { background-color: #008080 !important; }
+.btn-don { background-color: #e68a5c !important; }
+
+/* --- VERSION PC (Côté droit) --- */
+.sticky-pc-actions {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1050;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sticky-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 12px 15px;
+    color: white !important;
+    text-decoration: none !important;
+    font-weight: bold;
+    border-radius: 30px 0 0 30px;
+    transition: all 0.3s ease;
+    width: 50px; /* Ne montre que l'icône */
+    overflow: hidden;
+    white-space: nowrap;
+    box-shadow: -2px 5px 15px rgba(0,0,0,0.1);
+}
+
+.sticky-btn span {
+    margin-right: 15px;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.sticky-btn:hover {
+    width: 180px; /* Déroule le texte au survol */
+}
+
+.sticky-btn:hover span {
+    opacity: 1;
+}
+
+/* --- VERSION MOBILE (Barre en bas) --- */
+.sticky-mobile-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    z-index: 2000; /* Très haut pour être au-dessus de tout */
+    box-shadow: 0 -2px 15px rgba(0,0,0,0.2);
+}
+
+.mobile-sticky-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white !important;
+    text-decoration: none !important;
+    font-weight: bold;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+/* Petit effet de séparation au milieu sur mobile */
+.mobile-sticky-btn:first-child {
+    border-right: 1px solid rgba(255,255,255,0.2);
+}
+
+
+
+/* ===== CARROUSEL ACTUALITÉS ===== */
+
+.actu-carousel {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.actu-carousel-track {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    flex: 1 1 auto;
+    padding: 4px 2px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.actu-carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+/* On neutralise définitivement l'ancien élément fantôme */
+.actu-carousel-ghost {
+    display: none !important;
+}
+
+/* PC : 3 cartes visibles */
+.actu-carousel-item {
+    flex: 0 0 calc((100% - 48px) / 3);
+    min-width: 0;
+    scroll-snap-align: start;
+}
+
+.actu-carousel-item .actu-card-media {
+    aspect-ratio: 4 / 3;
+}
+
+.actu-carousel-item .actu-card-body {
+    padding: 14px 10px;
+    min-height: 60px;
+}
+
+.actu-carousel-item .card-title {
+    color: var(--bs-secondary);
+    font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+    font-weight: 300;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    text-align: center;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.actu-carousel-arrow {
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: var(--bs-primary, #008678);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.actu-carousel-arrow:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.actu-carousel-arrow.is-disabled,
+.actu-carousel-arrow:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Tablette : 3 cartes visibles */
+@media screen and (max-width: 810px) {
+    .actu-carousel {
+        gap: 8px;
+    }
+
+    .actu-carousel-track {
+        gap: 12px;
+    }
+
+    .actu-carousel-item {
+        flex: 0 0 calc((100% - 24px) / 3);
+    }
+
+    .actu-carousel-arrow {
+        width: 34px;
+        height: 34px;
+    }
+
+    .actu-carousel-item .actu-card-body {
+        padding: 8px 6px;
+        min-height: 50px;
+    }
+
+    .actu-carousel-item .card-title {
+        font-size: 0.74rem;
+        line-height: 1.15;
+        word-break: break-word;
+    }
+
+    .actu-carousel-item .card-info {
+        font-size: 9px;
+        padding: 4px 5px;
+        right: 5px;
+        bottom: 5px;
+    }
+}
+
+/* Mobile : 1 actualité visible à la fois */
+@media screen and (max-width: 480px) {
+    .actu-carousel {
+        gap: 8px;
+    }
+
+    .actu-carousel-track {
+        gap: 12px;
+        padding: 4px 0;
+    }
+
+    .actu-carousel-item {
+        flex: 0 0 100%;
+        min-width: 100%;
+    }
+
+    .actu-carousel-arrow {
+        width: 34px;
+        height: 34px;
+    }
+
+    .actu-carousel-arrow i {
+        font-size: 0.8rem;
+    }
+
+    .actu-carousel-item .actu-card-media {
+        aspect-ratio: 4 / 3;
+    }
+
+    .actu-carousel-item .actu-card-body {
+        padding: 12px 8px;
+        min-height: 56px;
+    }
+
+    .actu-carousel-item .card-title {
+        font-size: 0.9rem;
+        line-height: 1.2;
+        word-break: normal;
+    }
+
+    .actu-carousel-item .card-info {
+        font-size: 10px;
+        padding: 4px 7px;
+        right: 8px;
+        bottom: 8px;
+        white-space: nowrap;
+        max-width: calc(100% - 16px);
+    }
+}
+
+
+/* ===== FILTRES ACTUALITÉS ===== */
+.actu-filters {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 32px;
+    border: 2px solid var(--bs-primary);
+    border-radius: 50px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: fit-content;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.actu-filters::-webkit-scrollbar {
+    display: none;
+}
+
+.actu-filter-btn {
+    border: none;
+    border-right: 1px solid var(--bs-primary);
+    background: transparent;
+    color: var(--bs-primary);
+    font-weight: 700;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 10px 22px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border-radius: 0;
+    white-space: nowrap;
+}
+
+.actu-filter-btn:last-child {
+    border-right: none;
+}
+
+.actu-filter-btn:hover {
+    background: color-mix(in srgb, var(--bs-primary) 12%, transparent);
+    color: var(--bs-primary);
+}
+
+.actu-filter-btn.active {
+    background: var(--bs-primary);
+    color: #fff;
+}
+
+.actu-empty {
+    margin-top: 32px;
+    font-style: italic;
+    color: var(--color-text-soft);
+}
+
+.actu-carousel-item.hidden-filter,
+.actu-grid-item.hidden-filter {
+    display: none;
+}
+
+/* Grille filtrée : même taille que les cartes du carrousel */
+#actuGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 34px;
+    text-align: left;
+}
+
+/* Tablette : 2 colonnes */
+@media (max-width: 810px) {
+    #actuGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+}
+
+/* Mobile : 2 colonnes compactes comme le carrousel */
+@media (max-width: 480px) {
+    #actuGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    #actuGrid .actu-card-media {
+        aspect-ratio: 4 / 3;
+    }
+
+    #actuGrid .actu-card-body {
+        padding: 10px;
+    }
+
+    #actuGrid .card-title {
+        font-size: 0.85rem;
+    }
+
+    #actuGrid .card-info {
+        font-size: 10px;
+        padding: 4px 6px;
+        right: 6px;
+        bottom: 6px;
+    }
+}
+
+
+/* Correction du positionnement des ancres avec le header fixe */
+html {
+    scroll-padding-top: 115px;
+}
+
+#mission,
+#orphelinat,
+#contact {
+    scroll-margin-top: 115px;
+}
+
+/* Ajustement mobile */
+@media (max-width: 991.98px) {
+    html {
+        scroll-padding-top: 95px;
+    }
+
+    #mission,
+    #orphelinat,
+    #contact {
+        scroll-margin-top: 95px;
+    }
+}
+
+/* Sécurité : évite que la barre mobile cache le bas des pages */
+@media (max-width: 991.98px) {
+    body.has-sticky-mobile-bar {
+        padding-bottom: 60px;
+    }
+}
+
+
+/* ===== FORMULAIRE CONTACT DIRECT INDEX ===== */
+
+.contact-direct-form-card {
+    background: var(--app-bg-light);
+    border-radius: var(--img-border-radius);
+    box-shadow: var(--shadow-card);
+    padding: 24px;
+    margin-top: 28px;
+}
+
+.contact-direct-form {
+    text-align: left;
+}
+
+.contact-direct-form .form-label {
+    font-weight: 700;
+    color: var(--bs-primary);
+}
+
+.contact-direct-form .form-control {
+    border-radius: 12px;
+    border: 1px solid rgba(0, 134, 120, 0.25);
+    padding: 10px 12px;
+}
+
+.contact-direct-form .form-control:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 0.2rem rgba(0, 134, 120, 0.15);
+}
+
+
+/* ===== MODAL HELLOASSO - AU-DESSUS DE LA NAVBAR ===== */
+
+.modal-backdrop {
+    z-index: 10040 !important;
+}
+
+.modal {
+    z-index: 10050 !important;
+}
+
+#don-modal .modal-dialog {
+    margin-top: 90px;
+}
+
+#don-modal .modal-content {
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+/* Mobile / tablette : garde la croix visible en haut */
+@media (max-width: 767.98px) {
+    #don-modal .modal-dialog {
+        margin: 0;
+    }
+
+    #don-modal .modal-content {
+        min-height: 100vh;
+        border-radius: 0;
+    }
+
+    #don-modal .modal-header {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        background: #fff;
+    }
+
+    #don-modal .modal-body iframe {
+        height: calc(100vh - 70px) !important;
+    }
+}
+
+
+/* ===== FORMULAIRE CONTACT DIRECT INDEX ===== */
+
+.contact-direct-form-card {
+    background: var(--app-bg-light);
+    border-radius: var(--img-border-radius);
+    box-shadow: var(--shadow-card);
+    padding: 24px;
+    margin-top: 28px;
+}
+
+.contact-direct-form {
+    text-align: left;
+}
+
+.contact-direct-form .form-label {
+    font-weight: 700;
+    color: var(--bs-primary);
+}
+
+.contact-direct-form .form-control {
+    border-radius: 12px;
+    border: 1px solid rgba(0, 134, 120, 0.25);
+    padding: 10px 12px;
+}
+
+.contact-direct-form .form-control:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 0.2rem rgba(0, 134, 120, 0.15);
+}
+
+.contact-form-status {
+    margin: 14px 0 0;
+    text-align: center;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.contact-form-status.is-success {
+    color: var(--bs-primary);
+}
+
+.contact-form-status.is-error {
+    color: #b02a37;
+}
+
+
+/* ===== ÉQUIPE - PAGE INDEX ===== */
+
+.team-section {
+    background: var(--app-bg-light);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 22px;
+    align-items: start;
+}
+
+.team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--bs-body-color);
+    transition: transform 0.25s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-4px);
+}
+
+.team-photo {
+    width: 135px;
+    height: 135px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border: 4px solid var(--bs-primary);
+    box-shadow: var(--shadow-card);
+    background: var(--color-white);
+}
+
+.team-member h3 {
+    margin: 14px 0 6px;
+    color: var(--bs-primary);
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.team-member p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.35;
+    color: var(--bs-body-color);
+}
+
+.team-member-link {
+    cursor: pointer;
+}
+
+.team-member-link:hover h3,
+.team-member-link:hover p {
+    color: var(--bs-secondary);
+}
+
+.team-photo-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bs-primary);
+    color: #fff;
+}
+
+.team-photo-placeholder i {
+    font-size: 2.4rem;
 }
