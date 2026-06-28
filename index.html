@@ -390,12 +390,12 @@
                         <p>Responsable technique<br>Saint-Etienne</p>
                     </a>
 
-                 <div class="team-member">
+                    <div class="team-member">
                         <img src="/assets/images/equipe/Patrice.jpg" alt="Patrice, événements et stratégie pour TINARA"
                             class="team-photo" loading="lazy">
                         <h3>Patrice</h3>
                         <p>Événements & stratégie<br>Toulouse</p>
-                    </div> 
+                    </div>
 
                     <a href="/aider/" class="team-member team-member-link text-decoration-none"
                         aria-label="Rejoindre l'équipe TINARA via la page Aider autrement">
@@ -419,14 +419,15 @@
                         <h2 class="section-title" style="text-align: center; width: 100%;">TINARA ET VOUS ?</h2>
 
                         <p>Si notre association vous intéresse et que vous souhaitez des renseignements,
-                            n'hésitez pas à nous écrire par mail à l'adresse suivante :</p>
+                            n'hésitez pas à nous écrire en utilisant le formulaire ci-dessous ou directement par mail à l'adresse
+                            suivante :</p>
                         <p class="text-center"><strong>
                                 <a href="mailto:contact@tinara-association.com">contact@tinara-association.com</a>
                             </strong></p>
                         <p>C'est avec un grand plaisir que nous vous répondrons. Et ceci, dans les plus brefs délais.
-                            Vous pouvez aussi nous écrire directement en remplissant le formulaire ci-dessous</p>
+                        </p>
                         <div class="contact-direct-form-card mt-4">
-                            <h3 class="tinara-modal-title text-center mb-3">Nous écrire directement</h3>
+                            <h3 class="tinara-modal-title text-center mb-3">Nous écrire</h3>
                             <form id="contactDirectForm"
                                 action="https://formsubmit.co/ajax/contact@tinara-association.com" method="POST"
                                 class="contact-direct-form" novalidate>
@@ -436,40 +437,61 @@
                                 <input type="hidden" name="_template" value="table">
 
                                 <div class="mb-3">
-                                    <label for="contact-name" class="form-label">Nom et prénom</label>
+                                    <label for="contact-name" class="form-label">
+                                        <i class="fa-regular fa-user"></i>
+                                        Nom & Prénom
+                                    </label>
                                     <input type="text" id="contact-name" name="Nom et prénom" class="form-control"
                                         required>
-                                    <div class="invalid-feedback">Veuillez renseigner votre nom et prénom.</div>
+                                    <div class="invalid-feedback">
+                                        Veuillez renseigner votre nom et prénom.
+                                    </div>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="contact-email" class="form-label">Adresse email</label>
+                                    <label for="contact-email" class="form-label">
+                                        <i class="fa-regular fa-envelope"></i>
+                                        Adresse e-mail
+                                    </label>
                                     <input type="email" id="contact-email" name="Email" class="form-control" required>
-                                    <div class="invalid-feedback">Veuillez renseigner une adresse email valide.</div>
+                                    <div class="invalid-feedback">
+                                        Veuillez renseigner une adresse e-mail valide.
+                                    </div>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="contact-subject" class="form-label">Sujet</label>
+                                    <label for="contact-subject" class="form-label">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                        Sujet de votre message
+                                    </label>
                                     <input type="text" id="contact-subject" name="Sujet" class="form-control" required>
-                                    <div class="invalid-feedback">Veuillez indiquer le sujet de votre message.</div>
+                                    <div class="invalid-feedback">
+                                        Veuillez indiquer l'objet de votre message.
+                                    </div>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="contact-message" class="form-label">Message</label>
+                                    <label for="contact-message" class="form-label">
+                                        <i class="fa-regular fa-message"></i>
+                                        Votre message
+                                    </label>
                                     <textarea id="contact-message" name="Message" class="form-control" rows="5"
                                         required></textarea>
-                                    <div class="invalid-feedback">Veuillez écrire votre message.</div>
+                                    <div class="invalid-feedback">
+                                        Veuillez écrire votre message.
+                                    </div>
                                 </div>
 
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary text-uppercase" id="contactSubmitBtn">
+                                        <i class="fa-regular fa-paper-plane"></i>
                                         Envoyer le message
                                     </button>
                                 </div>
-
                                 <p id="contactFormStatus" class="contact-form-status" aria-live="polite"></p>
                             </form>
                         </div>
+                        
                         <div class="social">
                             <a href="https://www.facebook.com/profile.php?id=61582254411974"
                                 class="text-primary fs-2 me-2" aria-label="Suivre TINARA sur Facebook" target="_blank"
